@@ -9,7 +9,7 @@ var mongresto = require('./mongresto');
 // var routes = require('./routes/index');
 // var users = require('./routes/users');
 
-var app = express();
+var app = express(), angular.module("ngNode", ["ngRoute", "ngResource", "ui.bootstrap"]);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,3 +46,4 @@ app.listen(3000, function(){
 });
 
 module.exports = app;
+
