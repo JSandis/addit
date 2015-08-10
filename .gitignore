@@ -1,7 +1,7 @@
 
 # Node & MongoDB
-data/mongod.lock
-data/**
+/data/mongod.lock
+/data/**
 node_modules/
 
 # Mac
