@@ -1,16 +1,20 @@
 //app declaration and dependency injection
-var app = angular.module("myAppName", ["ngRoute", "ngResource", "ui.bootstrap"]);
+var app = angular.module("addit", ["ngRoute", "ngResource", "ui.bootstrap"]);
 
 //app config
 app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
   //route config
   $routeProvider
-    .when("/", {
+    .when("/addit/", {
       templateUrl: "partials/home.html",
       controller: "homeController"
     })
+    .when("/addit/userpage/", {
+      templateUrl: "partials/userpage.html",
+      controller: "userpageController"
+    })
     .otherwise({
-      redirectTo: "/"
+      redirectTo: "/addit/"
     });
 
   $locationProvider.html5Mode(true);
