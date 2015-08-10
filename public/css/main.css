@@ -1,20 +1,21 @@
 /*
 google fonts CSS:
-	font-family: 'Telex', sans-serif;
-	font-family: 'Oldenburg', cursive;
-	font-family: 'Kite One', sans-serif;
+    font-family: 'Telex', sans-serif;
+    font-family: 'Oldenburg', cursive;
+    font-family: 'Kite One', sans-serif;
 */
-
-
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
-header {
-	background-color: lightgray;
-	height: 100px;
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
 }
-
+header {
+  background-color: lightgray;
+  height: 100px;
+}
 .latestpost {
-	background-color: lightblue;
-	border: 1px solid #ffffff;
-	height: 100px;
+  background-color: lightblue;
+  border: 1px solid #ffffff;
+  height: 100px;
 }
