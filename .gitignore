@@ -1,2 +1,8 @@
+
+# Node & MongoDB
 data/mongod.lock
 data/*
+node_modules/
+
+# Mac
+.DS_STORE
