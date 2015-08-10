@@ -1,3 +1,6 @@
+# npm 
+npm-debug.log
+
 # Node & MongoDB
 data/mongod.lock
 data/
