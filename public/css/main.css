@@ -19,3 +19,22 @@ header {
   border: 1px solid #ffffff;
   height: 100px;
 }
+
+footer {
+	background-color: lightgray;
+	height: 120px;
+}
+
+.leftsidefooter {
+	text-align: right;
+}
+
+.rightsidefooter {
+	text-align: left;
+	margin-top: 10px;
+	border-left: 2px solid gray;
+}
+
+.fa-heart {
+	color: red;
+}
