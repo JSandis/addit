@@ -56,7 +56,7 @@ var mongresto = module.exports = (function _mongresto(){ return {
     // A function written by you - it gets access to the current result
     // (and question) and can deny Mongresto permission to return it
     permissionToAnswer:
-      function(modelName, method, query, rbody, result){ return true; } 
+      function(modelName, method, query, rbody, result){ return true; }
       
   },
 

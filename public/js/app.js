@@ -1,5 +1,5 @@
 //app declaration and dependency injection
-var app = angular.module("addit", ["ngRoute", "ngResource", "ui.bootstrap"]);
+var app = angular.module("addit", ["ngRoute", "ngResource", 'ngFileUpload', "ui.bootstrap"]);
 
 //app config
 app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
@@ -12,6 +12,10 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
     .when("/addit/userpage/", {
       templateUrl: "partials/userpage.html",
       controller: "userpageController"
+    })
+    .when("/signup/", {
+      templateUrl: "partials/signup.html",
+      controller: "signUpController"
     })
     .otherwise({
       redirectTo: "/addit/"

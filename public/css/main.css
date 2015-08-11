@@ -63,3 +63,15 @@ header {
 .fa-instagram {
   color: #5C3544;
 }
+.signup-form {
+  margin-top: 30px;
+}
+.fa-user {
+  color: lightgreen;
+}
+.fa-lock {
+  color: lightblue;
+}
+.fa-envelope {
+  color: orange;
+}
