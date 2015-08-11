@@ -7,6 +7,24 @@ google fonts CSS:
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+	margin-bottom: -120px;
+}
+
+.container:after {
+	content: "";
+	display: block;
+}
+
 header {
     background-color: lightgray;
     height: 100px;
@@ -16,4 +34,26 @@ header {
     background-color: lightblue;
     border: 1px solid #ffffff;
     height: 100px;
+}
+
+.footer, .container:after {
+	height: 120px;
+}
+
+.footer {
+	background-color: lightgray;
+}
+
+.leftsidefooter {
+	text-align: right;
+}
+
+.rightsidefooter {
+	text-align: left;
+	margin-top: 10px;
+	border-left: 2px solid gray;
+}
+
+.fa-heart {
+	color: red;
 }
