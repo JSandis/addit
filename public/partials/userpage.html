@@ -1,3 +1,12 @@
 <p>User page!</p>
 <pre>{{allUsers}}</pre>
+
+
+<div ng-repeat="post in posts">
+    
+    <span>{{post.content}}</span>
+    <span>{{post.image}}</span>
+    <span>{{post.video}}</span>
+    <span>{{post.author}}</span>
+</div>
 <div class="col-sm-8" ng-include="'partials/post.html'"></div>
