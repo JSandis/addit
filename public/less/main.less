@@ -1,9 +1,14 @@
 /*
 google fonts CSS:
-    font-family: 'Telex', sans-serif;
+    font-family: 'Telex', sans-serif; <-- header and footer-font.
     font-family: 'Oldenburg', cursive;
     font-family: 'Kite One', sans-serif;
 */
+
+// Variables for fonts with appropiate names.
+// Usage example: font-family: @titlefont;
+@headerfont: 'Telex', sans-serif;
+@footerfont: 'Telex', sans-serif;
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
@@ -28,6 +33,7 @@ html, body {
 header {
     background-color: lightgray;
     height: 100px;
+    font-family: @headerfont;
 }
 
 .latestpost {
@@ -42,6 +48,7 @@ header {
 
 .footer {
 	background-color: lightgray;
+	font-family: @footerfont;
 }
 
 .leftsidefooter {
