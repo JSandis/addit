@@ -3,9 +3,6 @@
  *
  */
 
-// include the multipart middleware for file uploading
-var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart();
 
 // require mongoose
 var mongoose = require("mongoose");
@@ -57,11 +54,6 @@ var apiModule = {
      */
 
     var me = this;
-
-    // File upload, using middleware
-    app.post('/api/files', multipartMiddleware, function (req, res) {
-      apiCall(me, req, res);
-    });
 
     // CREATE
     app.post('/api/*', function (req, res) {

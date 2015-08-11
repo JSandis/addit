@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongresto = require('./mongresto');
+// include the multipart middleware for file uploading
+var multipart = require('connect-multiparty');
+
 
 // var routes = require('./routes/index');
 // var users = require('./routes/users');
@@ -22,6 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var multipartMiddleware = multipart();
+app.post('/api/files', multipartMiddleware, function(req, res) {
+
+});
 
 // Initialize our own REST api - mongresto
 mongresto.init(app);
