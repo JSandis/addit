@@ -20,12 +20,12 @@
     <script src="/api/ngResources/app"></script>
     <script src="js/controllers/homeController.js"></script>
     <script src="js/controllers/userpageController.js"></script>
-    <script src="js/controllers/signUpController.js"></script>
+    <script src="js/controllers/menuController.js"></script>
     <script src="js/services.js"></script>
     <script src="js/main.js"></script>
   </head>
   <body ng-app="addit">
-    <header ng-include="'partials/header.html'"></header>
+    <header ng-include="'partials/header.html'" ng-controller="menuController"></header>
     <div ng-view class="container"></div>
     <footer ng-include="'partials/footer.html'"></footer>
   </body>
