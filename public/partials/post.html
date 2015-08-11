@@ -1,8 +1,8 @@
-<form class="form-horizontal">
+<form ng-submit="submit()" ng-controller="userpageController" class="form-horizontal">
   <div class="form-group">
     <label for="content" class="col-sm-2 control-label">Content:</label>
     <div class="col-sm-10">
-      <textarea id="content" class="form-control" placeholder="Enter text here..."></textarea>
+      <textarea id="content" class="form-control" placeholder="Enter text here..." required></textarea>
     </div>
   </div>
 
