@@ -1,6 +1,6 @@
 /*
 google fonts CSS:
-    font-family: 'Telex', sans-serif;
+    font-family: 'Telex', sans-serif; <-- header and footer-font.
     font-family: 'Oldenburg', cursive;
     font-family: 'Kite One', sans-serif;
 */
@@ -28,6 +28,7 @@ body {
 header {
   background-color: lightgray;
   height: 100px;
+  font-family: 'Telex', sans-serif;
 }
 .latestpost {
   background-color: lightblue;
@@ -40,6 +41,7 @@ header {
 }
 .footer {
   background-color: lightgray;
+  font-family: 'Telex', sans-serif;
 }
 .leftsidefooter {
   text-align: right;
@@ -51,4 +53,13 @@ header {
 }
 .fa-heart {
   color: red;
+}
+.fa-facebook-square {
+  color: #17649A;
+}
+.fa-twitter-square {
+  color: #40B3DF;
+}
+.fa-instagram {
+  color: #5C3544;
 }
