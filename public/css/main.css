@@ -30,6 +30,9 @@ header {
   height: 100px;
   font-family: 'Telex', sans-serif;
 }
+.fa-search {
+  color: #777;
+}
 .latestpost {
   background-color: lightblue;
   border: 1px solid #ffffff;
