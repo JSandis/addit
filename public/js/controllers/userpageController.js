@@ -25,6 +25,9 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
     // at the moment...
     userpageFactory($scope.files[0]).success(function(data) {
     console.log("saved file, public path: ", data);
+    }).error(function(data) {
+    	//file failed to upload
+    	console.log("Error on upload: ", data);
     });
 	};
 
