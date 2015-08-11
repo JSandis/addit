@@ -1,5 +1,5 @@
 //"addit" controller.
-app.controller("userpageController", ["$http", "$scope", "User", "Post", function($http, $scope, User, Post) {
+app.controller("userpageController", ["$http", "$scope", "userpageFactory", "User", "Post", function($http, $scope, userpageFactory, User, Post) {
 	console.log("userpageController: I'm alive!");
 
 	$scope.allUsers = User.get(function() {
@@ -18,9 +18,14 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", functio
 	});
 	
 	
-
 	$scope.submit = function() {
 		console.log("Submit event for post: working!!!");
+		console.log("files: ", $scope.files);
+    // only supporting single file upload ([0]) 
+    // at the moment...
+    userpageFactory($scope.files[0]).success(function(data) {
+    console.log("saved file, public path: ", data);
+    });
 	};
 
 }]);

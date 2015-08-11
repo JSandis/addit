@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongresto = require('./mongresto');
 // include the multipart middleware for file uploading
 var multipart = require('connect-multiparty');
+var fs = require('fs');
 
 
 // var routes = require('./routes/index');
