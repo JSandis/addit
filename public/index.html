@@ -8,6 +8,7 @@
     <!-- set base href so that angular knows -->
     <base href="/"/>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/libs/angular.js"></script>
     <script src="js/libs/angular-route.js"></script>
@@ -22,7 +23,8 @@
     <script src="js/main.js"></script>
   </head>
   <body ng-app="addit">
-  <header ng-include="'partials/header.html'"></header>
-    <div ng-view></div>
+    <header ng-include="'partials/header.html'"></header>
+    <div ng-view class="container"></div>
+    <footer ng-include="'partials/footer.html'"></footer>
   </body>
 </html>
