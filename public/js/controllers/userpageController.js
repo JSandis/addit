@@ -2,6 +2,8 @@
 app.controller("userpageController", ["$http", "$scope", "userpageFactory", "User", "Post", function($http, $scope, userpageFactory, User, Post) {
 	console.log("userpageController: I'm alive!");
 
+
+
 	$scope.allUsers = User.get(function() {
 		if($scope.allUsers.length === 0) {
 			$scope.testuser = User.create({username: "testuser", email: "test@test.com", password: "CC03E747A6AFBBCBF8BE7668ACFEBEE5"}, function() {
@@ -16,7 +18,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		}*/
 	});
 
-	$scope.allPosts = Post.get(function() {
+	$scope.posts = Post.get(function() {
 		/*for (var i = 0; i < $scope.allPosts.length; i++) {
 			$scope.allPosts[i].$delete();
 		}*/
@@ -25,7 +27,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	$scope.submit = function() {
 		console.log("Submit event for post: working!!!");
 
-		var currentUserId = "55ca0e9610899bfc2d2f12a4";
+		var currentUserId = "55cb8d05f62833e32a819b43";
 		var currentUser = User.get({_id: currentUserId});
 		var imagePath = "";
 

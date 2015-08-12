@@ -27,7 +27,7 @@ body {
 }
 header {
   background-color: lightgray;
-  height: 100px;
+  height: auto;
   font-family: 'Telex', sans-serif;
 }
 .fa-search {

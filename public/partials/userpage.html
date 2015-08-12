@@ -1,12 +1,14 @@
 <p>User page!</p>
 <pre>{{allUsers}}</pre>
-<pre>{{allPosts}}</pre>
-<div class="col-sm-8" ng-include="'partials/post.html'"></div>
-<div ng-repeat="post in posts">
+<!-- <pre>{{allPosts}}</pre> -->
+<div class="col-sm-8" ng-include="'partials/post.html'"></div><br/>
+<div class="col-xs-12 col-sm-10 col-md-12 col-lg-12 col-xs-offset-3 col-sm-offset-3 col-md-offset-4 col-lg-offset-4" ng-repeat="post in posts">
     
-    <span>{{post.content}}</span>
-    <span>{{post.image}}</span>
-    <span>{{post.video}}</span>
-    <span>{{post.author}}</span>
+    <span>{{post.content}}</span><br/>
+    <span><img ng-src="{{post.images[0]}}" width="200"></span><br/>
+    <span>{{post.videos}}</span>
+    <span>{{post.author[0]}}</span>
 </div>
+
+
 
