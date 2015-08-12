@@ -1,7 +1,7 @@
 <p>User page!</p>
 <pre>{{allUsers}}</pre>
-
-
+<pre>{{allPosts}}</pre>
+<div class="col-sm-8" ng-include="'partials/post.html'"></div>
 <div ng-repeat="post in posts">
     
     <span>{{post.content}}</span>
@@ -9,4 +9,4 @@
     <span>{{post.video}}</span>
     <span>{{post.author}}</span>
 </div>
-<div class="col-sm-8" ng-include="'partials/post.html'"></div>
+
