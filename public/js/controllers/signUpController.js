@@ -18,6 +18,15 @@ app.controller( "signUpController", ["$http", "$scope", "$modal", function( $htt
   };
 
 
+  $scope.newUser = {
+    username: "",
+    password: "",
+    email: ""
+  };
+
+  $scope.submit = function() {
+    console.log( "new user is: ", $scope.newUser );
+  }
 }]);
 
 
@@ -32,4 +41,5 @@ app.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", function ($scop
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
 }]);
