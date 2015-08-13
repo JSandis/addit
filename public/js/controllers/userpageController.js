@@ -1,6 +1,8 @@
 //"addit" controller.
 app.controller("userpageController", ["$http", "$scope", "userpageFactory", "User", "Post", function($http, $scope, userpageFactory, User, Post) {
 	console.log("userpageController: I'm alive!");
+	var currentUserId = "55c9d973c5b0e5e1aeec3e8c";
+	var currentUser = User.get({_id: currentUserId});
 
 
 
@@ -23,12 +25,10 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 			$scope.posts[i].$delete();
 		}*/
 	});
-
+	hehehe = $scope.posts;
 	$scope.imagePostSubmit = function() {
 		console.log("Submit event for post: working!!!");
 
-		var currentUserId = "55cb8d05f62833e32a819b43";
-		var currentUser = User.get({_id: currentUserId});
 		var imagePath = "";
 
 		// only supporting single file upload ([0]) 
@@ -59,4 +59,54 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		});
 	};
 
+	// vidoepostSubmit handler
+	$scope.videoPostSubmit = function() {
+		console.log("Submit event for post: working!!!");
+
+		var videoPath = "";
+
+		// only supporting single file upload ([0]) 
+		// at the moment...
+		console.log("video files: ", $scope.videos);
+		userpageFactory($scope.videos[0]).success(function(data) {
+			console.log("saved video file, public path: ", data);
+			videoPath = data;
+			var videoArray = [videoPath];
+
+			var newPostId, newPost = Post.create(
+				{
+					content: $scope.content,
+					videos: videoArray
+				}, function(data) {
+					newPostId = data[0]._id;
+					User.update({_relate:{items:currentUser,posts:newPost}});
+					console.log("d", {items:newPost,author:currentUser});
+					Post.update({_relate:{items:newPost,author:currentUser}});
+					console.log("Post created with id ", newPostId);
+					$scope.$parent.posts.push(newPost[0]);
+				}
+			);
+		}).error(function(data) {
+			//file failed to upload
+			console.log("Error on upload: ", data);
+		});
+	};
+
+	$scope.postSubmit = function() {
+		var newPostId, newPost = Post.create(
+			{
+				content: $scope.content
+			}, function(data) {
+				newPostId = data[0]._id;
+				User.update({_relate:{items:currentUser,posts:newPost}});
+				console.log("d", {items:newPost,author:currentUser});
+				Post.update({_relate:{items:newPost,author:currentUser}});
+				console.log("Post created with id ", newPostId);
+				$scope.$parent.posts.push(newPost[0]);
+			}
+		);
+	}
+
 }]);
+
+
