@@ -92,20 +92,20 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		});
 	};
 
-	$scope.postSubmit = function() {
+	$scope.textpostSubmit = function() {
 		var newPostId, newPost = Post.create(
 			{
 				content: $scope.content
 			}, function(data) {
 				newPostId = data[0]._id;
 				User.update({_relate:{items:currentUser,posts:newPost}});
-				console.log("d", {items:newPost,author:currentUser});
 				Post.update({_relate:{items:newPost,author:currentUser}});
 				console.log("Post created with id ", newPostId);
 				$scope.$parent.posts.push(newPost[0]);
 			}
+
 		);
-	}
+	};
 
 }]);
 
