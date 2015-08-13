@@ -4,8 +4,8 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 
 
 
-	$scope.allUsers = User.get(function() {
-		if($scope.allUsers.length === 0) {
+	$scope.users = User.get(function() {
+		if($scope.users.length === 0) {
 			$scope.testuser = User.create({username: "testuser", email: "test@test.com", password: "CC03E747A6AFBBCBF8BE7668ACFEBEE5"}, function() {
 				console.log("User created: "+$scope.testuser);
 				/*$scope.testuser.$delete(function() {
@@ -13,17 +13,19 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 				});*/
 			});
 		}
-		/*for (var i = 0; i < $scope.allUsers.length; i++) {
-			$scope.allUsers[i].$delete();
+		/*for (var i = 0; i < $scope.users.length; i++) {
+			$scope.users[i].$delete();
 		}*/
 	});
 
 	$scope.posts = Post.get(function() {
-		/*for (var i = 0; i < $scope.allPosts.length; i++) {
-			$scope.allPosts[i].$delete();
+		/*for (var i = 0; i < $scope.posts.length; i++) {
+			$scope.posts[i].$delete();
 		}*/
 	});
 	
+	hehe = $scope.posts;
+
 	$scope.submit = function() {
 		console.log("Submit event for post: working!!!");
 
@@ -49,7 +51,8 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 					newPostId = data[0]._id;
 					User.update({_relate:{items:currentUser,posts:newPost}});
 					Post.update({_relate:{items:newPost,author:currentUser}});
-					console.log("Post created with id "+newPostId);
+					console.log("Post created with id ", newPostId);
+					$scope.$parent.posts.push(newPost[0]);
 				}
 			);
 		}).error(function(data) {
