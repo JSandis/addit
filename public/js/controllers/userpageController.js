@@ -27,7 +27,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	$scope.imagePostSubmit = function() {
 		console.log("Submit event for post: working!!!");
 
-		var currentUserId = "55cc56d65b811e6c0064c437";
+		var currentUserId = "55cb8d05f62833e32a819b43";
 		var currentUser = User.get({_id: currentUserId});
 		var imagePath = "";
 
