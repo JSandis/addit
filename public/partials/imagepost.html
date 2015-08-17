@@ -1,4 +1,15 @@
+
+
 <form ng-submit="imagePostSubmit()" ng-controller="userpageController" class="form-horizontal">
+  
+  <!-- alert for success & error when submiting form -->
+  <div ng-show="successAlert">
+  <alert type="success" ng-show="successAlert">DONE! the post successfully uploads.</alert>
+  </div>
+  <div ng-show="errorAlert" class="ng-hide">
+  <alert type="danger">Oj! The post could not be uploaded.</alert>
+  </div>
+
   <div class="form-group">
     <label for="content" class="col-sm-2 control-label">Content:</label>
     <div class="col-sm-10">

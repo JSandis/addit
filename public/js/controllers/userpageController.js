@@ -54,11 +54,16 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 
 	function uploadImage(file) {
 		userpageFactory(file).success(function(data) {
+			// success alert for image upload
+			$scope.successAlert = true;
+
 			$scope.imagePaths.push(data);
 			console.log("saved image file, public path: ", data);
 			console.log("imagePaths: ", $scope.imagePaths);
 		}).error(function(data) {
-			//file failed to upload
+			//error alert for image upload
+			$scope.errorAlert = true;
+			
 			console.log("Error on upload: ", data);
 		});
 	}
