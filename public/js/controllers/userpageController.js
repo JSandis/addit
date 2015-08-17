@@ -139,6 +139,14 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		);
 	};
 
+	$scope.deletePost = function() {
+
+	};
+
+	$scope.editPost = function() {
+
+	};
+
 }]);
 
 
