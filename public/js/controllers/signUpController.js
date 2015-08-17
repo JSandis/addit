@@ -1,4 +1,4 @@
-app.controller( "signUpController", ["$http", "$scope", "$modal", function( $http, $scope, $modal ) {
+app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", function( $http, $scope, $modal, $log ) {
 	console.log( "signUpController is up and running." );
 
   $scope.open = function (size) {

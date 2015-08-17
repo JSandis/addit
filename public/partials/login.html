@@ -1,21 +1,30 @@
-<container ng-controller="loginController">
-	<form class="form-horizontal signup-form">
-		<div class="form-group">
-			<label for="username" class="col-sm-2 control-label"><i class="fa fa-user"></i></label>
-			<div class="col-sm-5">
-				<input type="username" class="form-control" id="username" placeholder="Your fantastic AddIt username.">
+<button class="btn btn-primary" ng-click="open()">Log in</button>
+
+<div class="modal-header">
+	<h3 class="modal-title"> Log in to your account </h3>
+</div>
+<div class="modal-body">
+	<container ng-controller="loginController">
+		<form name="loginForm" class="form-horizontal login-form" ng-submit="loginSubmit()">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label"><i class="fa fa-user"></i></label>
+				<div class="col-sm-5">
+					<input type="username" class="form-control" id="username" placeholder="Your fantastic AddIt username.">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label for="password" class="col-sm-2 control-label"><i class="fa fa-lg fa-lock"></i></label>
-			<div class="col-sm-5">
-				<input type="password" class="form-control" id="password" placeholder="Pick a safe password.">
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label"><i class="fa fa-lg fa-lock"></i></label>
+				<div class="col-sm-5">
+					<input type="password" class="form-control" id="password" placeholder="Pick a safe password.">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-2">
-				<button type="submit" class="btn btn-default">Join AddIt</button>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<button ng-disabled="$scope.loginForm.$invalid" type="submit" class="btn btn-default">Log In</button>
+					<button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
+				</div>
 			</div>
-		</div>
-	</form>
-</container>
+		</form>
+	</container>
+</div> <!--modal body-->
+
