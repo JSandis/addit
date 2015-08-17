@@ -20,27 +20,25 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		}*/
 	});
 
-	$scope.posts = Post.get(function() {
-		// Delete all posts from current user and update user's posts
-		/*for (var i = 0; i < $scope.posts.length; i++) {
-			deletePostAndUpdateUserPosts($scope.posts[i], currentUserId);
-		}*/
-	});
+	$scope.posts = Post.get({author: currentUserId});
+
+	// Delete all posts from all users and update the users posts
+	/*$scope.posts = Post.get(function() {
+		for (var i = 0; i < $scope.posts.length; i++) {
+			deletePostAndUpdateUserPosts($scope.posts[i], $scope.posts[i].author);
+		}
+	});*/
 
 	function deleteUserAndItsPosts(user) {
-		deleteAllPostsFromAuthor(user._id);
-		user.$delete();
-		console.log("User is deleted");
-	}
-
-	function deleteAllPostsFromAuthor(authorId) {
-		var posts = Post.get({author: authorId}, function() {
+		var posts = Post.get({author: user._id}, function() {
 			console.log("userPosts: ", posts);
 			//Loop through posts and delete
 			for (var i = 0; i < posts.length; i++) {
 				posts[i].$delete();
 			}
 		});
+		user.$delete();
+		console.log("User is deleted");
 	}
 
 	function deletePostAndUpdateUserPosts(post, userId) {
