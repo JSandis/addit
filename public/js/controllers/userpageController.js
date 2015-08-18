@@ -79,12 +79,19 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 							content: $scope.content,
 							images: $scope.imagePaths
 						}, function(data) {
-							newPostId = data[0]._id;
-							User.update({_relate:{items:currentUser,posts:newPost}});
-							Post.update({_relate:{items:newPost,author:currentUser}});
-							console.log("Post created with id ", newPostId);
-							$scope.$parent.posts.push(newPost[0]);
-							console.log("imagePaths: ", $scope.imagePaths);
+							if (!data.status){
+								newPostId = data[0]._id;
+								User.update({_relate:{items:currentUser,posts:newPost}});
+								Post.update({_relate:{items:newPost,author:currentUser}});
+								console.log("Post created with id ", newPostId);
+								$scope.$parent.posts.push(newPost[0]);
+								console.log("imagePaths: ", $scope.imagePaths);
+								// success alert
+								$scope.successAlert = "DONE! the post successfully saved in DB.";
+							}else{
+								// error alert
+								$scope.errorAlert = "OUCH! the post failed to save in DB.";
+							}
 						}
 					);
 				}
@@ -124,13 +131,20 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 							content: $scope.content,
 							videos: $scope.videoPaths
 						}, function(data) {
-							newPostId = data[0]._id;
-							User.update({_relate:{items:currentUser,posts:newPost}});
-							console.log("d", {items:newPost,author:currentUser});
-							Post.update({_relate:{items:newPost,author:currentUser}});
-							console.log("Post created with id ", newPostId);
-							$scope.$parent.posts.push(newPost[0]);
-						}
+								if(!data.status){
+									newPostId = data[0]._id;
+									User.update({_relate:{items:currentUser,posts:newPost}});
+									console.log("d", {items:newPost,author:currentUser});
+									Post.update({_relate:{items:newPost,author:currentUser}});
+									console.log("Post created with id ", newPostId);
+									$scope.$parent.posts.push(newPost[0]);
+									// success alert
+									$scope.successAlert = "DONE! the post successfully saved in DB.";
+								}else {
+									// success alert
+									$scope.errorAlert = "OUCH! the post failed to save in DB.";
+								}
+							}
 					);
 				}
 			});
@@ -153,9 +167,9 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 					console.log("Post created with id ", newPostId);
 					$scope.$parent.posts.push(newPost[0]);
 
-					$scope.successAlert = "DONE! the post successfully saved.";
+					$scope.successAlert = "DONE! the post successfully saved in DB.";
 				} else {
-					$scope.errorAlert = "OUCH! the post failed to save.";
+					$scope.errorAlert = "OUCH! the post failed to save in DB.";
 				}
 			}
 		);
