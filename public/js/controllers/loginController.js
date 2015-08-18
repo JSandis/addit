@@ -1,9 +1,9 @@
-app.controller( "loginController", ["$http", "$scope", "$modal", function( $http, $scope, $modal ) {
+app.controller( "loginController", ["$http", "$scope", "$modal", "$log", function( $http, $scope, $modal, $log ) {
 	console.log( "loginController Working!!!" );
 
   $scope.open = function (size) {
 
-    var modalInstance = $modal.open()({
+    var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'partials/login.html',
       controller: 'ModalInstanceCtrl',
@@ -16,17 +16,17 @@ app.controller( "loginController", ["$http", "$scope", "$modal", function( $http
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-
+}])
   /*Relevant login code put in here*/
 
-app.controller('ModalInstanceCtrl', ["$scope", "modalInstance", function ($scope, $modalInstance) {
+app.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", function ($scope, $modalInstance) {
 
   $scope.loginSubmit = function () {
     //Run som SUBMIT LOGIN code here
     $modalInstance.close("data form OK");
   };
 
-  $scope.cancel = function {
+  $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
 }]);
