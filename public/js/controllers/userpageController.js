@@ -52,46 +52,45 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		post.$delete();
 	}
 
-	function uploadImage(file) {
+	// image post upload & submit handler
+	$scope.imagePaths = [];
+	function uploadImage(file, callback) {
 		userpageFactory(file).success(function(data) {
-			// success alert for image upload
-			$scope.successAlert = true;
-
 			$scope.imagePaths.push(data);
 			console.log("saved image file, public path: ", data);
 			console.log("imagePaths: ", $scope.imagePaths);
+			callback();
 		}).error(function(data) {
 			//error alert for image upload
-			$scope.errorAlert = true;
-			
-			console.log("Error on upload: ", data);
+			$scope.errorAlert = "OUCH! the image did not upload.";
+			// console.log("Error on upload: ", data);
 		});
 	}
 
 	$scope.imagePostSubmit = function() {
-		$scope.imagePaths = [];
+		// console.log("image files: ", $scope.images);
 
-		// only supporting single file upload ([0]) 
-		// at the moment...
-		console.log("image files: ", $scope.images);
+		$scope.images.forEach(function(image, index) {
+			var i = index;
+			uploadImage($scope.images[i], function() {
+				if (i === $scope.images.length -1) {
+					var newPostId, newPost = Post.create(
+						{
+							content: $scope.content,
+							images: $scope.imagePaths
+						}, function(data) {
+							newPostId = data[0]._id;
+							User.update({_relate:{items:currentUser,posts:newPost}});
+							Post.update({_relate:{items:newPost,author:currentUser}});
+							console.log("Post created with id ", newPostId);
+							$scope.$parent.posts.push(newPost[0]);
+							console.log("imagePaths: ", $scope.imagePaths);
+						}
+					);
+				}
+			});
+		});
 
-		for (var i = 0; i < $scope.images.length; i++) {
-			uploadImage($scope.images[i]);
-		}
-
-		var newPostId, newPost = Post.create(
-			{
-				content: $scope.content,
-				images: $scope.imagePaths
-			}, function(data) {
-				newPostId = data[0]._id;
-				User.update({_relate:{items:currentUser,posts:newPost}});
-				Post.update({_relate:{items:newPost,author:currentUser}});
-				console.log("Post created with id ", newPostId);
-				$scope.$parent.posts.push(newPost[0]);
-				console.log("imagePaths: ", $scope.imagePaths);
-			}
-		);
 	};
 
 	// Video post upload & submit handler
