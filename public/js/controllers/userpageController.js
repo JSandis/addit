@@ -52,88 +52,126 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		post.$delete();
 	}
 
-	function uploadImage(file) {
+	// image post upload & submit handler
+	$scope.imagePaths = [];
+	function uploadImage(file, callback) {
 		userpageFactory(file).success(function(data) {
 			$scope.imagePaths.push(data);
 			console.log("saved image file, public path: ", data);
 			console.log("imagePaths: ", $scope.imagePaths);
+			callback();
 		}).error(function(data) {
-			//file failed to upload
-			console.log("Error on upload: ", data);
+			//error alert for image upload
+			$scope.errorAlert = "OUCH! the image did not upload.";
+			// console.log("Error on upload: ", data);
 		});
 	}
 
 	$scope.imagePostSubmit = function() {
-		$scope.imagePaths = [];
+		// console.log("image files: ", $scope.images);
 
-		// only supporting single file upload ([0]) 
-		// at the moment...
-		console.log("image files: ", $scope.images);
+		$scope.images.forEach(function(image, index) {
+			var i = index;
+			uploadImage($scope.images[i], function() {
+				if (i === $scope.images.length -1) {
+					var newPostId, newPost = Post.create(
+						{
+							content: $scope.content,
+							images: $scope.imagePaths
+						}, function(data) {
+							if (!data.status){
+								newPostId = data[0]._id;
+								User.update({_relate:{items:currentUser,posts:newPost}});
+								Post.update({_relate:{items:newPost,author:currentUser}});
+								console.log("Post created with id ", newPostId);
+								$scope.$parent.posts.push(newPost[0]);
+								console.log("imagePaths: ", $scope.imagePaths);
+								// success alert
+								$scope.successAlert = "DONE! the post successfully saved in DB.";
+							}else{
+								// error alert
+								$scope.errorAlert = "OUCH! the post failed to save in DB.";
+							}
+						}
+					);
+				}
+			});
+		});
 
-		for (var i = 0; i < $scope.images.length; i++) {
-			uploadImage($scope.images[i]);
-		}
-
-		var newPostId, newPost = Post.create(
-			{
-				content: $scope.content,
-				images: $scope.imagePaths
-			}, function(data) {
-				newPostId = data[0]._id;
-				User.update({_relate:{items:currentUser,posts:newPost}});
-				Post.update({_relate:{items:newPost,author:currentUser}});
-				console.log("Post created with id ", newPostId);
-				$scope.$parent.posts.push(newPost[0]);
-				console.log("imagePaths: ", $scope.imagePaths);
-			}
-		);
 	};
+
+	// Video post upload & submit handler
+	$scope.videoPaths = [];
+	function uploadVideo(file, callback) {
+		userpageFactory(file).success(function(data) {
+			console.log("saved video file, public path: ", data);
+			//videoPath = data;
+			$scope.videoPaths.push(data);
+			callback();
+			// success alert for image upload
+			//$scope.successAlert = "DONE! the video successfully uploaded.";
+		}).error(function(data) {
+			//error alert for video upload
+			$scope.errorAlert = "OUCH! the video did not upload.";
+
+			console.log("Error on upload: ", data);
+		});
+	}
 
 	// vidoepostSubmit handler
 	$scope.videoPostSubmit = function() {
 		console.log("Submit event for post: working!!!");
-
-		var videoPath = "";
-
-		// only supporting single file upload ([0]) 
-		// at the moment...
-		console.log("video files: ", $scope.videos);
-		userpageFactory($scope.videos[0]).success(function(data) {
-			console.log("saved video file, public path: ", data);
-			videoPath = data;
-			var videoArray = [videoPath];
-
-			var newPostId, newPost = Post.create(
-				{
-					content: $scope.content,
-					videos: videoArray
-				}, function(data) {
-					newPostId = data[0]._id;
-					User.update({_relate:{items:currentUser,posts:newPost}});
-					console.log("d", {items:newPost,author:currentUser});
-					Post.update({_relate:{items:newPost,author:currentUser}});
-					console.log("Post created with id ", newPostId);
-					$scope.$parent.posts.push(newPost[0]);
+		//var videoPath = "";
+		$scope.videos.forEach(function(video, index) {
+			var i = index;
+			uploadVideo($scope.videos[i], function() {
+				if (i === $scope.videos.length -1) {
+					var newPostId, newPost = Post.create(
+						{
+							content: $scope.content,
+							videos: $scope.videoPaths
+						}, function(data) {
+								if(!data.status){
+									newPostId = data[0]._id;
+									User.update({_relate:{items:currentUser,posts:newPost}});
+									console.log("d", {items:newPost,author:currentUser});
+									Post.update({_relate:{items:newPost,author:currentUser}});
+									console.log("Post created with id ", newPostId);
+									$scope.$parent.posts.push(newPost[0]);
+									// success alert
+									$scope.successAlert = "DONE! the post successfully saved in DB.";
+								}else {
+									// success alert
+									$scope.errorAlert = "OUCH! the post failed to save in DB.";
+								}
+							}
+					);
 				}
-			);
-		}).error(function(data) {
-			//file failed to upload
-			console.log("Error on upload: ", data);
+			});
 		});
+			//var videoArray = [videoPath];
+
 	};
 
 	$scope.textpostSubmit = function() {
+
 		var newPostId, newPost = Post.create(
 			{
 				content: $scope.content
-			}, function(data) {
-				newPostId = data[0]._id;
-				User.update({_relate:{items:currentUser,posts:newPost}});
-				Post.update({_relate:{items:newPost,author:currentUser}});
-				console.log("Post created with id ", newPostId);
-				$scope.$parent.posts.push(newPost[0]);
-			}
+			},
+			function(data) {
+				if (!data.status) {
+					newPostId = data[0]._id;
+					User.update({_relate:{items:currentUser,posts:newPost}});
+					Post.update({_relate:{items:newPost,author:currentUser}});
+					console.log("Post created with id ", newPostId);
+					$scope.$parent.posts.push(newPost[0]);
 
+					$scope.successAlert = "DONE! the post successfully saved in DB.";
+				} else {
+					$scope.errorAlert = "OUCH! the post failed to save in DB.";
+				}
+			}
 		);
 	};
 
