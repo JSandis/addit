@@ -94,37 +94,48 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		);
 	};
 
-	// vidoepostSubmit handler
-	$scope.videoPostSubmit = function() {
-		console.log("Submit event for post: working!!!");
-
-		var videoPath = "";
-
+	$scope.videoPaths = [];
+	function uploadVideo(file, callback) {
 		// only supporting single file upload ([0]) 
 		// at the moment...
-		console.log("video files: ", $scope.videos);
-		userpageFactory($scope.videos[0]).success(function(data) {
+		userpageFactory(file).success(function(data) {
 			console.log("saved video file, public path: ", data);
-			videoPath = data;
-			var videoArray = [videoPath];
-
-			var newPostId, newPost = Post.create(
-				{
-					content: $scope.content,
-					videos: videoArray
-				}, function(data) {
-					newPostId = data[0]._id;
-					User.update({_relate:{items:currentUser,posts:newPost}});
-					console.log("d", {items:newPost,author:currentUser});
-					Post.update({_relate:{items:newPost,author:currentUser}});
-					console.log("Post created with id ", newPostId);
-					$scope.$parent.posts.push(newPost[0]);
-				}
-			);
+			//videoPath = data;
+			$scope.videoPaths.push(data);
+			callback();
 		}).error(function(data) {
 			//file failed to upload
 			console.log("Error on upload: ", data);
 		});
+	}
+
+	// vidoepostSubmit handler
+	$scope.videoPostSubmit = function() {
+		console.log("Submit event for post: working!!!");
+
+		//var videoPath = "";
+		$scope.videos.forEach(function(video, index) {
+			var i = index;
+			uploadVideo($scope.videos[i], function() {
+				if (i === $scope.videos.length -1) {
+					var newPostId, newPost = Post.create(
+						{
+							content: $scope.content,
+							videos: $scope.videoPaths
+						}, function(data) {
+							newPostId = data[0]._id;
+							User.update({_relate:{items:currentUser,posts:newPost}});
+							console.log("d", {items:newPost,author:currentUser});
+							Post.update({_relate:{items:newPost,author:currentUser}});
+							console.log("Post created with id ", newPostId);
+							$scope.$parent.posts.push(newPost[0]);
+						}
+					);
+				}
+			});
+		});
+			//var videoArray = [videoPath];
+
 	};
 
 	$scope.textpostSubmit = function() {
