@@ -16,7 +16,7 @@ app.controller( "loginController", ["$http", "$scope", "$modal", "$log", functio
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-}])
+}]);
   /*Relevant login code put in here*/
 
 app.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", function ($scope, $modalInstance) {
