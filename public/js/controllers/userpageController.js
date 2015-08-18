@@ -94,6 +94,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		);
 	};
 
+	// Video post upload & submit handler
 	$scope.videoPaths = [];
 	function uploadVideo(file, callback) {
 		// only supporting single file upload ([0]) 
@@ -103,8 +104,12 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 			//videoPath = data;
 			$scope.videoPaths.push(data);
 			callback();
+			// success alert for image upload
+			$scope.successAlert = true;
 		}).error(function(data) {
-			//file failed to upload
+			//error alert for video upload
+			$scope.errorAlert = true;
+
 			console.log("Error on upload: ", data);
 		});
 	}
