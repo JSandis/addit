@@ -4,10 +4,10 @@
   
   <!-- alert for success & error when submiting form -->
   <div ng-show="successAlert">
-  <alert type="success" close="successAlert = !successAlert">DONE! the post successfully uploaded.</alert>
+  <alert type="success" close="successAlert = ''">{{successAlert}}</alert>
   </div>
   <div ng-show="errorAlert">
-  <alert type="danger" close="errorAlert = !errorAlert">OBS! The post could not be uploaded.</alert>
+  <alert type="danger" close="errorAlert = ''">{{errorAlert}}</alert>
   </div>
 
   <div class="form-group">

@@ -97,18 +97,16 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	// Video post upload & submit handler
 	$scope.videoPaths = [];
 	function uploadVideo(file, callback) {
-		// only supporting single file upload ([0]) 
-		// at the moment...
 		userpageFactory(file).success(function(data) {
 			console.log("saved video file, public path: ", data);
 			//videoPath = data;
 			$scope.videoPaths.push(data);
 			callback();
 			// success alert for image upload
-			$scope.successAlert = true;
+			//$scope.successAlert = "DONE! the video successfully uploaded.";
 		}).error(function(data) {
 			//error alert for video upload
-			$scope.errorAlert = true;
+			$scope.errorAlert = "OUCH! the video did not upload.";
 
 			console.log("Error on upload: ", data);
 		});
@@ -117,7 +115,6 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	// vidoepostSubmit handler
 	$scope.videoPostSubmit = function() {
 		console.log("Submit event for post: working!!!");
-
 		//var videoPath = "";
 		$scope.videos.forEach(function(video, index) {
 			var i = index;
@@ -144,17 +141,24 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	};
 
 	$scope.textpostSubmit = function() {
+
 		var newPostId, newPost = Post.create(
 			{
 				content: $scope.content
-			}, function(data) {
-				newPostId = data[0]._id;
-				User.update({_relate:{items:currentUser,posts:newPost}});
-				Post.update({_relate:{items:newPost,author:currentUser}});
-				console.log("Post created with id ", newPostId);
-				$scope.$parent.posts.push(newPost[0]);
-			}
+			},
+			function(data) {
+				if (!data.status) {
+					newPostId = data[0]._id;
+					User.update({_relate:{items:currentUser,posts:newPost}});
+					Post.update({_relate:{items:newPost,author:currentUser}});
+					console.log("Post created with id ", newPostId);
+					$scope.$parent.posts.push(newPost[0]);
 
+					$scope.successAlert = "DONE! the post successfully saved.";
+				} else {
+					$scope.errorAlert = "OUCH! the post failed to save.";
+				}
+			}
 		);
 	};
 
