@@ -5,7 +5,6 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	var currentUser = User.get({_id: currentUserId});
 
 
-
 	$scope.users = User.get(function() {
 		if($scope.users.length === 0) {
 			$scope.testuser = User.create({username: "testuser", email: "test@test.com", password: "CC03E747A6AFBBCBF8BE7668ACFEBEE5"}, function() {
@@ -25,7 +24,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	// Delete all posts from all users and update the users posts
 	/*$scope.posts = Post.get(function() {
 		for (var i = 0; i < $scope.posts.length; i++) {
-			deletePostAndUpdateUserPosts($scope.posts[i], $scope.posts[i].author);
+			deletePostAndUpdateUserPosts($scope.posts[i]);
 		}
 	});*/
 
@@ -41,8 +40,8 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		console.log("User is deleted");
 	}
 
-	function deletePostAndUpdateUserPosts(post, userId) {
-		var usersPosts = Post.get({author: userId});
+	function deletePostAndUpdateUserPosts(post) {
+		var usersPosts = Post.get({author: currentUserId});
 		// Remove the element from the array
 		var index = usersPosts.indexOf(post);
 		usersPosts.splice(index, 1);
@@ -97,7 +96,6 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 				}
 			});
 		});
-
 	};
 
 	// Video post upload & submit handler
@@ -175,8 +173,14 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		);
 	};
 
-	$scope.deletePost = function() {
-
+	$scope.deletePost = function(post) {
+		var deletePost = confirm("Are you sure you want to delete the post?");
+		if(deletePost) {
+			deletePostAndUpdateUserPosts(post);
+			console.log("Post was successfully deleted");
+		} else {
+			console.log("Post was not deleted");
+		}
 	};
 
 	$scope.editPost = function() {
