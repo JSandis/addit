@@ -6646,3 +6646,27 @@ ul {
 .clear {
   clear: both;
 }
+.postImage img {
+  margin: 2px 0 5px 2px;
+  width: 100%;
+}
+.wrapper .imageList {
+  list-style: none;
+  margin-left: -28px;
+}
+.wrapper img {
+  width: 100%;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: block;
+  border: 2px solid #fff;
+}
+.wrapper img:hover {
+  box-shadow: 0px 1px 2px #444;
+  transition: all 0.3s ease-in-out;
+  border-color: #fff;
+}
+.wrapper img:active {
+  opacity: .70;
+  box-shadow: 0px 1px 4px #666;
+}

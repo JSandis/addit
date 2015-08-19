@@ -119,6 +119,8 @@ ul {
 }
 
 // END LINE for styles used in the sign up form
+
+// START LINE for styles used on userpage.html
 .floatLeft {
     float: left;
 }
@@ -126,3 +128,40 @@ ul {
 .clear {
     clear: both;
 }
+
+.postImage img { 
+    margin: 2px 0 5px 2px;
+    width: 100%;
+}
+
+.wrapper {
+
+  .imageList {
+    list-style: none;
+    // height: auto;
+    margin-left: -28px;
+    // overflow-y: auto;
+
+  }
+  
+  img {
+    width: 100%;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: block;
+    border: 2px solid #fff;
+    
+    &:hover {
+      box-shadow: 0px 1px 2px #444;
+      transition: all .3s ease-in-out;
+      border-color: #fff;
+    }
+    
+    &:active {
+      opacity: .70;
+      box-shadow: 0px 1px 4px #666;
+    }
+  }
+}
+
+// STOP LINE for styles used on userpage.html

@@ -84,14 +84,15 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 								console.log("Post created with id ", newPostId);
 								$scope.$parent.posts.push(newPost[0]);
 								console.log("imagePaths: ", $scope.imagePaths);
-								$scope.content = "";
-								// console.log("content: ", $scope.content);
-								// $scope.imagePaths = [];
-								document.getElementById('images').value = null;
+
 								// console.log("imagePaths: ", $scope.imagePaths);
 								// success alert
 
 								$scope.successAlert = "DONE! the post successfully saved in DB.";
+								$scope.content = "";
+								// console.log("content: ", $scope.content);
+								// $scope.imagePaths = [];
+								document.getElementById('images').value = null;
 
 							}else{
 								// error alert
@@ -152,6 +153,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 									// console.log("videoPaths: ", $scope.videoPaths);
 									// success alert
 									$scope.successAlert = "DONE! the post successfully saved in DB.";
+
 								}else {
 									// success alert
 									$scope.errorAlert = "OUCH! the post failed to save in DB.";
@@ -202,7 +204,12 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 		console.log("Edit post");
 	};
 
-}]);
 
+//     $scope.selected = 0;
+
+//     $scope.select= function($index) {
+//     $scope.selected = $index; 
+// };
+}]);
 
 
