@@ -4,7 +4,6 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	var currentUserId = "55c9d973c5b0e5e1aeec3e8c";
 	var currentUser = User.get({_id: currentUserId});
 
-
 	$scope.users = User.get(function() {
 		if($scope.users.length === 0) {
 			$scope.testuser = User.create({username: "testuser", email: "test@test.com", password: "CC03E747A6AFBBCBF8BE7668ACFEBEE5"}, function() {
@@ -72,10 +71,12 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 			var i = index;
 			uploadImage($scope.images[i], function() {
 				if (i === $scope.images.length -1) {
+					var currentDate = new Date();
 					var newPostId, newPost = Post.create(
 						{
 							content: $scope.content,
-							images: $scope.imagePaths
+							images: $scope.imagePaths,
+							createdAt: currentDate
 						}, function(data) {
 							if (!data.status){
 								newPostId = data[0]._id;
@@ -123,10 +124,12 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 			var i = index;
 			uploadVideo($scope.videos[i], function() {
 				if (i === $scope.videos.length -1) {
+					var currentDate = new Date();
 					var newPostId, newPost = Post.create(
 						{
 							content: $scope.content,
-							videos: $scope.videoPaths
+							videos: $scope.videoPaths,
+							createdAt: currentDate
 						}, function(data) {
 								if(!data.status){
 									newPostId = data[0]._id;
@@ -147,14 +150,15 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 			});
 		});
 			//var videoArray = [videoPath];
-
 	};
 
 	$scope.textpostSubmit = function() {
+		var currentDate = new Date();
 
 		var newPostId, newPost = Post.create(
 			{
-				content: $scope.content
+				content: $scope.content,
+				createdAt: currentDate
 			},
 			function(data) {
 				if (!data.status) {
