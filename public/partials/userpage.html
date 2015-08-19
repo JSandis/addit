@@ -24,7 +24,7 @@
 			</ul>
 		</div>
         <div ng-if="true" ng-repeat="imagePath in post.images">
-        	<img class="img-responsive floatLeft" ng-src="{{imagePath}}" width="150px">
+        	<img class="img-responsive floatLeft" ng-src="{{imagePath}}" image-resize image-percent="50">
         </div>
         <div ng-if="true" ng-repeat="videoPath in post.videos">
         	<video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
