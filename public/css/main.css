@@ -70,6 +70,15 @@ ul {
   list-style-type: none;
   -webkit-padding-start: 0px;
 }
+.fa-pencil {
+  color: #40B3DF;
+}
+.fa-camera {
+  color: #40B3DF;
+}
+.fa-film {
+  color: #40B3DF;
+}
 .signup-form {
   margin-top: 30px;
 }
