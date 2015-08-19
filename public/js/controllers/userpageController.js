@@ -41,12 +41,11 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	}
 
 	function deletePostAndUpdateUserPosts(post) {
-		var usersPosts = Post.get({author: currentUserId});
 		// Remove the element from the array
-		var index = usersPosts.indexOf(post);
-		usersPosts.splice(index, 1);
+		var index = $scope.posts.indexOf(post);
+		$scope.posts.splice(index, 1);
 		// Update the user's posts (with the posts that are not deleted - if any)
-		User.update({_id: currentUserId}, {posts: usersPosts});
+		User.update({_id: currentUserId}, {posts: $scope.posts});
 		// Delete post from db
 		post.$delete();
 	}
