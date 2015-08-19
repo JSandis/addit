@@ -66,7 +66,6 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 
 	$scope.imagePostSubmit = function() {
 		// console.log("image files: ", $scope.images);
-
 		$scope.images.forEach(function(image, index) {
 			var i = index;
 			uploadImage($scope.images[i], function() {
@@ -85,8 +84,15 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 								console.log("Post created with id ", newPostId);
 								$scope.$parent.posts.push(newPost[0]);
 								console.log("imagePaths: ", $scope.imagePaths);
+								$scope.content = "";
+								// console.log("content: ", $scope.content);
+								// $scope.imagePaths = [];
+								document.getElementById('images').value = null;
+								// console.log("imagePaths: ", $scope.imagePaths);
 								// success alert
+
 								$scope.successAlert = "DONE! the post successfully saved in DB.";
+
 							}else{
 								// error alert
 								$scope.errorAlert = "OUCH! the post failed to save in DB.";
@@ -138,6 +144,12 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 									Post.update({_relate:{items:newPost,author:currentUser}});
 									console.log("Post created with id ", newPostId);
 									$scope.$parent.posts.push(newPost[0]);
+									console.log("videoPaths: ", $scope.videoPaths);
+									$scope.content = "";
+									// console.log("content: ", $scope.content);
+									// $scope.videoPaths = [];
+									document.getElementById('videos').value = null;
+									// console.log("videoPaths: ", $scope.videoPaths);
 									// success alert
 									$scope.successAlert = "DONE! the post successfully saved in DB.";
 								}else {
@@ -167,7 +179,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 					Post.update({_relate:{items:newPost,author:currentUser}});
 					console.log("Post created with id ", newPostId);
 					$scope.$parent.posts.push(newPost[0]);
-
+					$scope.content = "";
 					$scope.successAlert = "DONE! the post successfully saved in DB.";
 				} else {
 					$scope.errorAlert = "OUCH! the post failed to save in DB.";
@@ -191,7 +203,6 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	};
 
 }]);
-
 
 
 
