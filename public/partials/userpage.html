@@ -24,12 +24,12 @@
 			</ul>
 		</div>
         <div ng-if="true" ng-repeat="imagePath in post.images">
-        	<img class="img-responsive floatLeft" ng-src="{{imagePath}}">
+        	<img class="img-responsive floatLeft" ng-src="{{imagePath}}" width="150px">
         </div>
         <div ng-if="true" ng-repeat="videoPath in post.videos">
         	<video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
         </div>
-        <div>{{post.author}}</div>
+        <div class="clear">{{post.author}}</div>
         <div ng-if="post.createdAt">Created at: {{post.createdAt | date:'yyyy-MM-dd HH:mm'}}</div>
     </article>
 </div>
