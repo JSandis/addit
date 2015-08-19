@@ -183,7 +183,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 	};
 
 	$scope.editPost = function() {
-
+		console.log("Edit post");
 	};
 
 }]);
