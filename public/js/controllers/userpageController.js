@@ -166,7 +166,7 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 			//var videoArray = [videoPath];
 	};
 
-	$scope.textpostSubmit = function() {
+	$scope.textPostSubmit = function() {
 		var currentDate = new Date();
 
 		var newPostId, newPost = Post.create(

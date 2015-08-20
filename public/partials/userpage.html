@@ -3,8 +3,8 @@
 
 <pre>{{posts}}</pre>
 <div class="col-sm-8" ng-include="'partials/imagepost.html'"></div>
-<!-- <div ng-include="'partials/textpost.html'"></div> -->
-<!-- <div ng-include="'partials/videopost.html'"></div> -->
+<div class="col-sm-8" ng-include="'partials/textpost.html'"></div>
+<div class="col-sm-8" ng-include="'partials/videopost.html'"></div>
 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
     <article class="panel panel-default ng-scope" ng-repeat="post in posts | orderBy: '-createdAt'">
         <div class="panel-heading col-sm-12">
@@ -38,7 +38,7 @@
             <div class="col-md-2">
                 <div class="wrapper">
                     <ul class="imageList">
-                        <li ng-if="true" ng-repeat="imagePath in post.images" ng-click="select($index)" class=" {sel: $index === selected}"  >
+                        <li ng-if="true" ng-repeat="imagePath in post.images" ng-click="select($index)" class=" {sel: $index == selected}"  >
                             <img ng-src="{{imagePath}}">
                         </li>
                     </ul>

@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 
-      <form ng-submit="textpostSubmit()" ng-controller="userpageController" class="form-horizontal">
+      <form name="textPostForm" ng-submit="textPostSubmit()" ng-controller="userpageController" class="form-horizontal">
 
         <!-- alert for success & error when submiting form -->
         <div ng-show="successAlert">
@@ -22,7 +22,7 @@
 
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Add It! <i class="fa fa-plus"></i></button>
+            <button type="submit" ng-disabled="textPostForm.$invalid" class="btn btn-default">Add It! <i class="fa fa-plus"></i></button>
           </div>
         </div>
       </form>
