@@ -24,11 +24,9 @@
                 <i class="fa fa-search"></i>
               </button>
             </form>
-            <li ng-hide="isLoggedIn()"><a href="/addit/signup">Sign Up</a></li>
-            <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
-            <li ng-hide="isLoggedIn()"><a href="/addit/login">Log In</a></li>
-
-
+            <li class="navbar-text" ng-controller="signUpController" ng-click="open()">Sign Up</li>
+            <li class="navbar-text" ng-controller="loginController" ng-click="open()">Log in</li>
+            <!-- <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li> -->
         </ul>
       </div>
     </div>

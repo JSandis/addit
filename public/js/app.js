@@ -13,14 +13,6 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
       templateUrl: "partials/userpage.html",
       controller: "userpageController"
     })
-    .when("/addit/signup/", {
-      templateUrl: "partials/signupPage.html",
-      controller: "signUpController"
-    })
-    .when("/addit/login/", {
-      templateUrl: "partials/loginPage.html",
-      controller: "loginController"
-    })
     .otherwise({
       redirectTo: "/addit/"
     });
