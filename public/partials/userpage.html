@@ -3,8 +3,8 @@
 
 <pre>{{posts}}</pre>
 <button class="btn btn-primary" ng-click="openAddImagePost()">Add image post</button>
-<!-- <div class="col-sm-8" ng-include="'partials/textpost.html'"></div>
-<div class="col-sm-8" ng-include="'partials/videopost.html'"></div> -->
+<!-- <div class="col-sm-8" ng-include="'partials/textpost.html'"></div> -->
+<butten class="btn btn-primary" ng-click="openAddVideoPost()">Add video post</butten>
 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
     <article class="panel panel-default ng-scope" ng-repeat="post in posts | orderBy: '-createdAt' | limitTo:5">
         <div class="panel-heading col-sm-12">

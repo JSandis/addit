@@ -1,5 +1,5 @@
 app.controller("modalController", ["$scope", "$modalInstance", "userpageFactory", "User", "Post", function($scope, $modalInstance, userpageFactory, User, Post) {
-	var currentUserId = "55d1d12136aee1481cd456de";
+	var currentUserId = "55cc66f15f19a87c39aaaaf4";
 	var currentUser = User.getById({_id: currentUserId});
 
 	$scope.signupSubmit = function () {

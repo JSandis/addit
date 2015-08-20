@@ -91,4 +91,21 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 	};
 
+	$scope.openAddVideoPost = function (size) {
+
+		var modalInstance = $modal.open({
+			animation: $scope.animationsEnabled,
+			templateUrl: 'partials/videopost.html',
+			controller: 'modalController',
+			size: size
+		});
+
+		modalInstance.result.then(function (data) {
+			$scope.posts = Post.get({author: currentUserId});
+			console.log("Modal closed, and sent ", data);
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+
 }]);
