@@ -74,7 +74,23 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 //     $scope.selected = $index; 
 // };
 
-	$scope.openAddImagePost = function (size) {
+	$scope.openAddPost = function (size) {
+
+		var modalInstance = $modal.open({
+			animation: $scope.animationsEnabled,
+			templateUrl: 'partials/addpost.html',
+			controller: 'modalController',
+			size: size
+		});
+
+		modalInstance.result.then(function (data) {
+			console.log("Modal closed, and sent ", data);
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+
+	$scope.openImagePost = function (size) {
 
 		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
@@ -91,7 +107,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 	};
 
-	$scope.openAddVideoPost = function (size) {
+	$scope.openVideoPost = function (size) {
 
 		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
@@ -106,6 +122,23 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
+	};
+
+	$scope.openTextPost = function (size) {
+
+		/*var modalInstance = $modal.open({
+			animation: $scope.animationsEnabled,
+			templateUrl: 'partials/textpost.html',
+			controller: 'modalController',
+			size: size
+		});
+
+		modalInstance.result.then(function (data) {
+			$scope.posts = Post.get({author: currentUserId});
+			console.log("Modal closed, and sent ", data);
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});*/
 	};
 
 }]);
