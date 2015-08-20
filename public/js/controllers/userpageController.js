@@ -1,8 +1,10 @@
 //"addit" controller.
-app.controller("userpageController", ["$http", "$scope", "userpageFactory", "User", "Post", function($http, $scope, userpageFactory, User, Post) {
+app.controller("userpageController", ["$http", "$scope", "userpageFactory", "User", "Post", "$location", function($http, $scope, userpageFactory, User, Post, $location) {
 	console.log("userpageController: I'm alive!");
-	var currentUserId = "55cb8d05f62833e32a819b43";
-	var currentUser = User.get({_id: currentUserId});
+	var currentUserId = "55cc66f15f19a87c39aaaaf4";
+	var currentUser = User.getById({_id: currentUserId}, function() {
+		console.log("c", currentUser);
+	});
 
 	$scope.users = User.get(function() {
 		if($scope.users.length === 0) {
@@ -76,12 +78,14 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 							content: $scope.content,
 							images: $scope.imagePaths,
 							createdAt: currentDate
-						}, function(data) {
+						}, 
+						function(data) {
 							if (!data.status){
 								newPostId = data[0]._id;
 								User.update({_relate:{items:currentUser,posts:newPost}});
 								Post.update({_relate:{items:newPost,author:currentUser}});
 								console.log("Post created with id ", newPostId);
+								console.log(data);
 								$scope.$parent.posts.push(newPost[0]);
 								console.log("imagePaths: ", $scope.imagePaths);
 
@@ -202,6 +206,10 @@ app.controller("userpageController", ["$http", "$scope", "userpageFactory", "Use
 
 	$scope.editPost = function() {
 		console.log("Edit post");
+	};
+
+	$scope.cancel = function() {
+		$location.url('/addit/');
 	};
 
 
