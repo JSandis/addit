@@ -6,7 +6,7 @@ app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", functi
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'partials/signup.html',
-      controller: 'ModalInstanceCtrl',
+      controller: 'modalController',
       size: size
     });
 
@@ -26,20 +26,5 @@ app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", functi
 
   $scope.submit = function() {
     console.log( "new user is: ", $scope.newUser );
-  }
-}]);
-
-
-app.controller('ModalInstanceCtrl', ["$scope", "$modalInstance", function ($scope, $modalInstance) {
-
-
-  $scope.signupSubmit = function () {
-    // run some signup code
-    $modalInstance.close("data from OK");
   };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-
 }]);
