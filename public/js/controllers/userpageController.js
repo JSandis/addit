@@ -88,8 +88,15 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			}
 		});
 
-		modalInstance.result.then(function (data) {
-			console.log("Modal closed, and sent ", data);
+		modalInstance.result.then(function (type) {
+			if(type == "image") {
+				$scope.openImagePost();
+			} else if(type == "video") {
+				$scope.openVideoPost();
+			} else if(type == "text") {
+				$scope.openTextPost();
+			}
+			console.log("Modal closed");
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
 		});

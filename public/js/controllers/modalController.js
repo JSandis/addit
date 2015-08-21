@@ -2,6 +2,7 @@
 app.controller("modalController", ["$scope", "$modalInstance", "title", "userpageFactory", "User", "Post", function($scope, $modalInstance, title, userpageFactory, User, Post) {
 	
 	$scope.title = title;
+	$scope.post = [];
 	var currentUser = User.getById({_id: currentUserId});
 
 	$scope.signupSubmit = function () {
@@ -46,24 +47,17 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "userpag
 							newPostId = data[0]._id;
 							User.update({_relate:{items:currentUser,posts:newPost}});
 							Post.update({_relate:{items:newPost,author:currentUser}});
-							console.log("Post created with id ", newPostId);
-							console.log(data);
-							//$scope.$parent.posts.push(newPost[0]);
-							console.log("imagePaths: ", $scope.imagePaths);
 
-							// console.log("imagePaths: ", $scope.imagePaths);
-							// success alert
-
-							$scope.successAlert = "DONE! the post successfully saved in DB.";
+							$scope.successAlert = "DONE! Your post was successfully posted.";
 							$scope.content = "";
 							// console.log("content: ", $scope.content);
 							// $scope.imagePaths = [];
 							document.getElementById('images').value = null;
 
-							$modalInstance.close("data from OK");
+							$modalInstance.close("data form OK");
 						}else{
 							// error alert
-							$scope.errorAlert = "OUCH! the post failed to save in DB.";
+							$scope.errorAlert = "OUCH! The post failed to be posted.";
 						}
 					});
 				}
@@ -108,22 +102,18 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "userpag
 						if(!data.status){
 							newPostId = data[0]._id;
 							User.update({_relate:{items:currentUser,posts:newPost}});
-							console.log("d", {items:newPost,author:currentUser});
 							Post.update({_relate:{items:newPost,author:currentUser}});
+
 							console.log("Post created with id ", newPostId);
-							//$scope.$parent.posts.push(newPost[0]);
 							console.log("videoPaths: ", $scope.videoPaths);
+							
 							$scope.content = "";
-							// console.log("content: ", $scope.content);
-							// $scope.videoPaths = [];
 							document.getElementById('videos').value = null;
-							// console.log("videoPaths: ", $scope.videoPaths);
-							// success alert
-							$scope.successAlert = "DONE! the post successfully saved in DB.";
-							$modalInstance.close("data from OK");
+							$scope.successAlert = "Your post was successfully posted.";
+							$modalInstance.close("data form OK");
 						}else {
 							// success alert
-							$scope.errorAlert = "OUCH! the post failed to save in DB.";
+							$scope.errorAlert = "OUCH! The post failed to be posted.";
 						}
 					});
 				}
@@ -158,6 +148,10 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "userpag
 
 	$scope.cancel = function () {
 		$modalInstance.dismiss('cancel');
+	};
+
+	$scope.closeAddPost = function(type) {
+		$modalInstance.close(type);
 	};
 
 }]);
