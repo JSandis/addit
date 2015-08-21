@@ -1,5 +1,7 @@
-app.controller("modalController", ["$scope", "$modalInstance", "userpageFactory", "User", "Post", function($scope, $modalInstance, userpageFactory, User, Post) {
 	var currentUserId = "55cc66f15f19a87c39aaaaf4";
+app.controller("modalController", ["$scope", "$modalInstance", "title", "userpageFactory", "User", "Post", function($scope, $modalInstance, title, userpageFactory, User, Post) {
+	
+	$scope.title = title;
 	var currentUser = User.getById({_id: currentUserId});
 
 	$scope.signupSubmit = function () {

@@ -7,7 +7,12 @@ app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", functi
       animation: $scope.animationsEnabled,
       templateUrl: 'partials/signup.html',
       controller: 'modalController',
-      size: size
+      size: size,
+      resolve: {
+        title: function() {
+          return "Sign up for an Addit account";
+        }
+      }
     });
 
     modalInstance.result.then(function (data) {

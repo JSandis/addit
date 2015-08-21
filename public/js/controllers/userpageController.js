@@ -80,7 +80,12 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/addpost.html',
 			controller: 'modalController',
-			size: size
+			size: size,
+			resolve: {
+				title: function() {
+					return "Add Post";
+				}
+			}
 		});
 
 		modalInstance.result.then(function (data) {
@@ -96,7 +101,12 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/imagepost.html',
 			controller: 'modalController',
-			size: size
+			size: size,
+			resolve: {
+				title: function() {
+					return "Add Image Post";
+				}
+			}
 		});
 
 		modalInstance.result.then(function (data) {
@@ -113,7 +123,12 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/videopost.html',
 			controller: 'modalController',
-			size: size
+			size: size,
+			resolve: {
+				title: function() {
+					return "Add Video Post";
+				}
+			}
 		});
 
 		modalInstance.result.then(function (data) {

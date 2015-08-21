@@ -7,7 +7,12 @@ app.controller( "loginController", ["$http", "$scope", "$modal", "$log", functio
       animation: $scope.animationsEnabled,
       templateUrl: 'partials/login.html',
       controller: 'modalController',
-      size: size
+      size: size,
+      resolve: {
+        title: function() {
+          return "Log in to your account";
+        }
+      }
     });
 
     modalInstance.result.then(function (data) {
