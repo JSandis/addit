@@ -5,7 +5,8 @@ module.exports = function(mongoose){
     images: [String],
     videos: [String],
     author: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-    createdAt: Date
+    createdAt: Date,
+    updatedAt: Date
   });
 
   var Post = mongoose.model("Post", PostSchema);

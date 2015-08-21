@@ -61,10 +61,29 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		}
 	};
 
-	$scope.editPost = function(post) {
-		//post.content
-		//post._id
-		console.log("Edit post");
+	$scope.openEditPost = function(post, size) {
+		
+		var modalInstance = $modal.open({
+			animation: $scope.animationsEnabled,
+			templateUrl: 'partials/textpost.html',
+			controller: 'editPostController',
+			size: size,
+			resolve: {
+				title: function() {
+					return "Edit Post";
+				},
+				post: function() {
+					return post;
+				}
+			}
+		});
+
+		modalInstance.result.then(function (data) {
+			/*$scope.posts = Post.get({author: currentUserId});*/
+			console.log("Modal closed, and sent ", data);
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
 	};
 
 
