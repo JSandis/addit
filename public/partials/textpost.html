@@ -1,32 +1,29 @@
-<section class="contaner">
-  <section class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="modal-header">
+   <button type="button" class="close" ng-click="cancel()">&times;</button>
+   <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+   <form name="textPostForm" ng-submit="textPostSubmit()" ng-controller="userpageController" class="form-horizontal">
 
+      <!-- alert for success & error when submiting form -->
+      <div ng-show="successAlert">
+         <alert type="success" close="successAlert = ''">{{successAlert}}</alert>
+      </div>
+      <div ng-show="errorAlert">
+         <alert type="danger" close="errorAlert = ''">{{errorAlert}}</alert>
+      </div>
 
-      <form name="textPostForm" ng-submit="textPostSubmit()" ng-controller="userpageController" class="form-horizontal">
+      <div class="form-group">
+         <label for="content" class="col-sm-2 control-label"><i class="fa fa-pencil"></i></label>
+         <div class="col-sm-10">
+            <textarea id="content" class="form-control" ng-model="post.content" name="content" placeholder="Share your amazing story." required>{{post.content}}</textarea>
+         </div>
+      </div>
 
-        <!-- alert for success & error when submiting form -->
-        <div ng-show="successAlert">
-        <alert type="success" close="successAlert = ''">{{successAlert}}</alert>
-        </div>
-        <div ng-show="errorAlert">
-        <alert type="danger" close="errorAlert = ''">{{errorAlert}}</alert>
-        </div>
-
-        <div class="form-group">
-          <label for="content" class="col-sm-2 control-label"><i class="fa fa-pencil"></i></label>
-          <div class="col-sm-10">
-            <textarea id="content" class="form-control" ng-model="content" name="content" placeholder="Share your amazing story." required></textarea>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
+      <div class="form-group">
+         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" ng-disabled="textPostForm.$invalid" class="btn btn-default">Add It! <i class="fa fa-plus"></i></button>
-          </div>
-        </div>
-      </form>
-
-    </div>
-  </section>
-</section>
+         </div>
+      </div>
+   </form>
+</div>

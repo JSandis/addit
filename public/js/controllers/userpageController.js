@@ -141,11 +141,16 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 
 	$scope.openTextPost = function (size) {
 
-		/*var modalInstance = $modal.open({
+		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/textpost.html',
 			controller: 'modalController',
-			size: size
+			size: size,
+			resolve: {
+				title: function() {
+					return "Add Text Post";
+				}
+			}
 		});
 
 		modalInstance.result.then(function (data) {
@@ -153,7 +158,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
-		});*/
+		});
 	};
 
 }]);

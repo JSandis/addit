@@ -137,21 +137,21 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "userpag
 
 		var newPostId, newPost = Post.create(
 		{
-			content: $scope.content,
+			content: $scope.post.content,
 			createdAt: currentDate
 		},
 		function(data) {
 			if (!data.status) {
 				newPostId = data[0]._id;
-				User.update({_relate:{items:currentUser,posts:newPost}});
-				Post.update({_relate:{items:newPost,author:currentUser}});
+				User.update({_relate:{items:currentUser,posts: newPost}});
+				Post.update({_relate:{items:newPost,author: currentUser}});
 				console.log("Post created with id ", newPostId);
-				//$scope.$parent.posts.push(newPost[0]);
+
 				$scope.content = "";
-				$scope.successAlert = "DONE! the post successfully saved in DB.";
-				$modalInstance.close("data from OK");
+				$scope.successAlert = "DONE! Your post was successfully posted.";
+				$modalInstance.close("data form OK");
 			} else {
-				$scope.errorAlert = "OUCH! the post failed to save in DB.";
+				$scope.errorAlert = "OUCH! The post failed to be posted.";
 			}
 		});
 	};
