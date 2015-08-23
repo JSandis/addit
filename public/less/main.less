@@ -12,6 +12,10 @@ google fonts CSS:
 @headerfont: 'Telex', sans-serif;
 @footerfont: 'Telex', sans-serif;
 
+//Variables for color
+
+@mainColor: #f8f8f8;
+
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 * {
@@ -33,7 +37,7 @@ html, body {
 }
 
 header {
-    background-color: lightgray;
+    background-color: @mainColor;
     height: auto;
     font-family: @headerfont;
 }
@@ -43,7 +47,7 @@ header {
 }
 
 .latestpost {
-    background-color: lightblue;
+    background-color: @mainColor;
     border: 1px solid #ffffff;
     height: 100px;
 }
@@ -53,7 +57,7 @@ header {
 }
 
 .footer {
-	background-color: lightgray;
+	background-color: @mainColor;
 	font-family: @footerfont;
 }
 
@@ -129,6 +133,10 @@ ul {
     clear: both;
 }
 
+panel-heading, panel-footer {
+  background-color: @mainColor;
+}
+
 .postImage img { 
     margin: 2px 0 5px 2px;
     width: 100%;
@@ -153,7 +161,7 @@ ul {
     
     &:hover {
       box-shadow: 0px 1px 2px #444;
-      transition: all .3s ease-in-out;
+      transition: all .1s ease-in-out;
       border-color: #fff;
     }
     
