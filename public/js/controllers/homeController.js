@@ -1,5 +1,5 @@
 //"addit" controller
-app.controller("homeController", ["$http", "$scope", "Person", function($http, $scope,Person) {
+app.controller("homeController", ["$http", "$scope", function($http, $scope) {
 	console.log("homeController: I'm alive!");
 
 	/*$scope.thompa = Person.create({name:"Thompa",towelColor:"red",age:914}, function() {
@@ -11,5 +11,4 @@ app.controller("homeController", ["$http", "$scope", "Person", function($http, $
 			});
 		});
 	});*/
-	$scope.allPersons = Person.get();
 }]);
