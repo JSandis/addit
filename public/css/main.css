@@ -6705,6 +6705,12 @@ ul .dropdown-menu > li > a:hover {
   opacity: .70;
   box-shadow: 0px 1px 4px #666;
 }
-.glyphicon {
-  color: #000;
+.glyphicon-edit {
+  color: #40B3DF;
+  margin-left: 1px;
+  margin-right: 8px;
+}
+.glyphicon-trash {
+  color: #40B3DF;
+  margin-right: 8px;
 }
