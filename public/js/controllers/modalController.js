@@ -1,5 +1,5 @@
 	var currentUserId = "55cb8d05f62833e32a819b43";
-app.controller("modalController", ["$scope", "$modalInstance", "title", "userpageFactory", "User", "Post", function($scope, $modalInstance, title, userpageFactory, User, Post) {
+app.controller("modalController", ["$scope", "$modalInstance", "title", "uploadFactory", "User", "Post", function($scope, $modalInstance, title, uploadFactory, User, Post) {
 	
 	$scope.title = title;
 	$scope.post = [];
@@ -17,7 +17,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "userpag
 
 	// image post upload & submit handler
 	function uploadImage(file, callback) {
-		userpageFactory(file).success(function(data) {
+		uploadFactory(file).success(function(data) {
 			$scope.imagePaths.push(data);
 			console.log("saved image file, public path: ", data);
 			console.log("imagePaths: ", $scope.imagePaths);
@@ -67,7 +67,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "userpag
 
 	// Video post upload
 	function uploadVideo(file, callback) {
-		userpageFactory(file).success(function(data) {
+		uploadFactory(file).success(function(data) {
 			console.log("saved video file, public path: ", data);
 			//videoPath = data;
 			$scope.videoPaths.push(data);

@@ -1,6 +1,6 @@
 // FileUploader factory, dependent on
 // "Upload" service from ngFileUpload module
-app.factory("userpageFactory", ["Upload", function(Upload) {
+app.factory("uploadFactory", ["Upload", function(Upload) {
   // FileUploader factory returns a function
   return function(file) {
     // the function returns the Upload request
