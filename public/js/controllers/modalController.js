@@ -6,8 +6,13 @@ app.controller("modalController", ["$scope", "$modalInstance", "title", "uploadF
 	var currentUser = User.getById({_id: currentUserId});
 
 	$scope.signupSubmit = function () {
-		// run some signup code
-		$modalInstance.close("data from OK");
+		// password encryption here?? How do we save it?
+
+		// Create user - no encryption on password yet!
+		$scope.newUser = User.create({username: $scope.username, email: $scope.email, password: $scope.password}, function() {
+			console.log("User created with id: " + $scope.newUser._id);
+			$modalInstance.close("data form OK");
+		});
 	};
 
 	$scope.loginSubmit = function () {
