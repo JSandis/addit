@@ -141,6 +141,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 
 		modalInstance.result.then(function (data) {
 			$scope.posts = Post.get({author: currentUserId});
+			location.reload(); // ugly fix for now
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
@@ -163,6 +164,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 
 		modalInstance.result.then(function (data) {
 			$scope.posts = Post.get({author: currentUserId});
+			location.reload(); // ugly fix for now
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
@@ -185,6 +187,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 
 		modalInstance.result.then(function (data) {
 			$scope.posts = Post.get({author: currentUserId});
+			location.reload(); // ugly fix for now
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
