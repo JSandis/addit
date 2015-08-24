@@ -6575,7 +6575,7 @@ body {
   display: block;
 }
 header {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   height: auto;
   font-family: 'Telex', sans-serif;
 }
@@ -6583,7 +6583,7 @@ header {
   color: #777;
 }
 .latestpost {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border: 1px solid #ffffff;
   height: 100px;
 }
@@ -6646,9 +6646,11 @@ ul {
 .clear {
   clear: both;
 }
-panel-heading,
-panel-footer {
-  background-color: #f8f8f8;
+.panel > .panel-heading,
+.panel-footer {
+  background-image: none;
+  background-color: #ffffff;
+  color: #44494D;
 }
 .postImage img {
   margin: 2px 0 5px 2px;

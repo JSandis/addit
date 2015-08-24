@@ -14,7 +14,8 @@ google fonts CSS:
 
 //Variables for color
 
-@mainColor: #f8f8f8;
+@mainColor: #fff;
+@footerColor: #f8f8f8;
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
@@ -57,7 +58,7 @@ header {
 }
 
 .footer {
-	background-color: @mainColor;
+	background-color: @footerColor;
 	font-family: @footerfont;
 }
 
@@ -133,8 +134,10 @@ ul {
     clear: both;
 }
 
-panel-heading, panel-footer {
+.panel > .panel-heading, .panel-footer {
+  background-image: none;
   background-color: @mainColor;
+  color: #44494D;
 }
 
 .postImage img { 
