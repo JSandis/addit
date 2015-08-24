@@ -6,19 +6,21 @@
     <article class="panel panel-default ng-scope" ng-repeat="post in posts | orderBy: '-createdAt' | limitTo:7">
         <div class="panel-heading col-xs-12 col-sm-12">
 	        <h3 class="panel-title col-sm-10">{{post.content}}</h3>
-	        <ul class="nav navbar-right">
-				<li dropdown>
-					<a dropdown-toggle><span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li>
-							<a ng-click="deletePost(post)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
-						</li>
-						<li>
-							<a ng-click="openEditPost(post)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
+
+    	        <ul class="nav navbar-right"><!--nav and dropdown-menu for Delete and Edit -->
+    				<li dropdown>
+    					<a dropdown-toggle><span class="caret"></span></a>
+    					<ul class="dropdown-menu">
+    						<li>
+    							<a ng-click="deletePost(post)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+    						</li>
+    						<li>
+    							<a ng-click="openEditPost(post)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>
+    						</li>
+    					</ul>
+    				</li>
+    			</ul>
+
 		</div>
 <!--         <div ng-if="true" ng-repeat="imagePath in post.images" class="img-thumbnails">
         	<img class="img-responsive pull-left thumbnail " ng-src="{{imagePath}}" image-resize image-percent="24">

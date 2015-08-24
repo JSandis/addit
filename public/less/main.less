@@ -91,28 +91,21 @@ header {
 ul {
 	list-style-type:none;
 	-webkit-padding-start: 0px;
+
   .dropdown-menu {
     background-color: #fff;
     font-family: 'Telex', sans-serif;
-    font-size: 12px;
+    font-size: 12.5px;
+
+    > li > a:hover {
+      background-color: #fcfcfc;
+    }
   }
 
 }
 
 
-.nav > li > a:hover {
-  background-color: #fcfcfc;
-}
 
-.nav .open > a {
-
-  background-color: #fff;
-}
-
-.nav .open > a:hover {
-
-  background-color: #fcfcfc;
-}
 
 .fa-pencil {
 	color: #40B3DF;
@@ -159,6 +152,30 @@ ul {
   background-image: none;
   background-color: @mainColor;
   color: #44494D;
+  margin: 0 0 0 0;
+  height: 37px;
+
+  .nav > li > a {
+    margin: -10 0 0 0;
+    padding: 1px 12px 1px 12px;
+  }
+
+  .nav > li > a:hover {
+    background-color: #fcfcfc;
+    //border-radius: 100%;
+    color: #5fceef;
+  }
+
+  .nav .open > a {
+
+    background-color: #fff;
+  }
+
+  .nav .open > a:hover {
+
+    background-color: #fcfcfc;    
+
+  }
 }
 
 .postImage img { 
