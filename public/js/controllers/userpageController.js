@@ -1,7 +1,7 @@
 //"addit" controller.
 app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", function($http, $scope, User, Post, $modal, $log, $routeParams, $location) {
 	console.log("userpageController: I'm alive!");
-	var currentUserId = "55cc66f15f19a87c39aaaaf4";
+	var currentUserId = "55cb8d05f62833e32a819b43";
 	var currentUser = User.getById({_id: currentUserId}, function() {
 	// console.log("c", currentUser);
 	});
@@ -23,8 +23,8 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 	
 	$scope.posts = Post.get({author: currentUserId});
 	this.current = 0;
-  this.setCurrent = function(images) {
-    this.current = images || 0;
+  this.setCurrent = function(imagePath) {
+    this.current = imagePath || 0;
   };
 
 	// Delete all posts from all users and update the users posts
