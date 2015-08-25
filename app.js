@@ -57,7 +57,7 @@ app.post('/api/files', multipartMiddleware, function(req, res) {
 var options = {
   dbName: "test",
   apiPath: "/api",
-  modelPath: "./api/mongoose-models/",
+  modelPath: "./api/mongoose-models/"/*,
   customRoutes: [
     // '/api/login' route
     {
@@ -67,7 +67,7 @@ var options = {
     }
   ],
   permissionToAsk: require('./api/permissions/toAsk'),
-  permissionToAnswer: require('./api/permissions/toAnswer')
+  permissionToAnswer: require('./api/permissions/toAnswer')*/
 };
 
 // Initialize our own REST api - mongresto
