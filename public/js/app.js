@@ -9,7 +9,7 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
       templateUrl: "partials/home.html",
       controller: "homeController"
     })
-    .when("/addit/userpage/", {
+    .when("/addit/userpage/:op?", {
       templateUrl: "partials/userpage.html",
       controller: "userpageController"
     })

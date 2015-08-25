@@ -3,7 +3,7 @@
 <pre>{{posts}}</pre>
  -->
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-    <article class="panel panel-default ng-scope" ng-repeat="post in posts | orderBy: '-createdAt' | limitTo:7">
+    <article class="panel panel-default" ng-repeat="post in posts | orderBy: '-createdAt'">
         <div class="panel-heading col-xs-12 col-sm-12">
 	        <h3 class="panel-title col-sm-10">{{post.content}}</h3>
 
@@ -27,11 +27,11 @@
         </div> -->
 
         <!--Images -->
-        <div ng-if="post.videos =='' || post.images !=''" class="row" ng-controller="galleryController as gallery">
+        <div ng-if="post.videos =='' || post.images !=''" class="row">
             <div class="col-xs-11 col-sm-10 col-md-10">
                 <div class="postImage">
                     <img class="img-responsive" 
-                    ng-src="{{post.images[gallery.current]}}" 
+                    ng-src="{{post.images[current]}}" 
                     image-resize image-percent="100"/>
                 </div>
 
@@ -40,7 +40,7 @@
                 <div class="wrapper">
                     <ul class="imageList">
                         <li ng-repeat="imagePath in post.images">
-                            <img class="img-responsive" ng-src="{{imagePath}}" ng-click="gallery.setCurrent(post.images.indexOf(imagePath))">
+                            <img class="img-responsive" ng-src="{{imagePath}}" ng-click="setCurrent(post.images.indexOf(imagePath))">
                         </li>
                     </ul>
                 </div>

@@ -1,10 +1,11 @@
 //"addit" controller.
-app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", function($http, $scope, User, Post, $modal, $log) {
+app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", function($http, $scope, User, Post, $modal, $log, $routeParams, $location) {
 	console.log("userpageController: I'm alive!");
-	var currentUserId = "55cb8d05f62833e32a819b43";
+	var currentUserId = "55c9d973c5b0e5e1aeec3e8c";
 	var currentUser = User.getById({_id: currentUserId}, function() {
-		//console.log("c", currentUser);
+	// console.log("c", currentUser);
 	});
+	// window.scope = $scope;
 
 	$scope.users = User.get(function() {
 		if($scope.users.length === 0) {
@@ -19,8 +20,12 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			deleteUserAndItsPosts($scope.users[i]);
 		}*/
 	});
-
+	
 	$scope.posts = Post.get({author: currentUserId});
+	this.current = 0;
+  this.setCurrent = function(images) {
+    this.current = images || 0;
+  };
 
 	// Delete all posts from all users and update the users posts
 	/*$scope.posts = Post.get(function() {
@@ -80,6 +85,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 
 		modalInstance.result.then(function (data) {
 			/*$scope.posts = Post.get({author: currentUserId});*/
+			$location.path('/addit/userpage');
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
@@ -136,8 +142,8 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 
 		modalInstance.result.then(function (data) {
-			$scope.posts = Post.get({author: currentUserId});
-			location.reload(); // ugly fix for now
+			// $scope.posts = Post.get({author: currentUserId});
+			$location.path('/addit/userpage');
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
@@ -159,14 +165,15 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 
 		modalInstance.result.then(function (data) {
-			$scope.posts = Post.get({author: currentUserId});
-			location.reload(); // ugly fix for now
+			// $scope.posts = Post.get({author: currentUserId});
+			$location.path('/addit/userpage');
 			console.log("Modal closed, and sent ", data);
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
 
+	var s = $scope;
 	$scope.openTextPost = function (size) {
 
 		var modalInstance = $modal.open({
@@ -182,12 +189,19 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 
 		modalInstance.result.then(function (data) {
-			$scope.posts = Post.get({author: currentUserId});
-			location.reload(); // ugly fix for now
+			//$scope.posts = Post.get({author: currentUserId});
+			$location.path('/addit/userpage');
+			//location.reload(); // ugly fix for now
 			console.log("Modal closed, and sent ", data);
 		}, function () {
+			$location.path('/addit/userpage');
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
+
+
+	if ($routeParams.op && $routeParams.op == 'add') {
+		$scope.openAddPost();
+	}
 
 }]);
