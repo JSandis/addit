@@ -21,10 +21,6 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 	});
 
 	$scope.posts = Post.get({author: currentUserId});
-		this.current = 0;
-        this.setCurrent = function(images) {
-        this.current = images || 0;
-        };
 
 	// Delete all posts from all users and update the users posts
 	/*$scope.posts = Post.get(function() {
