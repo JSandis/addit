@@ -8,7 +8,8 @@ var mongresto = require('./mongresto');
 // include the multipart middleware for file uploading
 var multipart = require('connect-multiparty');
 var fs = require('fs');
-
+// include the session module
+var session = require('express-session');
 
 // var routes = require('./routes/index');
 // var users = require('./routes/users');
@@ -26,6 +27,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'Oh happy day!',
+  resave: false,
+  saveUninitialized: true
+}));
 
 var multipartMiddleware = multipart();
 app.post('/api/files', multipartMiddleware, function(req, res) {
