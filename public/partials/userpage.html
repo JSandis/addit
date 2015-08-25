@@ -47,7 +47,7 @@
             </div>
         </div>
         <!--Videos -->
-        <div ng-if="!post.videos.lenght == '' || post.images.length == ''" ng-repeat="videoPath in post.videos"  ng-controller="galleryController">
+        <div ng-if="!post.videos.lenght == '' || post.images.length == ''" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
         	<video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
         </div>
         <!-- <div class="clear">{{post.author}}</div> -->

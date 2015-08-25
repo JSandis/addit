@@ -21,7 +21,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		}*/
 	});
 	
-		// $scope.posts = Post.get({author: currentUserId});
+	 $scope.posts = Post.get({author: currentUserId});
 		// this.current = 0;
 	 //  this.setCurrent = function(imagePath) {
 	 //    this.current = imagePath || 0;
