@@ -1,4 +1,4 @@
-	var currentUserId = "55c9d973c5b0e5e1aeec3e8c";
+	var currentUserId = "55cc66f15f19a87c39aaaaf4";
 app.controller("modalController", ["$scope", "$modalInstance", "title", "uploadFactory", "User", "Post", function($scope, $modalInstance, title, uploadFactory, User, Post) {
 	
 	$scope.title = title;

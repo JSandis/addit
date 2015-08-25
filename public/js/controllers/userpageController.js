@@ -1,7 +1,7 @@
 //"addit" controller.
 app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", function($http, $scope, User, Post, $modal, $log, $routeParams, $location) {
 	console.log("userpageController: I'm alive!");
-	var currentUserId = "55c9d973c5b0e5e1aeec3e8c";
+	var currentUserId = "55cc66f15f19a87c39aaaaf4";
 	var currentUser = User.getById({_id: currentUserId}, function() {
 	// console.log("c", currentUser);
 	});
@@ -51,9 +51,13 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		var index = $scope.posts.indexOf(post);
 		$scope.posts.splice(index, 1);
 		// Update the user's posts (with the posts that are not deleted - if any)
-		User.update({_id: currentUserId}, {posts: $scope.posts});
-		// Delete post from db
-		post.$delete();
+		User.update({_id: currentUserId}, {posts: $scope.posts}, function(data) { //callback
+			if (!data.status) {
+				// Delete post from db
+				post.$delete();
+			}
+		});
+
 	}
 
 	$scope.deletePost = function(post) {
