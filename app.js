@@ -53,8 +53,25 @@ app.post('/api/files', multipartMiddleware, function(req, res) {
   });
 });
 
+// Options for Mongresto
+var options = {
+  dbName: "test",
+  apiPath: "/api",
+  modelPath: "./api/mongoose-models/",
+  customRoutes: [
+    // '/api/login' route
+    {
+      method: "all",
+      path: "login",
+      controller: require('./api/custom/login.route')
+    }
+  ],
+  permissionToAsk: require('./api/permissions/toAsk'),
+  permissionToAnswer: require('./api/permissions/toAnswer')
+};
+
 // Initialize our own REST api - mongresto
-mongresto.init(app);
+mongresto.init(app, options);
 
 app.get('*', function (req, res) {
   res.sendFile('index.html', {root: './public'});
