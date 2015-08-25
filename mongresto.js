@@ -37,7 +37,7 @@ var mongresto = module.exports = (function _mongresto(){ return {
     apiPath: "/api",
     
     // The path where you should put your Mongoose models
-    modelPath: "./api/mongoose-models/",
+    modelPath: "./mongoose-models/",
     
     // The path where Mongresto will autogenerate
     // frontend JavaScript containing ngResource-based objects
