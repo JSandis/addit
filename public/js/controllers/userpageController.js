@@ -136,7 +136,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/imagepost.html',
-			controller: 'modalController',
+			controller: 'imagePostController',
 			size: size,
 			resolve: {
 				title: function() {
@@ -159,7 +159,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/videopost.html',
-			controller: 'modalController',
+			controller: 'videoPostController',
 			size: size,
 			resolve: {
 				title: function() {
@@ -177,13 +177,12 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 	};
 
-	var s = $scope;
 	$scope.openTextPost = function (size) {
 
 		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/textpost.html',
-			controller: 'modalController',
+			controller: 'textPostController',
 			size: size,
 			resolve: {
 				title: function() {
