@@ -128,6 +128,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			console.log("Modal closed");
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
+			$location.path('/addit/userpage');
 		});
 	};
 
