@@ -6636,6 +6636,15 @@ ul .dropdown-menu > li > a:hover {
 .fa-film {
   color: #40B3DF;
 }
+.navbar-text {
+  background-color: #C1E8F5;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+.navbar-text:hover {
+  background-color: #96DBF2;
+}
 .signup-form {
   margin-top: 30px;
 }
