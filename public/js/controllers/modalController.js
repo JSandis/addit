@@ -21,8 +21,10 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 		// password encryption here?? How do we save it?
 
 		// Create user - no encryption on password yet!
-		$scope.newUser = User.create($scope.newUser, function(data) {
-			console.log("User created with id: " + $scope.newUser._id);
+		var newUserId, newUser = User.create($scope.newUser, function(data) {
+			newUserId = data[0]._id;
+			$scope.newUser = newUser;
+			console.log("User created with id: " + newUserId);
 			$modalInstance.close("data form OK");
 		});
 	};
