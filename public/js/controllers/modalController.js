@@ -26,8 +26,12 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 			$scope.newUser = newUser;
 			console.log("User created with id: " + newUserId);
 			console.log( "new user is: ", $scope.newUser );
-			$modalInstance.close("data form OK");
+			$scope.signupSuccessMsg = "You have nowsuccessfully registered!";
 		});
+	};
+
+	$scope.signupSuccessClose = function() {
+		$modalInstance.close("data form OK");
 	};
 
 	$scope.loginSubmit = function () {

@@ -6,6 +6,10 @@
   <!-- <h3 class="modal-title">{{title}}</h3> --> 
 </div>
 <div class="modal-body">
+
+	<!-- Success message -->
+	<alert ng-if="signupSuccessMsg" type="success">{{signupSuccessMsg}}</alert>
+
 	<!-- Signup Form -->
   <form name="signupForm" ng-hide="signupSuccessMsg" class="form-horizontal signup-form" ng-submit="signupForm.$valid && newUser.password == passwordConfirm && signupSubmit()" novalidate>
 
