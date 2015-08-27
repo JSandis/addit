@@ -17,6 +17,10 @@ google fonts CSS:
 @mainColor: #fff;
 @footerColor: #f8f8f8;
 
+// Variables for Log In and Sign In buttons
+@bgcolor: #C1E8F5;
+@hovercolor: #96DBF2
+
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 * {
@@ -118,7 +122,7 @@ ul {
 
 // START LINE for Sign Up and Log Out links/buttons
 .navbar-text {
-  background-color: #C1E8F5;
+  background-color: @bgcolor;
   text-align: center;
   width: 80px;
   padding: 5px;
@@ -127,7 +131,7 @@ ul {
 }
 
 .navbar-text:hover {
-  background-color: #96DBF2;
+  background-color: @hovercolor;
 }
 
 // END LINE for Sign Up and Log Out links/buttons
