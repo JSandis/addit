@@ -6638,6 +6638,8 @@ ul .dropdown-menu > li > a:hover {
 }
 .navbar-text {
   background-color: #C1E8F5;
+  text-align: center;
+  width: 80px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid lightgray;
