@@ -6,7 +6,6 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 	$scope.checkUsername = function() {
 		if (!$scope.signupForm.username.$error.minlength) {
 			User.get({username: $scope.newUser.username}, function(data) {
-				console.log("$scope.newUser: ", $scope.newUser);
 				if (!data.length) {
 					$scope.usernameExists = false;
 				} else {
@@ -17,6 +16,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 		}
 	};
 
+	// sign up submit handler
 	$scope.signupSubmit = function () {
 		// password encryption here?? How do we save it?
 
@@ -25,6 +25,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 			newUserId = data[0]._id;
 			$scope.newUser = newUser;
 			console.log("User created with id: " + newUserId);
+			console.log( "new user is: ", $scope.newUser );
 			$modalInstance.close("data form OK");
 		});
 	};

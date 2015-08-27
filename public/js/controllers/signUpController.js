@@ -22,20 +22,5 @@ app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", functi
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-
-
-  $scope.newUser = {
-    username: "",
-    password: "",
-    email: ""
-  };
-
-  $scope.signupSubmit = function(isValid) {
-    if(isValid){
-    alert('our form validation is working!');
-    console.log( "new user is: ", $scope.newUser );
-      
-    }
-
-  };
+  
 }]);
