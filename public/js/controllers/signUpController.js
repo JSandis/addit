@@ -1,6 +1,7 @@
 app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", function( $http, $scope, $modal, $log ) {
 	console.log( "signUpController is up and running." );
 
+  
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
@@ -29,7 +30,12 @@ app.controller( "signUpController", ["$http", "$scope", "$modal", "$log", functi
     email: ""
   };
 
-  $scope.submit = function() {
+  $scope.signupSubmit = function(isValid) {
+    if(isValid){
+    alert('our form validation is working!');
     console.log( "new user is: ", $scope.newUser );
+      
+    }
+
   };
 }]);
