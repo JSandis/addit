@@ -21,13 +21,19 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 		// password encryption here?? How do we save it?
 
 		// Create user - no encryption on password yet!
-		var newUserId, newUser = User.create($scope.newUser, function(data) {
-			newUserId = data[0]._id;
-			$scope.newUser = newUser;
-			console.log("User created with id: " + newUserId);
-			console.log( "new user is: ", $scope.newUser );
-			$scope.signupSuccessMsg = "You have nowsuccessfully registered!";
-		});
+		var newUserId, newUser = User.create($scope.newUser,
+			function(data) {
+				if (!data.status){
+					newUserId = data[0]._id;
+					$scope.newUser = newUser;
+					console.log("User created with id: " + newUserId);
+					console.log( "new user is: ", $scope.newUser );
+					$scope.signupSuccessMsg = "You have now successfully registered!";
+				}else{
+					$scope.signupErrorMsg = "Oj! Failed to register.";
+				}
+			}
+		);
 	};
 
 	$scope.signupSuccessClose = function() {

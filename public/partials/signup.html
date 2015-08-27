@@ -9,6 +9,8 @@
 
 	<!-- Success message -->
 	<alert ng-if="signupSuccessMsg" type="success">{{signupSuccessMsg}}</alert>
+	<!-- Error message -->
+	<alert ng-if="signupErrorMsg" type="error">{{signupErrorMsg}}</alert>
 
 	<!-- Signup Form -->
   <form name="signupForm" ng-hide="signupSuccessMsg" class="form-horizontal signup-form" ng-submit="signupForm.$valid && newUser.password == passwordConfirm && signupSubmit()" novalidate>
