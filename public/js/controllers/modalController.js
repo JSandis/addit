@@ -41,8 +41,18 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 	};
 
 	$scope.loginSubmit = function () {
-		//Run som SUBMIT LOGIN code here
-		$modalInstance.close("data form OK");
+		console.log("login submit: ", $scope.loginCredentials);
+		/*login.login($scope.loginCredentials, function(data) {
+			if (login.user._id) {
+				$modalInstance.close("data form OK");
+				$location.url('/userpage');
+				console.log("User is now logged in");
+				//some success message for user
+			} else {
+				console.log("User's login credentials are bad");
+				//some error message for user
+			}
+		});*/
 	};
 
 	$scope.cancel = function () {
