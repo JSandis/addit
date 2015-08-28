@@ -21,10 +21,5 @@ app.controller( "loginController", ["$http", "$scope", "$modal", "$log", functio
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-
-  $scope.logOut = function() {
-    console.log("log out");
-  };
-
 }]);
   /*Relevant login code put in here*/
