@@ -11,7 +11,8 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
     })
     .when("/addit/userpage/:op?", {
       templateUrl: "partials/userpage.html",
-      controller: "userpageController"
+      controller: "userpageController"/*,
+      login: true // the route is login protected*/
     })
     .otherwise({
       redirectTo: "/addit/"
