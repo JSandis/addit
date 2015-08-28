@@ -1,12 +1,12 @@
-app.factory("login" ,["http", "$rootScope", "$location", function($http, $rootScope, $location){
+app.factory("login", ["$http", "$rootScope", "$location", function($http, $rootScope, $location) {
 
 	function updateObj(inObj, outObj) {
 		for (var i in inObj) {
 			delete outObj[i];
 		}
 
-		for (var i in inObj) {
-			outObj[i] = inObj[i];
+		for (var j in inObj) {
+			outObj[j] = inObj[j];
 		}
 	}
 
@@ -14,7 +14,7 @@ app.factory("login" ,["http", "$rootScope", "$location", function($http, $rootSc
 		user: {},
 		login: function(credentials, callback) {
 			$http.post('api/login', credentials).success(function(data) {
-				updateObj(data ? data : {}, loginObj.user)
+				updateObj(data ? data : {}, loginObj.user);
 
 				$rootScope.$broadcast("login");
 				
@@ -54,4 +54,4 @@ app.factory("login" ,["http", "$rootScope", "$location", function($http, $rootSc
 
 
 	return loginObj;
-}])
+}]);
