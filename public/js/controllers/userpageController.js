@@ -1,7 +1,7 @@
 //"addit" controller.
 app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", "addPostFactory", function($http, $scope, User, Post, $modal, $log, $routeParams, $location, addPostFactory) {
 	console.log("userpageController: I'm alive!");
-	var currentUserId = "55cc66f15f19a87c39aaaaf4";
+	var currentUserId = "55df0e220664eaf824a4618c";
 	var currentUser = User.getById({_id: currentUserId}, function() {
 	// console.log("c", currentUser);
 	});

@@ -3,7 +3,7 @@ app.controller("textPostController", ["$scope", "$modalInstance", "title", "uplo
 	$scope.title = title;
 	$scope.post = [];
 
-	var currentUserId = "55d1d12136aee1481cd456de";
+	var currentUserId = "55df0e220664eaf824a4618c";
 	var currentUser = User.getById({_id: currentUserId});
 
 	$scope.textPostSubmit = function() {
