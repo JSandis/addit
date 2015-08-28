@@ -1,7 +1,7 @@
 module.exports = function(mongoose){
 
   var PostSchema = mongoose.Schema({
-    content: String,
+    content: {type: String, required: true},
     images: [String],
     videos: [String],
     author: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
