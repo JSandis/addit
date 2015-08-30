@@ -1,11 +1,11 @@
-app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", function($scope, $modalInstance, User, Post) {
-	// window.scope = $scope;
+app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "title", function($scope, $modalInstance, User, Post, title) {
+	$scope.title = title;
 	
 	// a function to check if the username exists
 	$scope.usernameExists = false;
-	$scope.checkUsername = function() {
-		if (!$scope.signupForm.username.$error.minlength) {
-			User.get({username: $scope.newUser.username}, function(data) {
+	$scope.checkUsername = function(form, username) {
+		if (!form.username.$error.minlength) {
+			User.get({username: username}, function(data) {
 				if (!data.length) {
 					$scope.usernameExists = false;
 				} else {
@@ -42,6 +42,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", f
 
 	$scope.loginSubmit = function () {
 		console.log("login submit: ", $scope.loginCredentials);
+		$modalInstance.close("data form OK");
 		/*login.login($scope.loginCredentials, function(data) {
 			if (login.user._id) {
 				$modalInstance.close("data form OK");
