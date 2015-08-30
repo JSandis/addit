@@ -2,13 +2,4 @@
 app.controller("homeController", ["$http", "$scope", function($http, $scope) {
 	console.log("homeController: I'm alive!");
 
-	/*$scope.thompa = Person.create({name:"Thompa",towelColor:"red",age:914}, function() {
-
-		//$scope.thompa.$delete();
-		$scope.allPersons = Person.get(function() {
-			$scope.allPersons[0].$delete(function(){
-				console.log("delete");
-			});
-		});
-	});*/
 }]);
