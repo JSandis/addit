@@ -1,4 +1,4 @@
-app.controller( "loginController", ["$http", "$scope", "$modal", "$log", function( $http, $scope, $modal, $log ) {
+app.controller( "loginController", ["$http", "$scope", "$modal", "$log", function( $http, $scope, $modal, $log) {
 	console.log( "loginController Working!!!" );
 
   $scope.open = function (size) {
@@ -22,4 +22,3 @@ app.controller( "loginController", ["$http", "$scope", "$modal", "$log", functio
     });
   };
 }]);
-  /*Relevant login code put in here*/

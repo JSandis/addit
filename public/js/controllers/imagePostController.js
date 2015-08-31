@@ -1,10 +1,12 @@
-app.controller("imagePostController", ["$scope", "$modalInstance", "title", "uploadFactory", "User", "Post", function($scope, $modalInstance, title, uploadFactory, User, Post) {
+app.controller("imagePostController", ["$scope", "$modalInstance", "title", "uploadFactory", "User", "Post", "login", function($scope, $modalInstance, title, uploadFactory, User, Post, login) {
 
 	$scope.title = title;
 	$scope.post = [];
 
-	var currentUserId = "55df0e220664eaf824a4618c";
-	var currentUser = User.getById({_id: currentUserId});
+	$scope.user = login.user;
+
+	/*var currentUserId = "55e3735eb4d241b019422c10";
+	var currentUser = User.getById({_id: currentUserId});*/
 
 	// image post upload & submit handler
 	function uploadImage(file, callback) {
@@ -36,8 +38,8 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 					}, function(data) {
 						if (!data.status){
 							newPostId = data[0]._id;
-							User.update({_relate:{items:currentUser,posts:newPost}});
-							Post.update({_relate:{items:newPost,author:currentUser}});
+							User.update({_relate:{items: login.user, posts: newPost}});
+							Post.update({_relate:{items: newPost, author: login.user}});
 
 							$scope.successAlert = "DONE! Your post was successfully posted.";
 							$scope.content = "";

@@ -11,22 +11,28 @@ module.exports = function(mongoose) {
 				res.json(false);
 			}
 		} else if(req.method == "POST") {
-			if(!req.body.email || !req.body.password) {
+			if(!req.body.username || !req.body.password) {
 				res.json(false);
 				return;
 			}
 
+			console.log("unencrypted password: ", req.body.password);
+			// encrypt password
 			req.body.password = sha256(config.hashSalt + req.body.password);
+			console.log("encrypted password: ", req.body.password);
 
 			mongoose.model("User").findOne(req.body, function(err, data) {
 				if(err) {
 					throw err;
 				}
-				console.log("Login data: ", data);
 
-				data && (delete data.password);
+				// we never store the password
+				data && (data.password = undefined);
+
+				// store the other info in session
 				data && (req.session.user = data);
 
+				// return the logged in user if there is one
 				res.json(data ? data : false);
 			});
 		} else if(req.method == "DELETE") {

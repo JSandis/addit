@@ -1,5 +1,6 @@
-app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "title", function($scope, $modalInstance, User, Post, title) {
+app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "title", "login", "$location", function($scope, $modalInstance, User, Post, title, login, $location) {
 	$scope.title = title;
+	$scope.user = login.user;
 	
 	// a function to check if the username exists
 	$scope.usernameExists = false;
@@ -11,7 +12,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "
 				} else {
 					$scope.usernameExists = true;
 				}
-				console.log("username usernameExists ", $scope.usernameExists);
+				console.log("username exists ", $scope.usernameExists);
 			});
 		}
 	};
@@ -30,7 +31,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "
 					console.log( "new user is: ", $scope.newUser );
 					$scope.signupSuccessMsg = "You have now successfully registered!";
 				}else{
-					$scope.signupErrorMsg = "Oj! Failed to register.";
+					$scope.signupErrorMsg = "Oops! Failed to register.";
 				}
 			}
 		);
@@ -41,9 +42,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "
 	};
 
 	$scope.loginSubmit = function () {
-		console.log("login submit: ", $scope.loginCredentials);
-		$modalInstance.close("data form OK");
-		/*login.login($scope.loginCredentials, function(data) {
+		login.login($scope.loginCredentials, function(data) {
 			if (login.user._id) {
 				$modalInstance.close("data form OK");
 				$location.url('/userpage');
@@ -53,7 +52,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "
 				console.log("User's login credentials are bad");
 				//some error message for user
 			}
-		});*/
+		});
 	};
 
 	$scope.cancel = function () {

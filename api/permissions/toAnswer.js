@@ -1,3 +1,4 @@
 module.exports = function(modelName, method, query, req) {
-  return true;
+	console.log("toAnswer");
+	return true;
 };

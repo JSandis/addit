@@ -1,13 +1,16 @@
 //"addit" controller.
-app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", "addPostFactory", function($http, $scope, User, Post, $modal, $log, $routeParams, $location, addPostFactory) {
+app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", "addPostFactory", "login", function($http, $scope, User, Post, $modal, $log, $routeParams, $location, addPostFactory, login) {
 	console.log("userpageController: I'm alive!");
-	var currentUserId = "55df0e220664eaf824a4618c";
+
+	$scope.user = login.user;
+
+	/*var currentUserId = "55e3735eb4d241b019422c10";
 	var currentUser = User.getById({_id: currentUserId}, function() {
 	// console.log("c", currentUser);
-	});
+	});*/
 	// window.scope = $scope;
 
-	$scope.users = User.get(function() {
+	/*$scope.users = User.get(function() {
 		if($scope.users.length === 0) {
 			$scope.testuser = User.create({username: "testuser", email: "test@test.com", password: "CC03E747A6AFBBCBF8BE7668ACFEBEE5"}, function() {
 				console.log("User created: "+$scope.testuser);
@@ -15,13 +18,13 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		}
 
 		// Delete all users and its posts
-		/*for (var i = 0; i < $scope.users.length; i++) {
-			// Delete user from db
-			deleteUserAndItsPosts($scope.users[i]);
-		}*/
-	});
+		// for (var i = 0; i < $scope.users.length; i++) {
+		//  // Delete user from db
+		//	deleteUserAndItsPosts($scope.users[i]);
+		// }
+	});*/
 	
-	$scope.posts = Post.get({author: currentUserId});
+	$scope.posts = Post.get({author: login.user._id});
 
 	// Delete all posts from all users and update the users posts
 	/*$scope.posts = Post.get(function() {
@@ -47,7 +50,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		var index = $scope.posts.indexOf(post);
 		$scope.posts.splice(index, 1);
 		// Update the user's posts (with the posts that are not deleted - if any)
-		User.update({_id: currentUserId}, {posts: $scope.posts}, function(data) { //callback
+		User.update({_id: login.user._id}, {posts: $scope.posts}, function(data) { //callback
 			if (!data.status) {
 				// Delete post from db
 				post.$delete();
