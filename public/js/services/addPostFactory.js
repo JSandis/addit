@@ -22,12 +22,12 @@ app.factory("addPostFactory", ["$modal", "$log", "$location", function($modal, $
 			} else if(type == "text") {
 				openAddPost('Add Text Post', 'partials/textpost.html', 'textPostController');
 			} else {
-				$location.path('/addit/userpage');
+				$location.path('/userpage');
 			}
 			console.log("Modal closed");
 		}, function () {
 			$log.info('Modal dismissed at: ' + new Date());
-			$location.path('/addit/userpage');
+			$location.path('/userpage');
 		});
 	}
 

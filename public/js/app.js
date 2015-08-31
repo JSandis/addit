@@ -5,17 +5,17 @@ var app = angular.module("addit", ["ngRoute", "ngResource", 'ngFileUpload', "ui.
 app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
   //route config
   $routeProvider
-    .when("/addit/", {
+    .when("/", {
       templateUrl: "partials/home.html",
       controller: "homeController"
     })
-    .when("/addit/userpage/:op?", {
+    .when("/userpage/:op?", {
       templateUrl: "partials/userpage.html",
       controller: "userpageController"/*,
       login: true // the route is login protected*/
     })
     .otherwise({
-      redirectTo: "/addit/"
+      redirectTo: "/"
     });
 
   $locationProvider.html5Mode(true);

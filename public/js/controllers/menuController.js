@@ -27,6 +27,6 @@ app.controller("menuController", ["$http", "$scope", "addPostFactory", function(
 
 	$scope.$on("logout", function() {
 		console.log("logout $broadcast detected");
-		$location.url("/addit/");
+		$location.url("/");
 	});
 }]);
