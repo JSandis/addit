@@ -16,7 +16,8 @@
   indent = 2 spaces, keep your rows reasonably short
   also your methods below sceen height.
 */
-/* jshint 
+/* 
+jshint 
   loopfunc: true,
   trailing: true,
   sub: true,
@@ -37,7 +38,7 @@ var mongresto = module.exports = (function _mongresto(){ return {
     apiPath: "/api",
     
     // The path where you should put your Mongoose models
-    modelPath: "./mongoose-models/",
+    modelPath: "./api/mongoose-models/",
     
     // The path where Mongresto will autogenerate
     // frontend JavaScript containing ngResource-based objects
@@ -49,18 +50,20 @@ var mongresto = module.exports = (function _mongresto(){ return {
     
     // A function written by you - it gets access to the current question
     // and can deny Mongresto permission to run it
-    
-    permissionToAsk:
-      function(modelName, method, query, rbody){ return true; },
+    permissionToAsk: function(modelName, method, query, rbody) {
+      return true;
+    },
     
     // A function written by you - it gets access to the current result
     // (and question) and can deny Mongresto permission to return it
-    permissionToAnswer:
-      function(modelName, method, query, rbody, result){ return true; },
-      
+    permissionToAnswer: function(modelName, method, query, rbody) {
+      return true;
+    },
+
     customRoutes: [
       // {path: "", controller:""}
     ]
+      
   },
 
   init: function(app,options){
@@ -82,16 +85,15 @@ var mongresto = module.exports = (function _mongresto(){ return {
       mongresto.buildNgResourcesScript(req,res);
     });
 
+    var me = this;
+    this.customRoutes.forEach(function(route) {
+      app[route.method](me.apiPath + '/' + route.path, route.controller(me.mongoose));
+    });
+
     // Send all api request to apiCall
     app.all(this.apiPath + '/*', function (req, res) {
       mongresto.apiCall(req,res);
     });
-
-    var me = this;
-    this.customRoutes.forEach(function(route) {
-      app[route.method](me.apiPath + '/' + route.path, route.controller(me.mongoose));
-    });
-
   },
 
   connectToDb: function(){
@@ -101,6 +103,7 @@ var mongresto = module.exports = (function _mongresto(){ return {
     this.mongoose.connect('mongodb://localhost/' + dbName);
     
     // Check connection
+    var me = this;
     this.mongoose.connection.once('open', function() {
       console.log("Mongresto: Connected to database " + dbName + "!");
     });
@@ -150,7 +153,6 @@ var mongresto = module.exports = (function _mongresto(){ return {
   },
 
   getFileNames: function(path,callback){
-    console.log('Mongresto: getFileNames');
     // Read a folder recursively looking for js files
     var fs = require('fs'), base = {__count:0, arr: []};
     recursiveReadDir(path);
@@ -280,7 +282,7 @@ var mongresto = module.exports = (function _mongresto(){ return {
       this.model.modelName,
       this.method,
       this.search,
-      this.req.body,
+      this.req,
       result
     )){return true;}
     this.responder("Forbidden",false,403);
@@ -392,7 +394,7 @@ var mongresto = module.exports = (function _mongresto(){ return {
       // Create an ng resource
       var re = $resource(
         "pathToApi/" + entity.toLowerCase() + "/:id/",
-        {id:"@_id"}, methods
+        {id:"@id"}, methods
       );
       
       // Wrap it in our own special object (queue handling etc)
