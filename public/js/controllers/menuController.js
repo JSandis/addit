@@ -1,5 +1,5 @@
 app.controller("menuController", ["$http", "$scope", "addPostFactory", "login", "$location", function($http, $scope, addPostFactory, login, $location) {
-	console.log("The menuController is alive!");
+	// console.log("The menuController is alive!");
 	
 	$scope.user = login.user;
 

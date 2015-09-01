@@ -1,6 +1,6 @@
 //"addit" controller.
 app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", "addPostFactory", "login", function($http, $scope, User, Post, $modal, $log, $routeParams, $location, addPostFactory, login) {
-	console.log("userpageController: I'm alive!");
+	// console.log("userpageController: I'm alive!");
 
 	$scope.user = login.user;
 

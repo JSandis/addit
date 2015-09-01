@@ -7,7 +7,7 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 	// Video upload
 	function uploadVideo(file, callback) {
 		uploadFactory(file).success(function(data) {
-			console.log("saved video file, public path: ", data);
+			// console.log("saved video file, public path: ", data);
 			//videoPath = data;
 			$scope.videoPaths.push(data);
 			callback();
@@ -23,8 +23,7 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 
 	// videopostSubmit handler
 	$scope.videoPostSubmit = function() {
-		console.log("Submit event for post: working!!!");
-
+		// console.log("Submit event for post: working!!!");
 		$scope.videoPaths = [];
 
 		$scope.videos.forEach(function(video, index) {
