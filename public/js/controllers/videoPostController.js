@@ -4,9 +4,6 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 	$scope.post = [];
 	$scope.user = login.user;
 
-	/*var currentUserId = "55e3735eb4d241b019422c10";
-	var currentUser = User.getById({_id: currentUserId});*/
-
 	// Video upload
 	function uploadVideo(file, callback) {
 		uploadFactory(file).success(function(data) {
@@ -42,18 +39,21 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 						createdAt: currentDate
 					}, function(data) {
 						if(!data.status){
-							newPostId = data[0]._id;
-							User.update({_relate:{items: login.user, posts: newPost}});
-							Post.update({_relate:{items: newPost, author: login.user}});
-
+							newPost = data[0];
+							newPostId = newPost._id;
 							console.log("Post created with id ", newPostId);
-							console.log("videoPaths: ", $scope.videoPaths);
-							
-							$scope.content = "";
-							document.getElementById('videos').value = null;
-							$scope.successAlert = "Your post was successfully posted.";
-							$modalInstance.close("data form OK");
-						}else {
+							login.getUser(function(usrObj) {
+								usrObj.posts.push(newPostId);
+								User.update({_id: login.user._id}, {posts: usrObj.posts}, function() {
+									Post.update({_relate:{items: newPost, author: login.user}}, function() {
+										$scope.content = "";
+										document.getElementById('videos').value = null;
+										$scope.successAlert = "DONE! Your post was successfully posted.";
+										$modalInstance.close("data form OK");
+									});
+								});
+							});
+						} else {
 							// success alert
 							$scope.errorAlert = "OUCH! The post failed to be posted.";
 						}

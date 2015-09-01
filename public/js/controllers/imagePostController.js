@@ -5,9 +5,6 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 
 	$scope.user = login.user;
 
-	/*var currentUserId = "55e3735eb4d241b019422c10";
-	var currentUser = User.getById({_id: currentUserId});*/
-
 	// image post upload & submit handler
 	function uploadImage(file, callback) {
 		uploadFactory(file).success(function(data) {
@@ -24,7 +21,6 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 
 	$scope.imagePostSubmit = function() {
 		$scope.imagePaths = [];
-		// console.log("image files: ", $scope.images);
 		$scope.images.forEach(function(image, index) {
 			var i = index;
 			uploadImage($scope.images[i], function() {
@@ -36,18 +32,21 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 						images: $scope.imagePaths,
 						createdAt: currentDate
 					}, function(data) {
-						if (!data.status){
-							newPostId = data[0]._id;
-							User.update({_relate:{items: login.user, posts: newPost}});
-							Post.update({_relate:{items: newPost, author: login.user}});
-
-							$scope.successAlert = "DONE! Your post was successfully posted.";
-							$scope.content = "";
-							// console.log("content: ", $scope.content);
-							// $scope.imagePaths = [];
-							document.getElementById('images').value = null;
-
-							$modalInstance.close("data form OK");
+						if (!data.status) {
+							newPost = data[0];
+							newPostId = newPost._id;
+							console.log("Post created with id ", newPostId);
+							login.getUser(function(usrObj) {
+								usrObj.posts.push(newPostId);
+								User.update({_id: login.user._id}, {posts: usrObj.posts}, function() {
+									Post.update({_relate:{items: newPost, author: login.user}}, function() {
+										$scope.content = "";
+										document.getElementById('images').value = null;
+										$scope.successAlert = "DONE! Your post was successfully posted.";
+										$modalInstance.close("data form OK");
+									});
+								});
+							});
 						} else {
 							// error alert
 							$scope.errorAlert = "OUCH! The post failed to be posted.";
