@@ -1,4 +1,4 @@
-app.factory("login", ["$http", "$rootScope", "$location", function($http, $rootScope, $location) {
+app.factory("login", ["$http", "$rootScope", "$location", "User", function($http, $rootScope, $location, User) {
 
 	function updateObj(inObj, outObj) {
 		for (var i in inObj) {
@@ -38,6 +38,13 @@ app.factory("login", ["$http", "$rootScope", "$location", function($http, $rootS
 
 				callback && callback(loginObj.user);
 			});
+		},
+		getUser: function(callback) {
+			if (loginObj.user._id) {
+				User.getById(loginObj.user._id, callback);
+			} else {
+				callback(false);
+			}
 		}
 	};
 
