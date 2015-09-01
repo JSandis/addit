@@ -27,6 +27,7 @@ app.controller("menuController", ["$http", "$scope", "addPostFactory", "login", 
 		var deletePost = confirm("Are you sure you want to log out?");
 		if(deletePost) {
 			login.logout();
+			$scope.user = undefined;
 			console.log("User was successfully logged out");
 			// console.log("User will be successfully logged out when implemented");
 		} else {
