@@ -3,7 +3,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 	console.log("userpageController: I'm alive!");
 
 	$scope.user = login.user;
-	
+
 	$scope.posts = Post.get({author: login.user._id});
 
 	/*$scope.deleteUserAndItsPosts = function(user) {
@@ -43,7 +43,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 	};
 
 	$scope.openEditPost = function(post, size) {
-		
+
 		var modalInstance = $modal.open({
 			animation: $scope.animationsEnabled,
 			templateUrl: 'partials/textpost.html',
