@@ -3,14 +3,14 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 	$scope.title = title;
 	$scope.post = [];
 
-	$scope.user = login.user;
+	$scope.user = login.getUser();
 
 	// image post upload & submit handler
 	function uploadImage(file, callback) {
 		uploadFactory(file).success(function(data) {
 			$scope.imagePaths.push(data);
-			console.log("saved image file, public path: ", data);
-			console.log("imagePaths: ", $scope.imagePaths);
+			// console.log("saved image file, public path: ", data);
+			// console.log("imagePaths: ", $scope.imagePaths);
 			callback();
 		}).error(function(data) {
 			//error alert for image upload
@@ -38,8 +38,8 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 							console.log("Post created with id ", newPostId);
 							login.getUser(function(usrObj) {
 								usrObj.posts.push(newPostId);
-								User.update({_id: login.user._id}, {posts: usrObj.posts}, function() {
-									Post.update({_relate:{items: newPost, author: login.user}}, function() {
+								User.update({_id: usrObj._id}, {posts: usrObj.posts}, function() {
+									Post.update({_relate:{items: newPost, author: usrObj}}, function() {
 										$scope.content = "";
 										$scope.successAlert = "DONE! Your post was successfully posted.";
 										$modalInstance.close("data form OK");
