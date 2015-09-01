@@ -47,7 +47,6 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 								User.update({_id: login.user._id}, {posts: usrObj.posts}, function() {
 									Post.update({_relate:{items: newPost, author: login.user}}, function() {
 										$scope.content = "";
-										document.getElementById('videos').value = null;
 										$scope.successAlert = "DONE! Your post was successfully posted.";
 										$modalInstance.close("data form OK");
 									});
