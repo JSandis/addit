@@ -16,10 +16,8 @@ module.exports = function(mongoose) {
 				return;
 			}
 
-			console.log("unencrypted password: ", req.body.password);
 			// encrypt password
 			req.body.password = sha256(config.hashSalt + req.body.password);
-			console.log("encrypted password: ", req.body.password);
 
 			mongoose.model("User").findOne(req.body, function(err, data) {
 				if(err) {

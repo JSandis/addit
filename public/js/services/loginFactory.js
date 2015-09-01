@@ -13,9 +13,7 @@ app.factory("login", ["$http", "$rootScope", "$location", "User", function($http
 	var loginObj = {
 		user: {},
 		login: function(credentials, callback) {
-			console.log("login factory credentials: ", credentials);
 			$http.post('api/login', credentials).success(function(data) {
-				console.log("login factory data: ",data);
 				updateObj(data ? data : {}, loginObj.user);
 
 				$rootScope.$broadcast("login");
