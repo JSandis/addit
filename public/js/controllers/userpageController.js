@@ -3,37 +3,10 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 	console.log("userpageController: I'm alive!");
 
 	$scope.user = login.user;
-
-	/*var currentUserId = "55e3735eb4d241b019422c10";
-	var currentUser = User.getById({_id: currentUserId}, function() {
-	// console.log("c", currentUser);
-	});*/
-	// window.scope = $scope;
-
-	/*$scope.users = User.get(function() {
-		if($scope.users.length === 0) {
-			$scope.testuser = User.create({username: "testuser", email: "test@test.com", password: "CC03E747A6AFBBCBF8BE7668ACFEBEE5"}, function() {
-				console.log("User created: "+$scope.testuser);
-			});
-		}
-
-		// Delete all users and its posts
-		// for (var i = 0; i < $scope.users.length; i++) {
-		//  // Delete user from db
-		//	deleteUserAndItsPosts($scope.users[i]);
-		// }
-	});*/
 	
 	$scope.posts = Post.get({author: login.user._id});
 
-	// Delete all posts from all users and update the users posts
-	/*$scope.posts = Post.get(function() {
-		for (var i = 0; i < $scope.posts.length; i++) {
-			deletePostAndUpdateUserPosts($scope.posts[i]);
-		}
-	});*/
-
-	function deleteUserAndItsPosts(user) {
+	/*$scope.deleteUserAndItsPosts = function(user) {
 		var posts = Post.get({author: user._id}, function() {
 			console.log("userPosts: ", posts);
 			//Loop through posts and delete
@@ -43,9 +16,9 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 		});
 		user.$delete();
 		console.log("User is deleted");
-	}
+	};*/
 
-	function deletePostAndUpdateUserPosts(post) {
+	$scope.deletePostAndUpdateUserPosts = function(post) {
 		// Remove the element from the array
 		var index = $scope.posts.indexOf(post);
 		$scope.posts.splice(index, 1);
@@ -57,12 +30,12 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 			}
 		});
 
-	}
+	};
 
 	$scope.deletePost = function(post) {
 		var deletePost = confirm("Are you sure you want to delete the post?");
 		if(deletePost) {
-			deletePostAndUpdateUserPosts(post);
+			$scope.deletePostAndUpdateUserPosts(post);
 			console.log("Post was successfully deleted");
 		} else {
 			console.log("Post was not deleted");
