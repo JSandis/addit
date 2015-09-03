@@ -6553,6 +6553,10 @@ google fonts CSS:
     font-family: 'Oldenburg', cursive;
     font-family: 'Kite One', sans-serif;
 */
+.panel-title {
+  float: left;
+  font-weight: bold;
+}
 .nav,
 .pagination,
 .carousel,
@@ -6727,4 +6731,10 @@ ul .dropdown-menu > li > a:hover {
 .glyphicon-trash {
   color: #40B3DF;
   margin-right: 8px;
+}
+.col-center-block {
+  float: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

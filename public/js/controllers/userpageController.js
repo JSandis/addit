@@ -2,7 +2,8 @@
 app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal", "$log", "$routeParams", "$location", "addPostFactory", "login", function($http, $scope, User, Post, $modal, $log, $routeParams, $location, addPostFactory, login) {
 	// console.log("userpageController: I'm alive!");
 
-	$scope.user = login.getUser(function(data) {
+	login.getUser(function(data) {
+		$scope.user = data;
 		$scope.posts = Post.get({author: data._id});
 	});
 
