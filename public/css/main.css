@@ -6579,6 +6579,9 @@ header {
   height: auto;
   font-family: 'Telex', sans-serif;
 }
+header .navbar-brand {
+  height: auto;
+}
 .fa-search {
   color: #777;
 }
@@ -6637,7 +6640,7 @@ ul .dropdown-menu > li > a:hover {
   color: #40B3DF;
 }
 .navbar-text {
-  background-color: #C1E8F5;
+  background-color: #c1e8f5;
   text-align: center;
   width: 80px;
   padding: 5px;
@@ -6645,7 +6648,7 @@ ul .dropdown-menu > li > a:hover {
   border: 1px solid lightgray;
 }
 .navbar-text:hover {
-  background-color: #96DBF2;
+  background-color: #96dbf2;
 }
 .signup-form {
   margin-top: 30px;

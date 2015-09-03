@@ -19,7 +19,7 @@ google fonts CSS:
 
 // Variables for Log In and Sign In buttons
 @bgcolor: #C1E8F5;
-@hovercolor: #96DBF2
+@hovercolor: #96DBF2;
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
@@ -45,6 +45,10 @@ header {
     background-color: @mainColor;
     height: auto;
     font-family: @headerfont;
+
+    .navbar-brand {
+      height: auto;
+    }
 }
 
 .fa-search {
@@ -190,12 +194,12 @@ ul {
 
   .nav .open > a:hover {
 
-    background-color: #fff;    
+    background-color: #fff;
 
   }
 }
 
-.postImage img { 
+.postImage img {
     margin: 2px 0 5px 2px;
     width: 100%;
 }
@@ -209,20 +213,20 @@ ul {
     // overflow-y: auto;
 
   }
-  
+
   img {
     width: 100%;
     margin-bottom: 5px;
     cursor: pointer;
     display: block;
     border: 2px solid #fff;
-    
+
     &:hover {
       box-shadow: 0px 1px 2px #444;
       transition: all .1s ease-in-out;
       border-color: #fff;
     }
-    
+
     &:active {
       opacity: .70;
       box-shadow: 0px 1px 4px #666;
