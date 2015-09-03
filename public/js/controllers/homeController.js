@@ -2,12 +2,11 @@
 app.controller("homeController", ["$http", "$scope", "login", "Post", "User", function($http, $scope, login, Post, User) {
 	// console.log("homeController: I'm alive!");
 
-    login.getUser(function(data) {
-        $scope.user = data;
-        $scope.posts = Post.get({author: data._id, _populate:"author"});
-    });
 
-  // $scope.users = User.get();
+  $scope.users = User.get(function(data) {
+        $scope.user = data;
+        $scope.posts = Post.get({author: data._id, _populate:"author"});    
+  });
 
   //   $scope.posts = Post.get({author: data._id, _populate:"author"});
 
