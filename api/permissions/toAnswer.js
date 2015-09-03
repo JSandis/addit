@@ -9,7 +9,10 @@ module.exports = function(modelName, method, query, req, res) {
 		return true;
 	}
 
-	if (req.method != "GET" && !req.session.user) {
+	if (
+		(req.method != "GET" && !req.session.user) &&
+		!(req.method == "POST" && modelName == "User")
+	) {
 		return false;
 	}
 
