@@ -4,7 +4,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 
 	login.getUser(function(data) {
 		$scope.user = data;
-		$scope.posts = Post.get({author: data._id});
+		$scope.posts = Post.get({author: data._id, _populate:"author"});
 	});
 
 	$scope.deletePost = function(post) {
