@@ -1,7 +1,7 @@
 app.factory("login", ["$http", "$rootScope", "$location", "User", function($http, $rootScope, $location, User) {
 
 	function updateObj(inObj, outObj) {
-		for (var i in inObj) {
+		for (var i in outObj) {
 			delete outObj[i];
 		}
 
@@ -17,7 +17,7 @@ app.factory("login", ["$http", "$rootScope", "$location", "User", function($http
 				updateObj(data ? data : {}, loginObj.user);
 
 				$rootScope.$broadcast("login");
-				
+
 				callback && callback(loginObj.user);
 			});
 		},
