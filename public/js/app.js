@@ -1,5 +1,5 @@
 //app declaration and dependency injection
-var app = angular.module("addit", ["ngRoute", "ngResource", 'ngFileUpload', "ui.bootstrap"]);
+var app = angular.module("addit", ["ngRoute", "ngResource", "ngAnimate", "ngFileUpload", "ui.bootstrap"]);
 
 //app config
 app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
