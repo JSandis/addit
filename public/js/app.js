@@ -9,6 +9,14 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
       templateUrl: "partials/home.html",
       controller: "homeController"
     })
+    .when( "/search" , {
+      templateUrl: "partials/searchpage.html",
+      controller: "searchController"
+    })
+    .when( "/userpage/search/" , {
+      templateUrl: "partials/searchpage.html",
+      controller: "searchController"
+    })
     .when("/userpage/:op?", {
       templateUrl: "partials/userpage.html",
       controller: "userpageController",
