@@ -6553,6 +6553,9 @@ google fonts CSS:
     font-family: 'Oldenburg', cursive;
     font-family: 'Kite One', sans-serif;
 */
+.navbar {
+  background-color: #ffffff;
+}
 .panel-title {
   float: left;
   font-weight: bold;
