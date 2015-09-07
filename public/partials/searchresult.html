@@ -1,0 +1,61 @@
+<div ng-if="results" class="col-xs-12 col-md-8 col-lg-10 col-center-block">
+	
+	<h1 id="search-result-title">Search result</h1>
+
+	<div id="result-panel-group" class="panel-group" ng-repeat="post in results | orderBy: '-createdAt'">
+		<div class="panel panel-default">
+			<div class="panel-heading" ng-click="isCollapsed = !isCollapsed">
+
+				<!-- Panel title -->
+				<h3 class="panel-title">{{post.author.username}}</h3>
+
+				<p>{{post.content}}</p>
+
+				<i ng-if="!isCollapsed" class="glyphicon glyphicon-minus pull-right"></i>
+				<i ng-if="isCollapsed" class="glyphicon glyphicon-plus pull-right"></i>
+			</div>
+
+			<div collapse="isCollapsed">
+
+				<!-- Images -->
+				<div ng-if="post.videos.length == '' || !post.images.length == ''" class="row" ng-controller="galleryController as gallery">
+					<div class="col-xs-11 col-sm-10 col-md-10">
+						<div class="postImage">
+							<img class="img-responsive" 
+							ng-src="{{post.images[gallery.current]}}" 
+							image-resize image-percent="100"/>
+						</div>
+
+					</div>
+					<div class="col-xs-1 col-sm-2 col-md-2">
+						<div class="wrapper">
+							<ul class="imageList">
+								<li ng-repeat="imagePath in post.images">
+									<img class="img-responsive" ng-src="{{imagePath}}" ng-click="gallery.setCurrent(post.images.indexOf(imagePath))">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!--Videos -->
+				<div ng-if="!post.videos.length == '' || post.images.length == ''" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
+					<video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
+				</div>
+
+				<!-- Text content -->
+				<div class="panel-body">
+					<p>{{post.content}}</p>
+				</div>
+
+				<!-- Panel footer -->
+				<div class="panel-footer" ng-if="post.createdAt">{{post.createdAt | date:'yyyy-MM-dd HH:mm'}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-if="!results" id="no-results" class="col-xs-12 col-md-8 col-lg-10 col-center-block">
+	<h3>Search results.</h3>
+	<p>Found none.</p>
+</div>

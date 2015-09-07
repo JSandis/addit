@@ -9,14 +9,15 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
       templateUrl: "partials/home.html",
       controller: "homeController"
     })
-    .when( "/search" , {
-      templateUrl: "partials/searchpage.html",
-      controller: "searchController"
-    })
     .when("/userpage/:op?", {
       templateUrl: "partials/userpage.html",
       controller: "userpageController",
       login: true // the route is login protected
+    })
+    .when( "/search" , {
+      templateUrl: "partials/searchresult.html",
+      controller: "searchController",
+      login: true
     })
     .otherwise({
       redirectTo: "/"
