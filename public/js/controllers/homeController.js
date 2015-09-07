@@ -6,26 +6,6 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", fu
   $scope.users = User.get(function(data) {
     $scope.user = data;
     $scope.posts = Post.get({author: data._id, _populate:"author"});   
-
-    $scope.totalposts=0;    
-    $scope.startList = 0;
-    $scope.stopLoadingData = false;
-
-    $scope.more = function () {
-        if (!$scope.stopLoadingData) {
-            $scope.loading = true;
-            $http.get($scope.posts, {"startList": $scope.startList}).success(function (data) {
-                $scope.totalposts=data.totalposts;
-                angular.forEach(data.posts,function (key) {
-                    $scope.posts.push(key);                    
-                });      
-                $scope.stopLoadingData = ($scope.posts.length === $scope.totalposts);
-                $scope.startList += 10;
-            });
-        };
-        $scope.loading = false;
-    };
-    $scope.more();//twice execute-> controller:load and scroll:load
 });
 
   //   $scope.posts = Post.get({author: data._id, _populate:"author"});
