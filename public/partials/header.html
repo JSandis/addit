@@ -21,9 +21,10 @@
             <li ng-show="user._id"><a ng-href="/userpage"><img class="profile-image" ng-src="">My page: &nbsp;{{user.username}}</a></li>
         </ul>
 
+        <!-- search form -->
         <form class="navbar-form navbar-left search-form" role="search" ng-controller="searchController" ng-submit="searchSubmit()">
           <div class="form-group search-bar-wrapper">
-            <input type="text" id="search-bar" class="form-control" placeholder="Search addIT">
+            <input type="text" id="search-bar" namn="search-bar" class="form-control" placeholder="Search addIT" ng-model="searchString">
           </div>
           <button type="submit" class="btn btn-default search-button">
             <i class="fa fa-search"></i>
