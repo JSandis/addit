@@ -53,7 +53,7 @@ app.controller("userpageController", ["$http", "$scope", "User", "Post", "$modal
 	};
 
 	if ($routeParams.op && $routeParams.op == 'add') {
-		addPostFactory.openAddPost('Add Post', 'partials/addpost.html', 'modalController');
+		addPostFactory.openAddPost('Choose, then addIt.', 'partials/addpost.html', 'modalController');
 	}
 
 }]);
