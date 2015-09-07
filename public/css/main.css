@@ -6716,7 +6716,7 @@ ul .dropdown-menu > li > a:hover {
 }
 .panel > .panel-heading .nav > li > a,
 .panel-footer .nav > li > a {
-  margin: -10px 0 0 0;
+  margin: -25px 0 0 0;
   padding: 8px 12px 1px 12px;
   color: #5fceef;
 }
