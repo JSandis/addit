@@ -26,11 +26,6 @@ google fonts CSS:
   background-color: @navbarBgColor;
 }
 
-.panel-title {
-  float: left;
-  font-weight: bold;
-}
-
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 * {
@@ -350,3 +345,44 @@ ul {
 }
 
 // Stop line for styles used on home.html
+
+// searchresult.html
+#result-panel-group {
+  margin-bottom: 10px;
+
+  .panel {
+    margin: 0px;
+  }
+
+  .panel > .panel-heading{
+    padding-top: 15px;
+    margin: 0 0 0 0;
+    height: 50px;
+
+    .panel-title {
+      float: left;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    p {
+      float: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 75%;
+      margin: 0px;
+    }
+  }
+}
+
+#search-result-title {
+  text-align: center;
+}
+
+#no-results {
+  h3, p {
+    text-align: center;
+  }
+}
+// end of searchresult.html

@@ -6556,10 +6556,6 @@ google fonts CSS:
 .navbar {
   background-color: #ffffff;
 }
-.panel-title {
-  float: left;
-  font-weight: bold;
-}
 .nav,
 .pagination,
 .carousel,
@@ -6807,4 +6803,35 @@ ul .dropdown-menu > li > a:hover {
 .carousel-control.right {
   background: none;
   top: 20px;
+}
+#result-panel-group {
+  margin-bottom: 10px;
+}
+#result-panel-group .panel {
+  margin: 0px;
+}
+#result-panel-group .panel > .panel-heading {
+  padding-top: 15px;
+  margin: 0 0 0 0;
+  height: 50px;
+}
+#result-panel-group .panel > .panel-heading .panel-title {
+  float: left;
+  font-weight: bold;
+  margin-right: 15px;
+}
+#result-panel-group .panel > .panel-heading p {
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75%;
+  margin: 0px;
+}
+#search-result-title {
+  text-align: center;
+}
+#no-results h3,
+#no-results p {
+  text-align: center;
 }
