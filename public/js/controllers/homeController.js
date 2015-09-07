@@ -5,7 +5,19 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", fu
 
   $scope.users = User.get(function(data) {
     $scope.user = data;
-    $scope.posts = Post.get({author: data._id, _populate:"author"});   
+    $scope.posts = Post.get({author: data._id, _populate:"author"}); 
+
+    //$scope.posts = [];
+    
+    var counter = 0;
+    $scope.loadMore = function() {
+    for (var post = 0; post < 5; post++) {
+        $scope.posts.push({content:counter});
+        counter += 10;
+    }
+};
+
+$scope.loadMore();  
 });
 
   //   $scope.posts = Post.get({author: data._id, _populate:"author"});
