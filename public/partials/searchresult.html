@@ -1,6 +1,6 @@
 
 <div ng-if="searchResult" class="row col-xs-12 col-md-8 col-lg-10 col-center-block">
-	
+
 	<h1 id="search-result-title">Search result</h1>
 
 	<div id="result-panel-group" class="panel-group" ng-repeat="post in searchResult | orderBy: '-createdAt' as srcRes">
@@ -22,8 +22,8 @@
 				<div ng-if="post.videos.length == '' || !post.images.length == ''" class="row" ng-controller="galleryController as gallery">
 					<div class="col-xs-11 col-sm-10 col-md-10">
 						<div class="postImage">
-							<img class="img-responsive" 
-							ng-src="{{post.images[gallery.current]}}" 
+							<img class="img-responsive"
+							ng-src="{{post.images[gallery.current]}}"
 							image-resize image-percent="100"/>
 						</div>
 
@@ -56,7 +56,6 @@
 	</div>
 </div>
 
-<div ng-if="!searchResult" id="no-results" class="col-xs-12 col-md-8 col-lg-10 col-center-block">
-	<h3>Search results.</h3>
-	<p>Found none.</p>
+<div class="col-xs-12 col-md-8 col-lg-10 col-center-block">
+	<h3 ng-if="!searchResult.length" id="no-results"> Sorry, no results found. </h3>
 </div>
