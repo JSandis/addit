@@ -6642,9 +6642,6 @@ ul .dropdown-menu > li > a:hover {
 .fa-film {
   color: #40B3DF;
 }
-.search-form {
-  width: 282px;
-}
 .search-bar-wrapper {
   width: 209px;
 }
@@ -6677,7 +6674,16 @@ ul .dropdown-menu > li > a:hover {
   background-color: #aaffc8;
   color: lightblue;
 }
+#navbar-link {
+  text-align: center;
+  margin: 20px 15px 15px 15px;
+}
+#navbar-link a {
+  padding: 5px;
+  font-size: 18px;
+}
 .navbar-text {
+  margin: 20px 15px 15px 15px;
   background-color: #c1e8f5;
   text-align: center;
   width: 80px;
