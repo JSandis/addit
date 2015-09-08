@@ -130,6 +130,12 @@ ul {
 }
 
 // START LINE for search-bar style
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .search-form {
+    margin-top: 0;
+  }
+}
+
 .search-bar-wrapper {
   width: 209px;
 }
@@ -173,7 +179,13 @@ ul {
 }
 // END LINE for addpost-modal
 
-// START LINE for userpage and Add post links
+// START LINE for navbar-toggle
+.navbar-toggle {
+  margin: 20px 15px 15px 15px;
+}
+// END LINE for navbar-toggle
+
+// START LINE for navbar links (userpage, Add post and Log Out)
 #navbar-link {
   text-align: center;
   margin: 20px 15px 15px 15px;
@@ -181,9 +193,26 @@ ul {
   a {
     padding: 5px;
     font-size: 18px;
+    
+    .link-text {
+      display: none;
+    }
+    .link-icon {
+      display: block;
+    }
+
+    @media screen and (min-width: 0px) and (max-width: 768px) {
+      .link-text {
+        display: block;
+      }
+      .link-icon {
+        display: none;
+      }
+    }
   }
+
 }
-// END LINE for userpage and Add post links
+// END LINE for navbar links (userpage, Add post and Log Out)
 
 // START LINE for Sign Up and Log Out links/buttons
 .navbar-text {
@@ -355,7 +384,7 @@ ul {
 
 // Stop line for styles used on home.html
 
-// searchresult.html
+// START LINE for searchresult
 #result-panel-group {
   margin-bottom: 10px;
 
@@ -413,4 +442,4 @@ ul {
     text-align: center;
   }
 }
-// end of searchresult.html
+// END LINE for searchresult

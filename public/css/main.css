@@ -6642,6 +6642,11 @@ ul .dropdown-menu > li > a:hover {
 .fa-film {
   color: #40B3DF;
 }
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .search-form {
+    margin-top: 0;
+  }
+}
 .search-bar-wrapper {
   width: 209px;
 }
@@ -6674,6 +6679,9 @@ ul .dropdown-menu > li > a:hover {
   background-color: #aaffc8;
   color: lightblue;
 }
+.navbar-toggle {
+  margin: 20px 15px 15px 15px;
+}
 #navbar-link {
   text-align: center;
   margin: 20px 15px 15px 15px;
@@ -6681,6 +6689,20 @@ ul .dropdown-menu > li > a:hover {
 #navbar-link a {
   padding: 5px;
   font-size: 18px;
+}
+#navbar-link a .link-text {
+  display: none;
+}
+#navbar-link a .link-icon {
+  display: block;
+}
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  #navbar-link a .link-text {
+    display: block;
+  }
+  #navbar-link a .link-icon {
+    display: none;
+  }
 }
 .navbar-text {
   margin: 20px 15px 15px 15px;
