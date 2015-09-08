@@ -11,8 +11,8 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", fu
     
     var counter = 0;
     $scope.loadMore = function() {
-    for (var post = 0; post < 5; post++) {
-        $scope.posts.push({content:counter});
+    for (var posts = 0; posts < 5; posts++) {
+        //$scope.posts.push({posts:counter});
         counter += 10;
     }
 };
