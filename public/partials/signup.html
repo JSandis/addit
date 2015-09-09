@@ -12,12 +12,12 @@
 	<alert ng-if="signupErrorMsg" type="error">{{signupErrorMsg}}</alert>
 
 	<!-- Signup Form -->
-  <form name="signupForm" ng-hide="signupSuccessMsg" class="form-horizontal signup-form" ng-submit="signupForm.$valid && newUser.password == passwordConfirm && signupSubmit()" novalidate>
+  <form name="signupForm" ng-hide="signupSuccessMsg" class="form-horizontal modal-form-md" ng-submit="signupForm.$valid && newUser.password == passwordConfirm && signupSubmit()" novalidate>
 
   	<!-- Username -->
     <div class="form-group">
-			<label for="username" class="col-sm-2 control-label"><i class="fa fa-user"></i></label>
-			<div class="col-sm-5">
+			<label for="username" class="col-sm-1 control-label"><i class="fa fa-user"></i></label>
+			<div class="col-sm-11">
 				<input ng-model="newUser.username" type="username" class="form-control" name="username" id="username" placeholder="Your fantastic AddIt username." ng-minlength="3" ng-change="checkUsername(signupForm, newUser.username)" required>
 				<!-- Error message -->
 				<p ng-show="signupForm.username.$invalid && submitted" class="help-block alert alert-danger">Username is invalid.</p>
@@ -29,8 +29,8 @@
 
 		<!-- Password -->
 		<div class="form-group">
-			<label for="password" class="col-sm-2 control-label"><i class="fa fa-lg fa-lock"></i></label>
-			<div class="col-sm-5">
+			<label for="password" class="col-sm-1 control-label"><i class="fa fa-lg fa-lock"></i></label>
+			<div class="col-sm-11">
 				<input ng-model="newUser.password" type="password" class="form-control" name="password" id="password" placeholder="Pick a safe password." ng-minlength="3" required>
 				<!-- Error message -->
 				<p ng-show="signupForm.password.$error.required && submitted" class="help-block alert alert-danger">Password is required.</p>
@@ -39,8 +39,8 @@
 		</div>
 		<!-- Password Confirm -->
 		<div class="form-group">
-			<label for="passwordConfirm" class="col-sm-2 control-label"><i class="fa fa-lg fa-lock"></i></label>
-			<div class="col-sm-5" ng-class="{true: 'has-error', false:''}[signupForm.email.$invalid && submitted]">
+			<label for="passwordConfirm" class="col-sm-1 control-label"><i class="fa fa-lg fa-lock"></i></label>
+			<div class="col-sm-11" ng-class="{true: 'has-error', false:''}[signupForm.email.$invalid && submitted]">
 				<input ng-model="passwordConfirm" type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm your password." required>
 				<!-- Error message -->
 				<p ng-show="signupForm.passwordConfirm.$touched && newUser.password != passwordConfirm" class="help-block alert alert-danger">Passwords don't match!</p>
@@ -49,8 +49,8 @@
 
 		<!-- Email -->
 		<div class="form-group">
-			<label for="email" class="col-sm-2 control-label"><i class="fa fa-envelope"></i></label>
-			<div class="col-sm-5" >
+			<label for="email" class="col-sm-1 control-label"><i class="fa fa-envelope"></i></label>
+			<div class="col-sm-11" >
 				<input ng-model="newUser.email" name="email" type="email" class="form-control" id="email" placeholder="Email.">
 				<!-- Error message -->
 				<p ng-show="signupForm.email.$invalid && submitted" class="help-block alert alert-danger">Please enter a valid email.</p>
@@ -59,7 +59,7 @@
 
 		<!-- Submit button -->
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-2">
+      <div class="col-sm-offset-1 col-sm-11">
         <button type="submit" ng-click="submitted = signupForm.$invalid" class="btn btn-default">Join AddIt</button>
       </div>
     </div>

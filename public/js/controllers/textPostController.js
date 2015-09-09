@@ -5,6 +5,11 @@ app.controller("textPostController", ["$scope", "$modalInstance", "title", "uplo
 
 	$scope.user = login.user;
 
+	$scope.onTagRemoving = function() {
+		$scope.maxTags = false;
+		return true;
+	};
+
 	$scope.textPostSubmit = function() {
 		var currentDate = new Date();
 

@@ -6633,6 +6633,9 @@ ul .dropdown-menu {
 ul .dropdown-menu > li > a:hover {
   background-color: #fcfcfc;
 }
+.fa-tags {
+  color: #40B3DF;
+}
 .fa-pencil {
   color: #40B3DF;
 }
@@ -6693,6 +6696,24 @@ ul .dropdown-menu > li > a:hover {
   background-color: #aaffc8;
   color: lightblue;
 }
+.modal-sm {
+  width: 400px;
+}
+.modal-md {
+  width: 500px;
+}
+.modal-form-sm .form-group {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.modal-form-md .form-group {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.modal-form-lg .form-group {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 .navbar-toggle {
   margin: 20px 15px 15px 15px;
 }
@@ -6729,9 +6750,6 @@ ul .dropdown-menu > li > a:hover {
     display: none;
   }
 }
-.signup-form {
-  margin-top: 30px;
-}
 .fa-user {
   color: lightgreen;
 }
@@ -6740,6 +6758,12 @@ ul .dropdown-menu > li > a:hover {
 }
 .fa-envelope {
   color: orange;
+}
+.alert-tags {
+  margin: 0;
+  padding: 5px;
+  border: 0;
+  background-color: transparent;
 }
 .floatLeft {
   float: left;

@@ -54,14 +54,14 @@
             </li>
 
             <li ng-hide="user._id" id="navbar-link" ng-controller="loginController">
-               <a ng-click="open()">
+               <a ng-click="open('sm')" aria-label="Log In">
                   <i class="link-icon fa fa-sign-in" aria-hidden="true" data-toggle="tooltip" tooltip="Log in" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">Log In</span>
                </a>
             </li>
             
             <li ng-hide="user._id" id="navbar-link" ng-controller="signUpController">
-               <a ng-click="open()">
+               <a ng-click="open('md')" aria-label="Sign Up">
                   <i class="link-icon fa fa-user-plus" aria-hidden="true" data-toggle="tooltip" tooltip="Sign up" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">Sign Up</span>
                </a>
