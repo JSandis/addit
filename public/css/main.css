@@ -6698,7 +6698,7 @@ ul .dropdown-menu > li > a:hover {
 }
 #navbar-link {
   text-align: center;
-  margin: 20px 15px 15px 15px;
+  margin: 18px 15px 15px 15px;
 }
 #navbar-link a {
   padding: 5px;
@@ -6709,6 +6709,8 @@ ul .dropdown-menu > li > a:hover {
 }
 #navbar-link a .link-icon {
   display: block;
+  font-size: 24px;
+  color: #777777;
 }
 @media screen and (min-width: 0px) and (max-width: 768px) {
   .navbar-nav {
@@ -6726,18 +6728,6 @@ ul .dropdown-menu > li > a:hover {
   .navbar-nav #navbar-link a .link-icon {
     display: none;
   }
-}
-.navbar-text {
-  margin: 20px 15px 15px 15px;
-  background-color: #c1e8f5;
-  text-align: center;
-  width: 80px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-}
-.navbar-text:hover {
-  background-color: #96dbf2;
 }
 .signup-form {
   margin-top: 30px;
