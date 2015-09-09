@@ -1,6 +1,12 @@
-app.controller('searchController', ["$http", "$scope","$location","$rootScope", "Post", function($http,$scope,$location,$rootScope, Post){
+app.controller('searchController', ["$http", "$scope","$location","$rootScope", "Post","User", function($http,$scope,$location,$rootScope, Post, User){
 
 	$scope.isCollapsed = true;
+
+
+	$scope.users = User.get(function(data) {
+    $scope.user = data;
+    $scope.posts = Post.get({author: data._id, _populate:"author"});
+  });
 
   $scope.searchSubmit = function(){
 		console.log( "searchController is up and running.");
@@ -8,7 +14,7 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 
 
 		// get the posts that matches the string in the search bar
-		Post.get({_all: new RegExp($scope.searchString,"i")}, function(data){
+		Post.get({_all: new RegExp($scope.searchString,"i"), _populate:"author"}, function(data){
 			if(data.length){
 
 				console.log("FOUND:",data);
