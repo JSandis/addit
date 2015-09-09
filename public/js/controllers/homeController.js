@@ -5,24 +5,28 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", fu
 
   $scope.users = User.get(function(data) {
     $scope.user = data;
-    $scope.posts = Post.get({author: data._id, _populate:"author"}); 
+    $scope.posts = Post.get({author: data._id, _populate:"author"});
 
-    //$scope.posts = [];
-    
-    var counter = 0;
-    $scope.loadMore = function() {
-    for (var posts = 0; posts < 5; posts++) {
-        //$scope.posts.push({posts:counter});
-        counter += 10;
-    }
-};
+      //$scope.posts = [];
+    window.scope = $scope;
 
-$scope.loadMore();  
-});
+      $scope.loadMore = function() {
 
-  //   $scope.posts = Post.get({author: data._id, _populate:"author"});
+        var last = $scope.posts[$scope.posts.length -1];
+        for (var i = 1; i <= 5; i++) {
 
-    $scope.myInterval = -1;
+          $scope.posts.push(last + i);
+        }
+
+      };
+
+    $scope.loadMore();
+
+  });
+
+
+
+$scope.myInterval = -1;
 
   
     // var post.images = [];
