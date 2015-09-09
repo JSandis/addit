@@ -3,11 +3,6 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 	$scope.isCollapsed = true;
 
 
-	$scope.users = User.get(function(data) {
-    $scope.user = data;
-    $scope.posts = Post.get({author: data._id, _populate:"author"});
-  });
-
   $scope.searchSubmit = function(){
 		console.log( "searchController is up and running.");
 		console.log( "The RegExp: ",new RegExp($scope.searchString,"i"));
