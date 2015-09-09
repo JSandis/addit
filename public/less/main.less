@@ -130,25 +130,41 @@ ul {
 }
 
 // START LINE for search-bar style
-@media screen and (min-width: 0px) and (max-width: 768px) {
-  .search-form {
-    margin-top: 0;
+
+.search-form {
+  margin: 18px 15px 15px 15px;
+
+  .search-input-group {
+    width: 300px;
   }
 }
 
-.search-bar-wrapper {
-  width: 209px;
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .search-form {
+    margin: 0 -15px 0 -15px;
+
+    .search-input-group {
+      width: 100%;
+
+      .form-control, .input-group-btn > .btn {
+        height: 46px;
+        font-size: 18px;
+        padding: 10px 16px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+      }
+      .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .input-group-btn > .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
 }
 
-#search-bar {
-  margin-top: 10px;
-  width: 211px;
-  color: gray;
-}
-
-.search-button {
-  margin-top: 10px;
-}
 // END LINE for search-bar style
 
 // START LINE for addpost-modal
@@ -200,17 +216,29 @@ ul {
     .link-icon {
       display: block;
     }
+  }
+}
 
-    @media screen and (min-width: 0px) and (max-width: 768px) {
-      .link-text {
-        display: block;
-      }
-      .link-icon {
-        display: none;
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    #navbar-link {
+      margin: 0;
+      padding: 15px;
+      border-bottom: 1px solid #e7e7e7;
+
+      a {
+        .link-text {
+          display: block;
+        }
+        .link-icon {
+          display: none;
+        }
       }
     }
   }
-
 }
 // END LINE for navbar links (userpage, Add post and Log Out)
 
