@@ -34,35 +34,35 @@
 
             <li ng-show="user._id" id="navbar-link">
                <a ng-href="/userpage" title="{{user.username}}'s page" aria-label="{{user.username}}'s page">
-                  <i class="link-icon fa fa-user" aria-hidden="true"></i>
+                  <i class="link-icon fa fa-user" aria-hidden="true" data-toggle="tooltip" tooltip="Show profile" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">{{user.username}}'s page</span>
                </a>
             </li>
 
             <li ng-show="user._id" id="navbar-link">
                <a ng-href="/userpage/add" title="Add Post" aria-label="Add Post">
-                  <i class="link-icon fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <i class="link-icon fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" tooltip="Add a post" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">Add Post</span>
                </a>
             </li>
 
             <li ng-show="user._id" id="navbar-link">
                <a ng-click="logOut()" title="Log Out" aria-label="Log Out">
-                  <i class="link-icon fa fa-sign-out" aria-hidden="true"></i>
+                  <i class="link-icon fa fa-sign-out" aria-hidden="true" data-toggle="tooltip" tooltip="Logout" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">Log Out</span>
                </a>
             </li>
 
             <li ng-hide="user._id" id="navbar-link" ng-controller="loginController">
                <a ng-click="open()" title="Log In" aria-label="Log In">
-                  <i class="link-icon fa fa-sign-in" aria-hidden="true"></i>
+                  <i class="link-icon fa fa-sign-in" aria-hidden="true" data-toggle="tooltip" tooltip="Log in" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">Log In</span>
                </a>
             </li>
             
             <li ng-hide="user._id" id="navbar-link" ng-controller="signUpController">
                <a ng-click="open()" title="Sign Up" aria-label="Sign Up">
-                  <i class="link-icon fa fa-user-plus" aria-hidden="true"></i>
+                  <i class="link-icon fa fa-user-plus" aria-hidden="true" data-toggle="tooltip" tooltip="Sign up" tooltip-placement="left"></i>
                   <span class="link-text" aria-hidden="true">Sign Up</span>
                </a>
             </li>
