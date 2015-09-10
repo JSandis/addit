@@ -16,6 +16,7 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 				$rootScope.searchResult = data;
 				// change location to /search
 				$location.url("/search");
+				$scope.SearchError = false;
 			}else if(!$scope.searchString){
 				$scope.SearchError = true;
 			}else{
