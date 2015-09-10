@@ -6597,7 +6597,7 @@ header .navbar-brand {
   height: 100px;
 }
 .footer,
-.container:before {
+.container:after {
   height: 120px;
 }
 .footer {
