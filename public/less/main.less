@@ -143,7 +143,7 @@ ul {
   }
 }
 
-@media screen and (min-width: 0px) and (max-width: 768px) {
+@media screen and (min-width: 0px) and (max-width: 767px) {
   .search-form {
     margin: 0 -15px 0 -15px;
 
@@ -200,23 +200,35 @@ ul {
 // END LINE for addpost-modal
 
 // START LINE for modals & modal forms
-.modal-sm {
-  width: 400px;
+@media sceeen and (min-width: 768px) {
+  .modal-sm {
+    width: 400px;
+  }
+  .modal-md {
+    width: 500px;
+  }
+  .modal-form-sm .form-group {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .modal-form-md .form-group {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .modal-form-lg .form-group {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
-.modal-md {
-  width: 500px;
-}
-.modal-form-sm .form-group {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.modal-form-md .form-group {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-.modal-form-lg .form-group {
-  padding-left: 30px;
-  padding-right: 30px;
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .modal-dialog .form-group {
+    margin-left: 0;
+
+    label {
+      margin-right: -15px;
+    }
+  }
 }
 // END LINE for modals & modal forms
 
@@ -246,7 +258,7 @@ ul {
   }
 }
 
-@media screen and (min-width: 0px) and (max-width: 768px) {
+@media screen and (min-width: 0px) and (max-width: 767px) {
   .navbar-nav {
     margin-top: 0;
     margin-bottom: 0;

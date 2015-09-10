@@ -14,19 +14,19 @@
       </div>
 
       <div class="form-group">
-         <label for="content" class="col-sm-1 control-label"><i class="fa fa-pencil"></i></label>
-         <div class="col-sm-11">
+         <label for="content" class="col-xs-2 col-sm-1 control-label"><i class="fa fa-pencil"></i></label>
+         <div class="col-xs-10 col-sm-11">
             <textarea id="content" class="form-control" ng-model="post.content" ng-minlength="1" ng-maxlength="10000" name="content" placeholder="Share your amazing story." required>{{post.content}}</textarea>
          </div>
       </div>
 
       <div class="form-group">
-         <label for="tags" class="col-sm-1 control-label"><i class="fa fa-tags"></i></label>
-         <div class="col-sm-11">
+         <label for="tags" class="col-xs-2 col-sm-1 control-label"><i class="fa fa-tags"></i></label>
+         <div class="col-xs-10 col-sm-11">
             <tags-input id="tags" 
                name="tags" 
                ng-model="post.tags" 
-               placeholder="Add a tag" 
+               placeholder="Add a hashtag" 
                min-length="1"
                max-tags="30"
                add-on-space="true" 
@@ -37,13 +37,14 @@
             <div ng-show="maxTags" class="alert alert-danger alert-tags" role="alert">
                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                <span class="sr-only">Error:</span>
-               You have reached the limit of 30 tags
+               You have reached the limit of 30 hashtags
             </div>
          </div>
       </div>
 
       <div class="form-group">
-         <div class="col-sm-offset-1 col-sm-11">
+         <label class="col-xs-2 col-sm-1 control-label"></label>
+         <div class="col-xs-10 col-sm-11">
             <button type="submit" ng-disabled="textPostForm.$invalid" class="btn btn-default">Add It!</button>
          </div>
       </div>
