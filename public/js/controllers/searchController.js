@@ -3,13 +3,7 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 	$scope.isCollapsed = true;
 	$scope.SearchError = false;
 
-	$scope.searchSubmit = function(prefix){
-		if(prefix) {
-
-		}
-		console.log( "The RegExp: ",new RegExp($scope.searchString,"i"));
-
-
+	$scope.searchSubmit = function(){
 		// get the posts that matches the string in the search bar
 		Post.get({_all: new RegExp($scope.searchString,"i"), _populate:"author"}, function(data){
 			if(data.length && $scope.searchString){
