@@ -23,6 +23,9 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 				// change location to /search
 				$location.url("/search");
 				console.log("OBS!!! No data found...");
+        $rootScope.searchResult = data;
+        // change location to /search
+        $location.url("/search");
 			}
 		});
 		
