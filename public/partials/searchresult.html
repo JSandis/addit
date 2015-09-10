@@ -22,8 +22,8 @@
 	            <div ng-if="post.images.length > 0" class="row panel-img" ng-controller="galleryController as gallery">
 	                <div class="col-xs-10 col-sm-10 col-md-10">
 	                    <div class="postImage">
-	                        <img class="img-responsive" 
-	                        ng-src="{{post.images[gallery.current]}}" 
+	                        <img class="img-responsive"
+	                        ng-src="{{post.images[gallery.current]}}"
 	                        image-resize image-percent="100"/>
 	                    </div>
 
@@ -63,8 +63,7 @@
 			</div>
 		</div>
 	</div>
-
-	<h3 ng-if="!searchResult" id="no-results"> Sorry, no results found. </h3>
+	<h3 ng-if="!searchResult.length" id="no-results"> Sorry, no results found. </h3>
 </div>
 
-	
+
