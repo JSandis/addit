@@ -1,57 +1,59 @@
+<div id="panelRow">
+  <div class="">
+  <!-- when-scrolled="loadMore()" -->
+  <!-- <grid  list="Posts" resize ng-style="computePositions()"> -->
+    <article ng-repeat="post in visiblePosts |  limitTo:quantity | orderBy: '-createdAt' track by $index">
 
-  <div id="panelRow">
-    <div class="">
-    <!-- when-scrolled="loadMore()" -->
-    <!-- <grid  list="Posts" resize ng-style="computePositions()"> -->
-      <article ng-repeat="post in visiblePosts |  limitTo:quantity | orderBy: '-createdAt' track by $index">
+      <!-- post holder -->
+      <div class="panelHolder">
+        <div class="panelWell panel panel-default">
 
-        <!-- post holder -->
-        <div class="panelHolder">
-          <div class="panelWell panel panel-default">
-
-            <!-- header -->
-            <div class="panel-heading">
+          <!-- header -->
+          <div class="panel-heading">
             <h3 class="panel-title">{{post.author.username}} added this</h3>
-            </div>
-
-            <!-- body -->
-            <div class="panel-body">
-              <!-- Text content -->
-              <div>
-                <p>{{post.content}}</p>
-              </div>
-              <!--Images -->
-              <div ng-if="post.videos.length == '' || !post.images.length == ''" ng-controller="galleryController as gallery">
-                <div>
-                  <carousel class="carousel" interval="myInterval">
-                    <slide class="item" ng-repeat="imagePath in post.images" active="slide.active">
-                      <img ng-src="{{imagePath}}">
-                    </slide>
-                  </carousel>
-                </div>
-              </div>
-              <!--Videos -->
-              <div ng-if="!post.videos.length == '' || post.images.length == ''" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
-                <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
-              </div>
-            </div>
-
-            <!-- footer -->
-            <div class="panel-footer" ng-if="post.createdAt">Created at: {{post.createdAt | date:'yyyy-MM-dd HH:mm'}}</div>
-            </div>
-
           </div>
-        </div>
-<!--           <div ng-if="true" ng-repeat="imagePath in post.images" class="img-thumbnails">
-              <img class="img-responsive pull-left thumbnail " ng-src="{{imagePath}}" image-resize image-percent="24">
+          
+          <!-- Images -->
+          <div ng-if="post.images.length > 0" class="row panel-img" ng-controller="galleryController as gallery">
+              <div class="col-xs-10 col-sm-10 col-md-10">
+                  <div class="postImage">
+                      <img class="img-responsive" 
+                      ng-src="{{post.images[gallery.current]}}" 
+                      image-resize image-percent="100"/>
+                  </div>
+
               </div>
-           <div ng-if="post.videos.lenght ='' || !post.images.length =''"> 
-          <div class="clear">{{post.author}}</div> -->
+              <div class="col-xs-2 col-sm-2 col-md-2">
+                  <div class="wrapper">
+                      <ul class="imageList">
+                          <li ng-repeat="imagePath in post.images">
+                              <img class="img-responsive img-sm" ng-src="{{imagePath}}" ng-click="gallery.setCurrent(post.images.indexOf(imagePath))">
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
 
-      </article>
-    <!-- </grid> -->
-    </div>
+          <!--Videos -->
+          <div ng-if="post.videos.length > 0" class="row" ng-repeat="videoPath in post.videos">
+              <div class="col-md-12">
+                  <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
+              </div>
+          </div>
+          
+          <!-- Text content -->
+          <div class="panel-body">
+              <p>{{post.content}}</p>
+          </div>
+
+          <!-- footer -->
+          <div class="panel-footer" ng-if="post.createdAt">Created at: {{post.createdAt | date:'yyyy-MM-dd HH:mm'}}</div>
+          </div>
+
+        </div>
+      <!-- </grid> -->
+    </article>
   </div>
-  <!-- <button ng-if="isMobile" ng-click="changePage()">Prev Page</button>
-  <button ng-if="isMobile" ng-click="changePage(true)">Next Page</button> -->
-
+</div>
+<!-- <button ng-if="isMobile" ng-click="changePage()">Prev Page</button>
+<button ng-if="isMobile" ng-click="changePage(true)">Next Page</button> -->

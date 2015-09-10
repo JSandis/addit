@@ -1,9 +1,9 @@
 
-<div ng-if="searchResult" class="row col-xs-12 col-md-6 col-lg-6 col-center-block">
+<div class="row col-xs-12 col-sm-8 col-md-6 col-lg-6 col-center-block">
 
 	<h1 id="search-result-title">Search result</h1>
 
-	<div id="result-panel-group" class="panel-group" ng-repeat="post in searchResult | orderBy: '-createdAt' as srcRes">
+	<div ng-if="searchResult" id="result-panel-group" class="panel-group" ng-repeat="post in searchResult | orderBy: '-createdAt' as srcRes">
 		<div class="panel panel-default">
 			<div class="panel-heading" ng-click="isCollapsed = !isCollapsed">
 
@@ -19,7 +19,7 @@
 			<div collapse="isCollapsed" class="panel collapse-panel">
 
 				<!-- Images -->
-	            <div ng-if="post.videos.length == '' || !post.images.length == ''" class="row panel-img" ng-controller="galleryController as gallery">
+	            <div ng-if="post.images.length > 0" class="row panel-img" ng-controller="galleryController as gallery">
 	                <div class="col-xs-10 col-sm-10 col-md-10">
 	                    <div class="postImage">
 	                        <img class="img-responsive" 
@@ -40,7 +40,7 @@
 	            </div>
 
 	            <!--Videos -->
-	            <div ng-if="!post.videos.length == '' || post.images.length == ''" class="row panel-video" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
+	            <div ng-if="post.videos.length > 0" class="row" ng-repeat="videoPath in post.videos">
 	                <div class="col-md-12">
 	                    <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
 	                </div>
@@ -56,8 +56,8 @@
 			</div>
 		</div>
 	</div>
+
+	<h3 ng-if="!searchResult" id="no-results"> Sorry, no results found. </h3>
 </div>
 
-<div class="col-xs-12 col-md-8 col-lg-10 col-center-block">
-	<h3 ng-if="!searchResult.length" id="no-results"> Sorry, no results found. </h3>
-</div>
+	

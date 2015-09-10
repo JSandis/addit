@@ -23,7 +23,7 @@
             </div>
             
             <!-- Images -->
-            <div ng-if="post.videos.length == '' || !post.images.length == ''" class="row panel-img" ng-controller="galleryController as gallery">
+            <div ng-if="post.images.length > 0" class="row panel-img" ng-controller="galleryController as gallery">
                 <div class="col-xs-10 col-sm-10 col-md-10">
                     <div class="postImage">
                         <img class="img-responsive" 
@@ -44,7 +44,7 @@
             </div>
 
             <!--Videos -->
-            <div ng-if="!post.videos.length == '' || post.images.length == ''" class="row panel-video" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
+            <div ng-if="post.videos.length > 0" class="row" ng-repeat="videoPath in post.videos">
                 <div class="col-md-12">
                     <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
                 </div>

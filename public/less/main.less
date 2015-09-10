@@ -353,13 +353,9 @@ ul {
 }
 
 .panel-img {
-  margin-bottom: 5px;
 
-  .postImage {
-    margin: 0 0 5px 0;
-    img {
-      width: 100%;
-    }
+  .postImage img {
+    width: 100%;
   }
 
   .wrapper {
@@ -369,36 +365,32 @@ ul {
       margin-left: -28px;
       // overflow-y: auto;
 
-    }
-
-    img {
-      width: 100%;
-      margin-bottom: 5px;
-      cursor: pointer;
-      display: block;
-      border: 2px solid #fff;
-
-      &:hover {
-        box-shadow: 0px 1px 2px #444;
-        transition: all .1s ease-in-out;
-        border-color: #fff;
-      }
-
-      &:active {
-        opacity: .70;
-        box-shadow: 0px 1px 4px #666;
-      }
-    }
-    @media screen and (min-width: 0px) and (max-width: 767px) {
       img {
+        width: 100%;
+        margin-bottom: 5px;
+        cursor: pointer;
+        display: block;
         border: 1px solid #fff;
+
+        &:hover {
+          box-shadow: 0px 1px 2px #444;
+          transition: all .1s ease-in-out;
+          border-color: #fff;
+        }
+
+        &:active {
+          opacity: .70;
+          box-shadow: 0px 1px 4px #666;
+        }
+      }
+
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        img {
+          border: 1px solid #fff;
+        }
       }
     }
   }
-}
-
-.panel-video {
-  margin-bottom: 5px;
 }
 
 .glyphicon-edit {
@@ -536,8 +528,12 @@ ul {
 }
 
 .panel-body {
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 10px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .panel-footer {
@@ -549,14 +545,8 @@ ul {
   color: lightgreen;
 }
 
-#search-result-title {
+#search-result-title, #no-results {
   text-align: center;
-}
-
-#no-results {
-  h3, p {
-    text-align: center;
-  }
 }
 // END LINE for searchresult
 

@@ -6818,12 +6818,6 @@ ul .dropdown-menu > li > a:hover {
   left: auto;
   right: 0;
 }
-.panel-img {
-  margin-bottom: 5px;
-}
-.panel-img .postImage {
-  margin: 0 0 5px 0;
-}
 .panel-img .postImage img {
   width: 100%;
 }
@@ -6831,29 +6825,26 @@ ul .dropdown-menu > li > a:hover {
   list-style: none;
   margin-left: -28px;
 }
-.panel-img .wrapper img {
+.panel-img .wrapper .imageList img {
   width: 100%;
   margin-bottom: 5px;
   cursor: pointer;
   display: block;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
 }
-.panel-img .wrapper img:hover {
+.panel-img .wrapper .imageList img:hover {
   box-shadow: 0px 1px 2px #444;
   transition: all 0.1s ease-in-out;
   border-color: #fff;
 }
-.panel-img .wrapper img:active {
+.panel-img .wrapper .imageList img:active {
   opacity: .70;
   box-shadow: 0px 1px 4px #666;
 }
 @media screen and (min-width: 0px) and (max-width: 767px) {
-  .panel-img .wrapper img {
+  .panel-img .wrapper .imageList img {
     border: 1px solid #fff;
   }
-}
-.panel-video {
-  margin-bottom: 5px;
 }
 .glyphicon-edit {
   color: #40B3DF;
@@ -6957,8 +6948,11 @@ ul .dropdown-menu > li > a:hover {
   color: #000;
 }
 .panel-body {
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 10px;
+}
+.panel-body p {
+  margin-bottom: 0;
 }
 .panel-footer {
   color: gray;
@@ -6967,11 +6961,8 @@ ul .dropdown-menu > li > a:hover {
 .glyphicon-plus:hover {
   color: lightgreen;
 }
-#search-result-title {
-  text-align: center;
-}
-#no-results h3,
-#no-results p {
+#search-result-title,
+#no-results {
   text-align: center;
 }
 /*Mobile specials styling*/
