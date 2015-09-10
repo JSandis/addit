@@ -6962,3 +6962,11 @@ ul .dropdown-menu > li > a:hover {
 #no-results p {
   text-align: center;
 }
+.btnPrev {
+  float: left;
+  margin: 25px 15px;
+}
+.btnNext {
+  float: right;
+  margin: 25px 15px;
+}
