@@ -6573,9 +6573,6 @@ body {
   min-height: 100%;
   margin-bottom: -120px;
 }
-.container .row {
-  margin-top: 10px;
-}
 .container:after {
   content: "";
   display: block;
@@ -6821,29 +6818,42 @@ ul .dropdown-menu > li > a:hover {
   left: auto;
   right: 0;
 }
-.postImage img {
-  margin: 1px 0 5px 0;
+.panel-img {
+  margin-bottom: 5px;
+}
+.panel-img .postImage {
+  margin: 0 0 5px 0;
+}
+.panel-img .postImage img {
   width: 100%;
 }
-.wrapper .imageList {
+.panel-img .wrapper .imageList {
   list-style: none;
   margin-left: -28px;
 }
-.wrapper img {
+.panel-img .wrapper img {
   width: 100%;
   margin-bottom: 5px;
   cursor: pointer;
   display: block;
   border: 2px solid #fff;
 }
-.wrapper img:hover {
+.panel-img .wrapper img:hover {
   box-shadow: 0px 1px 2px #444;
   transition: all 0.1s ease-in-out;
   border-color: #fff;
 }
-.wrapper img:active {
+.panel-img .wrapper img:active {
   opacity: .70;
   box-shadow: 0px 1px 4px #666;
+}
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .panel-img .wrapper img {
+    border: 1px solid #fff;
+  }
+}
+.panel-video {
+  margin-bottom: 5px;
 }
 .glyphicon-edit {
   color: #40B3DF;
@@ -6857,6 +6867,7 @@ ul .dropdown-menu > li > a:hover {
 .col-center-block {
   float: none;
   display: block;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }

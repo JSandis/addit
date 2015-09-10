@@ -23,8 +23,8 @@
             </div>
             
             <!-- Images -->
-            <div ng-if="post.videos.length == '' || !post.images.length == ''" class="row" ng-controller="galleryController as gallery">
-                <div class="col-xs-11 col-sm-10 col-md-10">
+            <div ng-if="post.videos.length == '' || !post.images.length == ''" class="row panel-img" ng-controller="galleryController as gallery">
+                <div class="col-xs-10 col-sm-10 col-md-10">
                     <div class="postImage">
                         <img class="img-responsive" 
                         ng-src="{{post.images[gallery.current]}}" 
@@ -32,7 +32,7 @@
                     </div>
 
                 </div>
-                <div class="col-xs-1 col-sm-2 col-md-2">
+                <div class="col-xs-2 col-sm-2 col-md-2">
                     <div class="wrapper">
                         <ul class="imageList">
                             <li ng-repeat="imagePath in post.images">
@@ -44,8 +44,10 @@
             </div>
 
             <!--Videos -->
-            <div ng-if="!post.videos.length == '' || post.images.length == ''" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
-                <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
+            <div ng-if="!post.videos.length == '' || post.images.length == ''" class="row panel-video" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
+                <div class="col-md-12">
+                    <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
+                </div>
             </div>
             
             <!-- Text content -->

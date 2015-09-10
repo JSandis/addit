@@ -3,8 +3,10 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 	$scope.isCollapsed = true;
 	$scope.SearchError = false;
 
-  $scope.searchSubmit = function(){
-		console.log( "searchController is up and running.");
+	$scope.searchSubmit = function(prefix){
+		if(prefix) {
+
+		}
 		console.log( "The RegExp: ",new RegExp($scope.searchString,"i"));
 
 
