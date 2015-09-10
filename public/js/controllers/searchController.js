@@ -19,12 +19,29 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 				// change location to /search
 				$location.url("/search");
 				console.log("OBS!!! No data found...");
-        $rootScope.searchResult = data;
-        // change location to /search
-        $location.url("/search");
+				$rootScope.searchResult = data;
+				// change location to /search
+				$location.url("/search");
 			}
 		});
-		
+	};
+
+	$scope.searchForPostFromTag = function(tag) {
+		// get the posts that matches the tag that the user clicked on
+		Post.get({tags: new RegExp(tag,"i"), _populate:"author"}, function(data){
+			
+			$rootScope.searchResult = data;
+
+			if(data.length && tag){
+				console.log("FOUND:",data);
+				// change location to /search
+				$location.url("/search");
+			}else{
+				console.log("OBS!!! No data found...");
+				// change location to /search
+				$location.url("/search");
+			}
+		});
 	};
 
 }]);

@@ -54,6 +54,13 @@
             <div class="panel-body">
                 <p>{{post.content}}</p>
             </div>
+            
+            <!-- Hashtags -->
+            <ul ng-if="post.tags.length > 0" class="list-group">
+                <li class="list-group-item">
+                    <a ng-controller="searchController" ng-click="searchForPostFromTag(tag)" ng-repeat="tag in post.tags">{{tag}} </a>
+                </li>
+            </ul>
 
             <!-- Panel footer -->
             <div class="panel-footer" ng-if="post.createdAt">{{post.createdAt | date:'yyyy-MM-dd HH:mm'}}</div>
