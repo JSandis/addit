@@ -6573,6 +6573,9 @@ body {
   min-height: 100%;
   margin-bottom: -120px;
 }
+.container .row {
+  margin-top: 10px;
+}
 .container:after {
   content: "";
   display: block;
@@ -6797,7 +6800,7 @@ ul .dropdown-menu > li > a:hover {
 }
 .panel > .panel-heading .nav > li > a:hover,
 .panel-footer .nav > li > a:hover {
-  background-color: #fff;
+  background-color: lightblue;
   color: #000;
 }
 .panel > .panel-heading .nav .open > a,
@@ -6807,6 +6810,16 @@ ul .dropdown-menu > li > a:hover {
 .panel > .panel-heading .nav .open > a:hover,
 .panel-footer .nav .open > a:hover {
   background-color: #fff;
+}
+.panel > .panel-heading .navbar-right,
+.panel-footer .navbar-right {
+  float: right !important;
+  margin-right: -15px;
+}
+.panel > .panel-heading .navbar-right .dropdown-menu,
+.panel-footer .navbar-right .dropdown-menu {
+  left: auto;
+  right: 0;
 }
 .postImage img {
   margin: 1px 0 5px 0;
@@ -6846,6 +6859,12 @@ ul .dropdown-menu > li > a:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .col-center-block {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 .frontCarousel {
   height: 200;
@@ -6906,6 +6925,10 @@ ul .dropdown-menu > li > a:hover {
 .panel-heading:hover {
   background-color: lightblue;
   cursor: pointer;
+}
+.panel-heading:hover .nav > li > a {
+  background-color: lightblue;
+  color: #000;
 }
 .panel-body {
   font-size: 18px;

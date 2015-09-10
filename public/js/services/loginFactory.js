@@ -47,6 +47,7 @@ app.factory("login", ["$http", "$rootScope", "$location", "User", function($http
 	};
 
 	loginObj.check(function() {
+		$rootScope.loginProcessed = true;
 		if (!loginObj.user._id) {
 			$rootScope.$broadcast("logout");
 		}
