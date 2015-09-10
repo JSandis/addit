@@ -2,15 +2,13 @@
 app.controller("homeController", ["$http", "$scope", "login", "Post", "User", "IS_MOBILE", function($http, $scope, login, Post, User, IS_MOBILE) {
 	// console.log("homeController: I'm alive!");
   var postsIndex = postsIndex || 0;
-  var quantity = IS_MOBILE ? 5 : 0; //Testa om detta funkar först (lägg till is mobiel ocskå)
-  $scope.quantity = quantity;
-  console.log("IS_MOBILE", IS_MOBILE);
-
+  $scope.isMobile = IS_MOBILE || true ;
   $scope.users = User.get(function(data) {
     $scope.user = data;
     //$scope.posts = [];
     $scope.posts = Post.get({author: data._id, _populate:"author"}, function() {
-      $scope.visiblePosts = $scope.posts.splice(postsIndex);
+      $scope.quantity = IS_MOBILE || true ? 5 : $scope.posts.length-1;
+      $scope.visiblePosts = $scope.posts.slice(postsIndex);
     });
   });
 
@@ -29,16 +27,16 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", "I
   };*/
 
   $scope.changePage = function(forward) {
-    var newPostsIndex = forward ? (postsIndex + quantity) : (postsIndex - quantity);
+    var newPostsIndex = forward ? (postsIndex + $scope.quantity) : (postsIndex - $scope.quantity);
 
     if (newPostsIndex < 0 || newPostsIndex >= $scope.posts.length-1) { return; }
-
-    $scope.visiblePosts = $scope.posts.splice(postsIndex);
+    postsIndex = newPostsIndex
+    $scope.visiblePosts = $scope.posts.slice(postsIndex);
   };
 
   //   $scope.posts = Post.get({author: data._id, _populate:"author"});
 
-$scope.myInterval = -1;
+  $scope.myInterval = -1;
 
 
     // var post.images = [];
