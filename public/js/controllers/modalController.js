@@ -1,7 +1,7 @@
 app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "title", "login", "$location", function($scope, $modalInstance, User, Post, title, login, $location) {
 	$scope.title = title;
 	$scope.user = login.user;
-	
+
 	// a function to check if the username exists
 	$scope.usernameExists = false;
 	$scope.checkUsername = function(form, username) {
@@ -48,6 +48,7 @@ app.controller("modalController", ["$scope", "$modalInstance", "User", "Post", "
 				//some success message for user
 			} else {
 				console.log("User's login credentials are bad");
+				$scope.signupErrorMsg = "Oops! Failed to login.";
 				//some error message for user
 			}
 		});

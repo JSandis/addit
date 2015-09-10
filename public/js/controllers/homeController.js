@@ -2,12 +2,12 @@
 app.controller("homeController", ["$http", "$scope", "login", "Post", "User", "IS_MOBILE", function($http, $scope, login, Post, User, IS_MOBILE) {
 	// console.log("homeController: I'm alive!");
   var postsIndex = postsIndex || 0;
-  $scope.isMobile = IS_MOBILE || true ;
+  $scope.isMobile = IS_MOBILE;
   $scope.users = User.get(function(data) {
     $scope.user = data;
     //$scope.posts = [];
     $scope.posts = Post.get({author: data._id, _populate:"author"}, function() {
-      $scope.quantity = IS_MOBILE || true ? 5 : $scope.posts.length-1;
+      $scope.quantity = IS_MOBILE ? 5 : $scope.posts.length-1;
       $scope.visiblePosts = $scope.posts.slice(postsIndex);
     });
   });

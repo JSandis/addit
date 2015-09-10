@@ -4,6 +4,9 @@
 </div>
 <div class="modal-body">
 
+	<!-- Error message -->
+	<alert ng-if="signupErrorMsg" type="error">{{signupErrorMsg}}</alert>
+
 	<form name="loginForm" class="form-horizontal modal-form-sm" ng-submit="loginForm.$valid && usernameExists && loginSubmit()" novalidate>
 
 		<div class="form-group">
@@ -12,7 +15,7 @@
 				<input type="username" ng-model="loginCredentials.username" class="form-control" id="username" name="username" placeholder="Your fantastic AddIt username." ng-change="checkUsername(loginForm, loginCredentials.username)" autofocus required>
 
 				<!-- Error messages -->
-				<p ng-show="(!usernameExists) && submitted" class="help-block alert alert-danger">Username does not exist.</p> 
+				<p ng-show="(!usernameExists) && submitted" class="help-block alert alert-danger">Username does not exist.</p>
 				<p ng-show="loginForm.username.$error.required && submitted" class="help-block alert alert-danger">Username is required.</p>
 			</div>
 		</div>
