@@ -1,5 +1,5 @@
 
-<div ng-if="searchResult" class="row col-xs-12 col-md-8 col-lg-10 col-center-block">
+<div ng-if="searchResult" class="row col-xs-12 col-md-6 col-lg-6 col-center-block">
 
 	<h1 id="search-result-title">Search result</h1>
 
@@ -16,33 +16,35 @@
 				<i ng-if="isCollapsed" class="glyphicon glyphicon-plus pull-right"></i>
 			</div>
 
-			<div collapse="isCollapsed">
+			<div collapse="isCollapsed" class="panel collapse-panel">
 
 				<!-- Images -->
-				<div ng-if="post.videos.length == '' || !post.images.length == ''" class="row" ng-controller="galleryController as gallery">
-					<div class="col-xs-11 col-sm-10 col-md-10">
-						<div class="postImage">
-							<img class="img-responsive"
-							ng-src="{{post.images[gallery.current]}}"
-							image-resize image-percent="100"/>
-						</div>
+	            <div ng-if="post.videos.length == '' || !post.images.length == ''" class="row panel-img" ng-controller="galleryController as gallery">
+	                <div class="col-xs-10 col-sm-10 col-md-10">
+	                    <div class="postImage">
+	                        <img class="img-responsive" 
+	                        ng-src="{{post.images[gallery.current]}}" 
+	                        image-resize image-percent="100"/>
+	                    </div>
 
-					</div>
-					<div class="col-xs-1 col-sm-2 col-md-2">
-						<div class="wrapper">
-							<ul class="imageList">
-								<li ng-repeat="imagePath in post.images">
-									<img class="img-responsive" ng-src="{{imagePath}}" ng-click="gallery.setCurrent(post.images.indexOf(imagePath))">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+	                </div>
+	                <div class="col-xs-2 col-sm-2 col-md-2">
+	                    <div class="wrapper">
+	                        <ul class="imageList">
+	                            <li ng-repeat="imagePath in post.images">
+	                                <img class="img-responsive" ng-src="{{imagePath}}" ng-click="gallery.setCurrent(post.images.indexOf(imagePath))">
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
 
-				<!--Videos -->
-				<div ng-if="!post.videos.length == '' || post.images.length == ''" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
-					<video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
-				</div>
+	            <!--Videos -->
+	            <div ng-if="!post.videos.length == '' || post.images.length == ''" class="row panel-video" ng-repeat="videoPath in post.videos"  ng-controller="galleryController as gallery">
+	                <div class="col-md-12">
+	                    <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
+	                </div>
+	            </div>
 
 				<!-- Text content -->
 				<div class="panel-body">

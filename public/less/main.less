@@ -473,26 +473,30 @@ ul {
 
   .panel {
     margin: 0px;
-  }
+    
+    .panel-heading{
+      padding-top: 15px;
+      margin: 0 0 0 0;
+      height: 50px;
 
-  .panel > .panel-heading{
-    padding-top: 15px;
-    margin: 0 0 0 0;
-    height: 50px;
+      .panel-title {
+        float: left;
+        font-weight: bold;
+        margin-right: 15px;
+      }
 
-    .panel-title {
-      float: left;
-      font-weight: bold;
-      margin-right: 15px;
+      p {
+        float: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 75%;
+        margin: 0px;
+      }
     }
 
-    p {
-      float: left;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 75%;
-      margin: 0px;
+    .collapse-panel {
+      border: 0;
     }
   }
 }
