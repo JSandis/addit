@@ -7,7 +7,7 @@
 	<!-- Error message -->
 	<alert ng-if="signupErrorMsg" type="error">{{signupErrorMsg}}</alert>
 
-	<form name="loginForm" class="form-horizontal modal-form-sm" ng-submit="loginForm.$valid && usernameExists && loginSubmit()" novalidate>
+	<form name="loginForm" class="form-horizontal modal-form-sm" ng-submit="loginForm.$valid && usernameExists && loginSubmit()">
 
 		<div class="form-group">
 			<label for="username" class="col-xs-2 col-sm-2 control-label"><i class="fa fa-user"></i></label>
@@ -15,7 +15,7 @@
 				<input type="username" ng-model="loginCredentials.username" class="form-control" id="username" name="username" placeholder="Your fantastic AddIt username." ng-change="checkUsername(loginForm, loginCredentials.username)" autofocus required>
 
 				<!-- Error messages -->
-				<p ng-show="(!usernameExists) && submitted" class="help-block alert alert-danger">Username does not exist.</p>
+				<p ng-show="(!usernameExists)" class="help-block alert alert-danger">Username does not exist.</p>
 				<p ng-show="loginForm.username.$error.required && submitted" class="help-block alert alert-danger">Username is required.</p>
 			</div>
 		</div>

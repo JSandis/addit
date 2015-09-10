@@ -12,7 +12,7 @@
 	<alert ng-if="signupErrorMsg" type="error">{{signupErrorMsg}}</alert>
 
 	<!-- Signup Form -->
-  <form name="signupForm" ng-hide="signupSuccessMsg" class="form-horizontal modal-form-md" ng-submit="signupForm.$valid && newUser.password == passwordConfirm && signupSubmit()" novalidate>
+  <form name="signupForm" ng-hide="signupSuccessMsg" class="form-horizontal modal-form-md" ng-submit="signupForm.$valid && newUser.password == passwordConfirm && signupSubmit()">
 
   	<!-- Username -->
     <div class="form-group">
