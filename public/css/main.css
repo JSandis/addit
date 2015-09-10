@@ -6882,27 +6882,39 @@ ul .dropdown-menu > li > a:hover {
   width: 200;
   overflow: hidden;
 }
-.frontCarousel img {
-  width: auto;
+#panelRow {
+  column-width: 30em;
+  -moz-column-width: 30rem;
+  -webkit-column-width: 30rem;
+  column-gap: 10px;
+  -moz-column-gap: 6px;
+  -webkit-column-gap: 6px;
 }
-.frontCarousel .carousel-control.left,
-.frontCarousel .carousel-control.right {
-  background: none;
+#panelRow :before,
+#panelRow :after {
+  box-sizing: border-box !important;
+}
+.panelHolder {
+  display: inline-block;
+  width: 100%;
+}
+.panelWell {
+  position: relative;
+  display: block;
 }
 .carousel {
   max-height: 100%;
-  max-height: 200px;
+  max-height: 250px;
   margin-bottom: 2px;
   overflow: hidden;
   height: auto;
-  background-color: #d1d1d1;
 }
 .carousel .item img {
   max-height: 100%;
-  max-height: 200px;
-  background-color: #d1d1d1;
+  max-height: 250px;
   width: 100%;
   height: auto;
+  z-index: 1;
 }
 .carousel-control.left,
 .carousel-control.right {
@@ -6961,15 +6973,4 @@ ul .dropdown-menu > li > a:hover {
 #no-results h3,
 #no-results p {
   text-align: center;
-}
-/*Mobile specials styling*/
-.btnPrev {
-  float: left;
-  margin: 35px 15px;
-  font-size: 35px;
-}
-.btnNext {
-  float: right;
-  margin: 35px 15px;
-  font-size: 35px;
 }

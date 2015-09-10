@@ -180,7 +180,7 @@ ul {
   margin-top: -10px;
   background-color: #ffffff;
   border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px; 
 }
 
 .addbtn-text:hover {
@@ -246,7 +246,7 @@ ul {
   a {
     padding: 5px;
     font-size: 18px;
-
+    
     .link-text {
       display: none;
     }
@@ -433,31 +433,54 @@ ul {
   height: 200;
   width: 200;
   overflow: hidden;
+}
 
-    img {
-    //margin:25px auto 0;
-    width:auto;
-      }
-      .carousel-control.left, .carousel-control.right {
-        background: none;
-      }
+#panelRow {
+  :before, :after {box-sizing:  border-box !important;}
+   column-width: 30em;
+  -moz-column-width: 30rem;
+  -webkit-column-width: 30rem;
+   column-gap:10px;
+  -moz-column-gap: 6px;
+  -webkit-column-gap:6px; 
+ 
+}
+
+.panelHolder {
+  //:before, :after {box-sizing:  border-box !important;}
+  display: inline-block;
+  //padding: 2px;
+  width:  100%; 
+
+}
+
+.panelWell {
+  //:before, :after {box-sizing:  border-box !important;}
+  position:relative;
+  display: block;
+  
 }
 
 .carousel {
   max-height: 100%;
-  max-height: 200px;
+  max-height: 250px;
   margin-bottom: 2px;
   overflow: hidden;
   height: auto;
-  background-color: #d1d1d1;
+  
 
   .item img {
     max-height: 100%;
-    max-height: 200px;
-    background-color: #d1d1d1;
+    max-height: 250px;
+    
     width: 100%;
     height: auto;
+    z-index: 1;
   }
+}
+.carousel-inner {
+
+
 }
 
 .carousel-control.left, .carousel-control.right {
@@ -473,7 +496,7 @@ ul {
 
   .panel {
     margin: 0px;
-
+    
     .panel-heading{
       padding-top: 15px;
       margin: 0 0 0 0;
@@ -536,18 +559,3 @@ ul {
   }
 }
 // END LINE for searchresult
-
-/*Mobile specials styling*/
-
-.btnPrev {
-  float: left;
-  margin: 35px 15px;
-  font-size: 35px;
-}
-
-.btnNext {
-  float: right;
-  margin: 35px 15px;
-  font-size: 35px;
-}
-

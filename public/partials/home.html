@@ -1,12 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1" when-scrolled="loadMore()">
 
+  <div id="panelRow">
+    <div class="">
+    <!-- when-scrolled="loadMore()" -->
+    <!-- <grid  list="Posts" resize ng-style="computePositions()"> -->
       <article ng-repeat="post in visiblePosts |  limitTo:quantity | orderBy: '-createdAt' track by $index">
 
         <!-- post holder -->
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel panel-default">
+        <div class="panelHolder">
+          <div class="panelWell panel panel-default">
 
             <!-- header -->
             <div class="panel-heading">
@@ -41,16 +42,16 @@
 
           </div>
         </div>
-          <!-- <div ng-if="true" ng-repeat="imagePath in post.images" class="img-thumbnails">
+<!--           <div ng-if="true" ng-repeat="imagePath in post.images" class="img-thumbnails">
               <img class="img-responsive pull-left thumbnail " ng-src="{{imagePath}}" image-resize image-percent="24">
-              </div> -->
-           <!--<div ng-if="post.videos.lenght ='' || !post.images.length =''"> -->
-          <!-- <div class="clear">{{post.author}}</div> -->
+              </div>
+           <div ng-if="post.videos.lenght ='' || !post.images.length =''"> 
+          <div class="clear">{{post.author}}</div> -->
 
       </article>
-
+    <!-- </grid> -->
     </div>
   </div>
-    <div class="btnPrev" ng-if="isMobile" ng-click="changePage()"><i class="fa fa-arrow-left"></i></div>
-    <div class="btnNext" ng-if="isMobile" ng-click="changePage(true)"><i class="fa fa-arrow-right"></i></div>
-</div>
+  <!-- <button ng-if="isMobile" ng-click="changePage()">Prev Page</button>
+  <button ng-if="isMobile" ng-click="changePage(true)">Next Page</button> -->
+
