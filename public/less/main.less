@@ -327,8 +327,7 @@ ul {
   }
 
   .nav > li > a:hover {
-    background-color: #fff;
-    //border-radius: 100%;
+    background-color: lightblue;
     color: #000;
   }
 
@@ -341,6 +340,15 @@ ul {
 
     background-color: #fff;
 
+  }
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
   }
 }
 
@@ -471,6 +479,12 @@ ul {
 .panel-heading:hover {
   background-color: lightblue;
   cursor: pointer;
+  
+  .nav > li > a {
+    background-color: lightblue;
+    //border-radius: 100%;
+    color: #000;
+  }
 }
 
 .panel-body {
