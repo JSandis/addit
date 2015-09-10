@@ -8,10 +8,6 @@ app.controller("menuController", ["$http", "$scope", "addPostFactory", "login", 
 		console.log("isCollapsed", $scope.isCollapsed);
 	};
 
-	/*$scope.addPost = function() {
-		addPostFactory.openAddPost('Add Post', 'partials/addpost.html', 'modalController');
-	};*/
-
 	// listen for any "$routeChangeSuccess" $broadcasts
 	$scope.$on("$routeChangeSuccess", function(event, next, current) {
 		// if we have no logged in user, return to home
