@@ -39,6 +39,10 @@ html, body {
 .container {
 	min-height: 100%;
 	margin-bottom: -120px;
+
+  .row {
+    margin-top: 10px;
+  }
 }
 
 .container:after {
@@ -403,6 +407,12 @@ ul {
     margin-left: auto;
     margin-right: auto;
 }
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .col-center-block {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
 // STOP LINE for styles used on userpage.html
 
@@ -479,7 +489,7 @@ ul {
 .panel-heading:hover {
   background-color: lightblue;
   cursor: pointer;
-  
+
   .nav > li > a {
     background-color: lightblue;
     //border-radius: 100%;
