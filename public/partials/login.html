@@ -15,8 +15,8 @@
 				<input type="username" ng-model="loginCredentials.username" class="form-control" id="username" name="username" placeholder="Your fantastic AddIt username." ng-change="checkUsername(loginForm, loginCredentials.username)" autofocus required>
 
 				<!-- Error messages -->
-				<p ng-show="(!usernameExists)" class="help-block alert alert-danger">Username does not exist.</p>
-				<p ng-show="loginForm.username.$error.required && submitted" class="help-block alert alert-danger">Username is required.</p>
+				<p ng-show="(!loginForm.username.$error.required) && (!usernameExists)" class="help-block alert alert-danger">Username does not exist.</p>
+				<p ng-show="loginForm.username.$error.required" class="help-block alert alert-danger">Username is required.</p>
 			</div>
 		</div>
 
@@ -26,7 +26,7 @@
 				<input type="password" ng-model="loginCredentials.password" class="form-control" id="password" name="password" placeholder="Your password." required>
 
 				<!-- Error messages -->
-				<p ng-show="loginForm.password.$error.required && submitted" class="help-block alert alert-danger">Password is required.</p>
+				<p ng-show="loginForm.password.$error.required" class="help-block alert alert-danger">Password is required.</p>
 			</div>
 		</div>
 
