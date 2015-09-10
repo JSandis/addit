@@ -6962,11 +6962,14 @@ ul .dropdown-menu > li > a:hover {
 #no-results p {
   text-align: center;
 }
+/*Mobile specials styling*/
 .btnPrev {
   float: left;
-  margin: 25px 15px;
+  margin: 35px 15px;
+  font-size: 35px;
 }
 .btnNext {
   float: right;
-  margin: 25px 15px;
+  margin: 35px 15px;
+  font-size: 35px;
 }
