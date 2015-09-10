@@ -12,8 +12,9 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", "I
     $scope.posts = Post.get({author: data._id, _populate:"author"}, function() {
       $scope.visiblePosts = $scope.posts.splice(postsIndex);
     });
+  });
 
-      $scope.loadMore = function() {
+      /*$scope.loadMore = function() {
 
     var counter = 0;
     $scope.loadMore = function() {
@@ -25,7 +26,7 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", "I
 
     $scope.loadMore();
 
-  });
+  };*/
 
   $scope.changePage = function(forward) {
     var newPostsIndex = forward ? (postsIndex + quantity) : (postsIndex - quantity);
@@ -33,7 +34,7 @@ app.controller("homeController", ["$http", "$scope", "login", "Post", "User", "I
     if (newPostsIndex < 0 || newPostsIndex >= $scope.posts.length-1) { return; }
 
     $scope.visiblePosts = $scope.posts.splice(postsIndex);
-  }
+  };
 
   //   $scope.posts = Post.get({author: data._id, _populate:"author"});
 
