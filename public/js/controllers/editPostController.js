@@ -5,7 +5,7 @@ app.controller("editPostController", ["$scope", "$modalInstance", "title", "post
 	$scope.textPostSubmit = function () {
 		var currentDate = new Date();
 
-		$scope.post = Post.update({_id: $scope.post._id},{content: $scope.post.content, updatedAt: currentDate}, function(data) {
+		$scope.post = Post.update({_id: $scope.post._id},{content: $scope.post.content, tags: $scope.post.tags, updatedAt: currentDate}, function(data) {
 			if (!data.status) {
 				$scope.successAlert = "DONE! Your post was successfully updated.";
 				$modalInstance.close("data form OK");

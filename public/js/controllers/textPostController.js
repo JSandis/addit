@@ -16,6 +16,7 @@ app.controller("textPostController", ["$scope", "$modalInstance", "title", "uplo
 		var newPostId, newPost = Post.create(
 		{
 			content: $scope.post.content,
+			tags: $scope.post.tags,
 			createdAt: currentDate
 		},
 		function(data) {

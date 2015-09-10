@@ -29,6 +29,7 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 					var newPostId, newPost = Post.create(
 					{
 						content: $scope.content,
+						tags: $scope.tags,
 						images: $scope.imagePaths,
 						createdAt: currentDate
 					}, function(data) {

@@ -4,6 +4,7 @@ module.exports = function(mongoose){
     content: {type: String, required: true},
     images: [String],
     videos: [String],
+    tags: [String],
     author: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
     createdAt: Date,
     updatedAt: Date

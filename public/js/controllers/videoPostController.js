@@ -2,7 +2,7 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 
 	$scope.title = title;
 	$scope.post = [];
-	
+
 	$scope.user = login.getUser();
 
 	// Video upload
@@ -36,6 +36,7 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 					{
 						content: $scope.content,
 						videos: $scope.videoPaths,
+						tags: $scope.tags,
 						createdAt: currentDate
 					}, function(data) {
 						if(!data.status){
