@@ -24,7 +24,7 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
     .when( "/search" , {
       templateUrl: "partials/searchresult.html",
       controller: "searchController",
-      // login: true
+      login: true
     })
     .otherwise({
       redirectTo: "/"

@@ -1,5 +1,4 @@
 <!--HEADER-->
-
 <nav class="navbar navbar-default">
    <div class="container-fluid">
       <div class="navbar-header">
@@ -19,7 +18,7 @@
       <div id="navbarCollapse" ng-class="{true:'collapse', false:''}[isCollapsed]" class="navbar-collapse">
 
          <!-- search form -->
-         <form namn="searchForm" class="navbar-form navbar-left search-form" ng-controller="searchController" ng-submit="searchSubmit()">
+         <form ng-if="user._id" namn="searchForm" class="navbar-form navbar-left search-form" ng-controller="searchController" ng-submit="searchSubmit()">
             <div class="input-group search-input-group">
 
                <input type="text" name="searchBar" id="search-bar" class="form-control" placeholder="Search addIT" ng-model="searchString" ng-minlength="1" required>
