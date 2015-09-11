@@ -6778,6 +6778,9 @@ ul .dropdown-menu > li > a:hover {
 .floatLeft {
   float: left;
 }
+video {
+  min-width: 100%;
+}
 .clear {
   clear: both;
 }
