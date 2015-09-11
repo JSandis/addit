@@ -6830,13 +6830,22 @@ ul .dropdown-menu > li > a:hover {
 }
 .panel-img .wrapper .imageList {
   list-style: none;
+  height: auto;
+  width: auto;
+  -moz-margin-left: -68px;
+  -webkit-margin-left: -68px;
   margin-left: -28px;
+}
+@-moz-document url-prefix() {
+  .panel-img .wrapper .imageList {
+    margin-left: -68px;
+  }
 }
 .panel-img .wrapper .imageList img {
   width: 100%;
   margin-bottom: 5px;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   border: 1px solid #fff;
 }
 .panel-img .wrapper .imageList img:hover {

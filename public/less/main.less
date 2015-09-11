@@ -381,15 +381,20 @@ ul {
   .wrapper {
     .imageList {
       list-style: none;
-      // height: auto;
+      height: auto;
+      width: auto;
+      -moz-margin-left: -68px;
+      -webkit-margin-left: -68px;
+      @-moz-document url-prefix() { margin-left: -68px; };
       margin-left: -28px;
-      // overflow-y: auto;
+
+      
 
       img {
         width: 100%;
         margin-bottom: 5px;
         cursor: pointer;
-        display: block;
+        display: inline-block;
         border: 1px solid #fff;
 
         &:hover {
