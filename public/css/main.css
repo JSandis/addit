@@ -6924,6 +6924,7 @@ ul .dropdown-menu > li > a:hover {
   float: left;
   font-weight: bold;
   margin-right: 15px;
+  margin-top: 3px;
 }
 #result-panel-group .panel .panel-heading p {
   float: left;
@@ -6946,7 +6947,6 @@ ul .dropdown-menu > li > a:hover {
 }
 .panel-body {
   font-size: 16px;
-  margin-left: 10px;
 }
 .panel-body p {
   margin-bottom: 0;
