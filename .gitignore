@@ -2,8 +2,6 @@
 npm-debug.log
 
 # Node & MongoDB
-data/mongod.lock
-data/
 node_modules/
 
 # Mac

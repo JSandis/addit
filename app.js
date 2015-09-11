@@ -62,7 +62,7 @@ app.post('/api/files', multipartMiddleware, function(req, res) {
 
 // Options for Mongresto
 var options = {
-  dbName: "test",
+  dbName: "addit",
   apiPath: "/api",
   modelPath: "./api/mongoose-models/",
   customRoutes: [
