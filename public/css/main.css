@@ -6934,16 +6934,16 @@ ul .dropdown-menu > li > a:hover {
   width: 75%;
   margin: 0px;
 }
-#result-panel-group .panel .collapse-panel {
-  border: 0;
-}
-.panel-heading:hover {
+#result-panel-group .panel .panel-heading:hover {
   background-color: lightblue;
   cursor: pointer;
 }
-.panel-heading:hover .nav > li > a {
+#result-panel-group .panel .panel-heading:hover .nav > li > a {
   background-color: lightblue;
   color: #000;
+}
+#result-panel-group .panel .collapse-panel {
+  border: 0;
 }
 .panel-body {
   font-size: 16px;
