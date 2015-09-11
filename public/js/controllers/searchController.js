@@ -4,14 +4,19 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 	$scope.SearchError = false;
 
 	$scope.searchSubmit = function(){
+		var regExpSearchString = new RegExp($scope.searchString,"i");
 		// get the posts that matches the string in the search bar
-		Post.get({_all: new RegExp($scope.searchString,"i"), _populate:"author"}, function(data){
+		Post.get({_all: regExpSearchString, _populate:"author"}, function(data){
+			var ids = [];
+
 			if(data.length && $scope.searchString){
+				for (var i = 0; i < data.length; i++) {
+					ids.push(data[i]._id);
+				}
 
 				console.log("FOUND:",data);
 				$rootScope.searchResult = data;
 				// change location to /search
-				$location.url("/search");
 				$scope.SearchError = false;
 			}else if(!$scope.searchString){
 				$scope.SearchError = true;
@@ -23,6 +28,20 @@ app.controller('searchController', ["$http", "$scope","$location","$rootScope", 
 				// change location to /search
 				$location.url("/search");
 			}
+
+			User.get({_all: regExpSearchString}, function(users){
+				users.forEach(function(user, index) {
+					Post.get({author: user._id, _populate: "author"}, function(posts){
+						posts.forEach(function(post, index) {
+							var searchResultIndex = ids.indexOf(post._id);
+							if(searchResultIndex == -1) {
+								$rootScope.searchResult.push(post);
+							}
+						});
+					});
+				});
+				$location.url("/search");
+			});
 		});
 	};
 
