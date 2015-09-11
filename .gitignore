@@ -6,6 +6,3 @@ node_modules/
 
 # Mac
 .DS_STORE
-
-# Uploads
-public/upload/
