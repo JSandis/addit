@@ -6781,40 +6781,37 @@ ul .dropdown-menu > li > a:hover {
 .clear {
   clear: both;
 }
-.panel > .panel-heading,
-.panel-footer {
+.panel .panel-heading {
   background-image: none;
   background-color: #ffffff;
   color: #44494D;
   margin: 0 0 0 0;
   height: 37px;
 }
-.panel > .panel-heading .nav > li > a,
-.panel-footer .nav > li > a {
+.panel .panel-heading .panel-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+.panel .panel-heading .nav > li > a {
   margin: -25px 0 0 0;
   padding: 8px 12px 1px 12px;
   color: #5fceef;
 }
-.panel > .panel-heading .nav > li > a:hover,
-.panel-footer .nav > li > a:hover {
+.panel .panel-heading .nav > li > a:hover {
   background-color: lightblue;
   color: #000;
 }
-.panel > .panel-heading .nav .open > a,
-.panel-footer .nav .open > a {
+.panel .panel-heading .nav .open > a {
   background-color: #fff;
 }
-.panel > .panel-heading .nav .open > a:hover,
-.panel-footer .nav .open > a:hover {
+.panel .panel-heading .nav .open > a:hover {
   background-color: #fff;
 }
-.panel > .panel-heading .navbar-right,
-.panel-footer .navbar-right {
+.panel .panel-heading .navbar-right {
   float: right !important;
   margin-right: -15px;
 }
-.panel > .panel-heading .navbar-right .dropdown-menu,
-.panel-footer .navbar-right .dropdown-menu {
+.panel .panel-heading .navbar-right .dropdown-menu {
   left: auto;
   right: 0;
 }
