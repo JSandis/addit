@@ -37,7 +37,7 @@
           <!--Videos -->
           <div ng-if="post.videos.length > 0" class="row" ng-repeat="videoPath in post.videos">
               <div class="col-md-12">
-                  <video class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
+                  <video ng-click="video()" class="img-responsive floatLeft" controls ng-src="{{videoPath}}">Your browser does not support the <code>video</code> element.</video>
               </div>
           </div>
 

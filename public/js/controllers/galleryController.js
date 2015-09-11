@@ -3,4 +3,9 @@
         this.setCurrent = function(imagePath) {
             this.current = imagePath || 0;
         };
+
+    $scope.video = function(e) {
+        var videoElements = angular.element(e.srcElement);
+        videoElements[0].start();
+    }
     }]);
