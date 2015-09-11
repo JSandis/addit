@@ -333,7 +333,7 @@ ul {
     }
 
     .nav > li > a:hover {
-      background-color: lightblue;
+      background-color: transparent;
       color: #000;
     }
 
@@ -343,7 +343,6 @@ ul {
     }
 
     .nav .open > a:hover {
-
       background-color: #fff;
 
     }
@@ -354,6 +353,20 @@ ul {
       .dropdown-menu {
         left: auto;
         right: 0;
+
+        li > a {
+          &:hover {
+            color: lightblue;
+
+            span {
+              color: lightblue;
+            }
+          }
+          span {
+            margin-right: 10px;
+            color: #000;
+          }
+        }  
       }
     }
   }
@@ -505,6 +518,10 @@ ul {
         float: left;
         font-weight: bold;
         margin-right: 15px;
+        margin-top: 3px;
+      }
+
+      i {
         margin-top: 3px;
       }
 

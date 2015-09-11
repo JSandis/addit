@@ -6798,7 +6798,7 @@ ul .dropdown-menu > li > a:hover {
   color: #5fceef;
 }
 .panel .panel-heading .nav > li > a:hover {
-  background-color: lightblue;
+  background-color: transparent;
   color: #000;
 }
 .panel .panel-heading .nav .open > a {
@@ -6814,6 +6814,16 @@ ul .dropdown-menu > li > a:hover {
 .panel .panel-heading .navbar-right .dropdown-menu {
   left: auto;
   right: 0;
+}
+.panel .panel-heading .navbar-right .dropdown-menu li > a:hover {
+  color: lightblue;
+}
+.panel .panel-heading .navbar-right .dropdown-menu li > a:hover span {
+  color: lightblue;
+}
+.panel .panel-heading .navbar-right .dropdown-menu li > a span {
+  margin-right: 10px;
+  color: #000;
 }
 .panel-img .postImage img {
   width: 100%;
@@ -6924,6 +6934,9 @@ ul .dropdown-menu > li > a:hover {
   float: left;
   font-weight: bold;
   margin-right: 15px;
+  margin-top: 3px;
+}
+#result-panel-group .panel .panel-heading i {
   margin-top: 3px;
 }
 #result-panel-group .panel .panel-heading p {
