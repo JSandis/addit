@@ -16,7 +16,7 @@
 
 				<!-- Error messages -->
 				<p ng-show="(!loginForm.username.$error.required) && (!usernameExists)" class="help-block alert alert-danger">Username does not exist.</p>
-				<p ng-show="loginForm.username.$error.required" class="help-block alert alert-danger">Username is required.</p>
+				<p ng-show="loginForm.username.$error.required && submitted" class="help-block alert alert-danger">Username is required.</p>
 			</div>
 		</div>
 
