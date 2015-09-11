@@ -20,6 +20,13 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 	}
 
 	$scope.imagePostSubmit = function() {
+		var tags = [];
+		if($scope.tags){
+			for (var i = 0; i < $scope.tags.length; i++) {
+				tags.push($scope.tags[i].text);
+			}
+		}
+
 		$scope.imagePaths = [];
 		$scope.images.forEach(function(image, index) {
 			var i = index;
@@ -29,7 +36,7 @@ app.controller("imagePostController", ["$scope", "$modalInstance", "title", "upl
 					var newPostId, newPost = Post.create(
 					{
 						content: $scope.content,
-						tags: $scope.tags,
+						tags: tags,
 						images: $scope.imagePaths,
 						createdAt: currentDate
 					}, function(data) {

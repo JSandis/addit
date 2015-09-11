@@ -11,12 +11,19 @@ app.controller("textPostController", ["$scope", "$modalInstance", "title", "uplo
 	};
 
 	$scope.textPostSubmit = function() {
+		var tags = [];
+		if($scope.post.tags){
+			for (var i = 0; i < $scope.post.tags.length; i++) {
+				tags.push($scope.post.tags[i].text);
+			}
+		}
+
 		var currentDate = new Date();
 
 		var newPostId, newPost = Post.create(
 		{
 			content: $scope.post.content,
-			tags: $scope.post.tags,
+			tags: tags,
 			createdAt: currentDate
 		},
 		function(data) {

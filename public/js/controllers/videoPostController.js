@@ -24,6 +24,13 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 
 	// videopostSubmit handler
 	$scope.videoPostSubmit = function() {
+		var tags = [];
+		if($scope.tags){
+			for (var i = 0; i < $scope.tags.length; i++) {
+				tags.push($scope.tags[i].text);
+			}
+		}
+
 		// console.log("Submit event for post: working!!!");
 		$scope.videoPaths = [];
 
@@ -36,7 +43,7 @@ app.controller("videoPostController", ["$scope", "$modalInstance", "title", "upl
 					{
 						content: $scope.content,
 						videos: $scope.videoPaths,
-						tags: $scope.tags,
+						tags: tags,
 						createdAt: currentDate
 					}, function(data) {
 						if(!data.status){
